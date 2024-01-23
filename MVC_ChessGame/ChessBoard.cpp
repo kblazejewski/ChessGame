@@ -3,6 +3,79 @@
 #include "Constants.h"
 #include "ChessBox.h"
 
+QString ChessBoard::getImagePath(ChessPiece* piece)
+{
+	QString imageFileName;
+	if (piece->getPieceType() == PieceType::Pawn)
+	{
+		if (piece->getPlayer() == Player::White)
+		{
+			imageFileName = "pawn_white.svg";
+		}
+		else
+		{
+			imageFileName = "pawn_black.svg";
+		}
+	}
+	else if (piece->getPieceType() == PieceType::Rook)
+	{
+		if (piece->getPlayer() == Player::White)
+		{
+			imageFileName = "rook_white.svg";
+		}
+		else
+		{
+			imageFileName = "rook_black.svg";
+		}
+	}
+	else if (piece->getPieceType() == PieceType::Knight)
+	{
+		if (piece->getPlayer() == Player::White)
+		{
+			imageFileName = "knight_white.svg";
+		}
+		else
+		{
+			imageFileName = "knight_black.svg";
+		}
+	}
+	else if (piece->getPieceType() == PieceType::Bishop)
+	{
+		if (piece->getPlayer() == Player::White)
+		{
+			imageFileName = "bishop_white.svg";
+		}
+		else
+		{
+			imageFileName = "bishop_black.svg";
+		}
+	}
+	else if (piece->getPieceType() == PieceType::Queen)
+	{
+		if (piece->getPlayer() == Player::White)
+		{
+			imageFileName = "queen_white.svg";
+		}
+		else
+		{
+			imageFileName = "queen_black.svg";
+		}
+	}
+	else if (piece->getPieceType() == PieceType::King)
+	{
+		if (piece->getPlayer() == Player::White)
+		{
+			imageFileName = "king_white.svg";
+		}
+		else
+		{
+			imageFileName = "king_black.svg";
+		}
+	}
+
+	return "images/" + imageFileName;
+}
+
 ChessBoard::ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent)
     : QGraphicsRectItem(parent), scene(sceneIn)
 {
@@ -10,8 +83,10 @@ ChessBoard::ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent)
     setRect(0, 0, size, size);
 
     // Utwórz grupê dla pionków na szachownicy
-    chessPiecesGroup = new QGraphicsItemGroup(this);
-    scene->addItem(chessPiecesGroup);
+    chessBoardGroup = new QGraphicsItemGroup(this);
+    scene->addItem(chessBoardGroup);
+
+    this->chessBoxes.clear();
 
     draw();
 }
@@ -19,7 +94,7 @@ ChessBoard::ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent)
 void ChessBoard::setPosition(qreal x, qreal y)
 {
     this->setPos(x, y);
-    chessPiecesGroup->setPos(x, y);
+    chessBoardGroup->setPos(x, y);
 }
 
 void ChessBoard::draw()
@@ -34,8 +109,9 @@ void ChessBoard::draw()
             qreal boxYPosition = y * Constants::defaultWidhHeight;
             box->setRect(boxXPosition, boxYPosition, Constants::defaultWidhHeight, Constants::defaultWidhHeight);
 
+            this->chessBoxes.append(box);
             // Dodaj pole do grupy
-            chessPiecesGroup->addToGroup(box);
+            chessBoardGroup->addToGroup(box);
         }
     }
 }

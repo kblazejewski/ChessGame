@@ -2,7 +2,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
-#include "ChessBoardWidget.h"
+//#include "ChessBoardWidget.h"
+#include "ChessController.h"
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -13,5 +14,6 @@ public:
 
 private:
     Ui::MainWindowClass ui;
-    ChessBoardWidget* chessBoardWidget;
+    //ChessBoardWidget* chessBoardWidget;
+    ChessController* chessController;
 };

@@ -89,7 +89,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionButton.cpp" />
+    <ClCompile Include="BishopPiece.cpp" />
     <ClCompile Include="ChessBoard.cpp" />
+    <ClCompile Include="ChessBoardModel.cpp" />
+    <ClCompile Include="ChessGame.cpp" />
+    <ClCompile Include="ChessPiece.cpp" />
+    <ClCompile Include="ChessPieceBox.cpp" />
+    <ClCompile Include="KingPiece.cpp" />
+    <ClCompile Include="KnightPiece.cpp" />
+    <ClCompile Include="PawnPiece.cpp" />
+    <ClCompile Include="QueenPiece.cpp" />
+    <ClCompile Include="RookPiece.cpp" />
     <ClCompile Include="Utils.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="MainWindow.ui" />
@@ -102,12 +113,23 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ActionButton.h" />
+    <ClInclude Include="BishopPiece.h" />
     <ClInclude Include="ChessBoard.h" />
+    <ClInclude Include="ChessBoardModel.h" />
     <ClInclude Include="ChessBox.h" />
+    <ClInclude Include="ChessGame.h" />
+    <ClInclude Include="ChessPiece.h" />
+    <ClInclude Include="ChessPieceBox.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="KingPiece.h" />
+    <ClInclude Include="KnightPiece.h" />
+    <ClInclude Include="PawnPiece.h" />
     <ClInclude Include="Position.h" />
-    <ClInclude Include="ChessBoardWidget.h" />
+    <QtMoc Include="ChessBoardWidget.h" />
     <ClInclude Include="ChessController.h" />
+    <ClInclude Include="QueenPiece.h" />
+    <ClInclude Include="RookPiece.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

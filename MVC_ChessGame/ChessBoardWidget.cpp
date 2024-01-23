@@ -2,6 +2,7 @@
 #include "ChessBoardWidget.h"
 #include "Constants.h"
 #include <QBrush>
+#include "Utils.h"
 
 ChessBoardWidget::ChessBoardWidget(QWidget* parent)
 {
@@ -13,7 +14,16 @@ ChessBoardWidget::ChessBoardWidget(QWidget* parent)
     scene->setSceneRect(0, 0, Constants::viewWidth, Constants::viewHeight);
     setScene(scene);
 
+    //initializing chessBoard
+    initializeChessBoard();
 
+    //initialize background color
+    initializeBackgroundColor();
+    drawTitle();
+}
+
+void ChessBoardWidget::initializeChessBoard()
+{
     //initializing chessboard
     chessBoard = new ChessBoard(scene);
 
@@ -22,12 +32,29 @@ ChessBoardWidget::ChessBoardWidget(QWidget* parent)
 
     chessBoard->setPosition(centerX, centerY);
     scene->addItem(chessBoard);
+}
 
-
+void ChessBoardWidget::initializeBackgroundColor()
+{
     //initialize background color
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     QColor color = QColor(44, 41, 51);
     brush.setColor(color);
     scene->setBackgroundBrush(brush);
+}
+
+void ChessBoardWidget::displayMenu()
+{
+
+}
+
+void ChessBoardWidget::drawTitle()
+{
+    int fontSize = 30;
+    int yPosition = 30;
+    QGraphicsTextItem* title = Utils::createTextItem("Chess Game", fontSize, Qt::white);
+    double xPosition = this->width() / 2 - title->boundingRect().width() / 2;
+    title->setPos(xPosition, yPosition);
+    scene->addItem(title);
 }
