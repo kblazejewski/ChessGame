@@ -115,9 +115,9 @@
   <ItemGroup>
     <QtMoc Include="ActionButton.h" />
     <ClInclude Include="BishopPiece.h" />
-    <ClInclude Include="ChessBoard.h" />
+    <QtMoc Include="ChessBoard.h" />
     <ClInclude Include="ChessBoardModel.h" />
-    <ClInclude Include="ChessBox.h" />
+    <QtMoc Include="ChessBox.h" />
     <QtMoc Include="ChessGame.h" />
     <ClInclude Include="ChessPiece.h" />
     <ClInclude Include="ChessPieceBox.h" />

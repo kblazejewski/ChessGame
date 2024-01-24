@@ -1,11 +1,12 @@
 #include "ChessBox.h"
 #include "Utils.h"
+#include "Constants.h"
 
-ChessBox::ChessBox(QColor backgroundColor, Position position, QGraphicsItem* parent)
+ChessBox::ChessBox(QColor backgroundColor, Position position, QGraphicsItem* parent) : QGraphicsRectItem(parent), defaultColor(backgroundColor), position(position)
 {
-	this->defaultColor = backgroundColor;
-	this->position = position;
 	Utils::setBacgroundColor(backgroundColor, this);
+	setRect(0, 0, Constants::defaultWidhHeight, Constants::defaultWidhHeight);
+	setAcceptHoverEvents(true);
 }
 
 void ChessBox::setPosition(Position position)
@@ -28,4 +29,10 @@ void ChessBox::restoreDefaultColor()
 {
 	QColor color = this->defaultColor;
 	Utils::setBacgroundColor(color, this);
+}
+
+void ChessBox::mousePressEvent(QGraphicsSceneMouseEvent* event)
+{
+	qDebug() << "clicked";
+	emit boxClicked(this->position);
 }

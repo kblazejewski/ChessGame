@@ -99,13 +99,7 @@
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ChessBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ChessBoard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ChessPieceBox.h">
@@ -147,6 +141,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="ChessGame.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ChessBox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ChessBoard.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

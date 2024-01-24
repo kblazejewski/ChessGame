@@ -6,6 +6,8 @@
 #include "qlist.h"
 #include "ChessPiece.h"
 #include "ChessPieceBox.h"
+#include <QMouseEvent>
+#include "ChessBox.h"
 
 class ChessController;
 
@@ -15,7 +17,7 @@ class ChessBoardWidget : public QGraphicsView
 
 public:
     ChessBoardWidget(ChessController* chessController, QWidget* parent = nullptr);
-
+    bool started = false;
 public slots:
     void initializeChessBoard();
     void updateBoard(const QList<ChessPiece*>& chessPieces);

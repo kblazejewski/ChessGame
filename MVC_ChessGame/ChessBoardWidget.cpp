@@ -22,6 +22,9 @@ ChessBoardWidget::ChessBoardWidget(ChessController* chessController, QWidget* pa
     drawTitle();
     displayMenu();
 
+    ChessBox* box = new ChessBox(Qt::red, { 0, 0 });
+    scene->addItem(box);
+
 }
 
 void ChessBoardWidget::initializeChessBoard()
@@ -30,22 +33,25 @@ void ChessBoardWidget::initializeChessBoard()
     drawTitle();
     //initializing chessboard
     chessBoard = new ChessBoard(scene);
+    chessBoard->setHandlesChildEvents(false);
 
     qreal centerX = (Constants::viewWidth - chessBoard->boundingRect().width()) / 2;
     qreal centerY = (Constants::viewHeight - chessBoard->boundingRect().height()) / 2;
 
-    chessBoard->setPosition(centerX, centerY);
+    chessBoard->setPos(centerX, centerY);
     scene->addItem(chessBoard);
+    started = true;
+    scene->views().first()->update();
     emit gameStarted();
 }
 
 void ChessBoardWidget::updateBoard(const QList<ChessPiece*>& chessPieces)
 {
     qDebug() << "BoardUpdated";
-    for (auto piece:chessPieces) 
+    /*for (auto piece:chessPieces) 
     {
         qDebug() << piece->getPieceType();
-    }
+    }*/
     chessBoard->updateBoard(chessPieces);
 }
 

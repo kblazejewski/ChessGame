@@ -82,6 +82,8 @@ void ChessBoard::deletePieceBoxes()
 	{
 		for (auto pieceBox : this->chessPieceBoxes)
 		{
+			removeFromGroup(pieceBox);
+			scene->removeItem(pieceBox);
 			delete pieceBox;
 		}
 		this->chessPieceBoxes.clear();
@@ -94,6 +96,7 @@ void ChessBoard::deletePieceBoxes()
 
 void ChessBoard::updateBoard(const QList<ChessPiece*> chessPieces)
 {
+	deletePieceBoxes();
 	if (!chessPieces.isEmpty())
 	{
 		for (auto piece : chessPieces)
@@ -101,41 +104,42 @@ void ChessBoard::updateBoard(const QList<ChessPiece*> chessPieces)
 			QString imagePath = getImagePath(piece);
 			ChessPieceBox* pieceBox = new ChessPieceBox(piece->getPosition(), imagePath, this);
 
-			//int pieceXPosition = Constants::startXPosition + piece->getPosition().x * Constants::defaultWidhHeight;
-			//int pieceYPosition = Constants::startYPosition + piece->getPosition().y * Constants::defaultWidhHeight;
+			qreal boxXPosition = piece->getPosition().x * Constants::defaultWidhHeight;
+			qreal boxYPosition = piece->getPosition().y * Constants::defaultWidhHeight;
 
-			int pieceXPosition = piece->getPosition().x * Constants::defaultWidhHeight;
-			int pieceYPosition = piece->getPosition().y * Constants::defaultWidhHeight;
-
-			pieceBox->setRect(0, 0, Constants::defaultWidhHeight, Constants::defaultWidhHeight);
-			pieceBox->setPos(pieceXPosition, pieceYPosition);
+			pieceBox->setPos(boxXPosition, boxYPosition);
 
 			this->chessPieceBoxes.append(pieceBox);
-			chessBoardGroup->addToGroup(pieceBox);
+			addToGroup(pieceBox);
 		}
 	}
 }
 
 ChessBoard::ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent)
-    : QGraphicsRectItem(parent), scene(sceneIn)
+    : QGraphicsItemGroup(parent), scene(sceneIn)
 {
-    int size = Constants::numberOfRowsCols * Constants::defaultWidhHeight;
-    setRect(0, 0, size, size);
-
-    // Utwórz grupê dla pionków na szachownicy
-    chessBoardGroup = new QGraphicsItemGroup(this);
-    scene->addItem(chessBoardGroup);
-
+	scene->addItem(this);
     this->chessBoxes.clear();
 
     draw();
 }
 
-void ChessBoard::setPosition(qreal x, qreal y)
+Position ChessBoard::getPositionAtMousePoint(QPoint point)
 {
-    this->setPos(x, y);
-    chessBoardGroup->setPos(x, y);
+	for (auto box : chessBoxes)
+	{
+		QPointF boxPosition = box->pos();
+		if ((point.x() < (boxPosition.x() + box->rect().width())) &&
+			(point.x() > boxPosition.x()) &&
+			(point.y() < (boxPosition.y() + box->rect().height())) &&
+			(point.y() > boxPosition.y()))
+		{
+			return box->getPosition();
+		}
+	}
+	return { 0, 0 };
 }
+
 
 void ChessBoard::draw()
 {
@@ -147,11 +151,22 @@ void ChessBoard::draw()
             ChessBox* box = new ChessBox(squareColor, { x, y }, this);
             qreal boxXPosition = x * Constants::defaultWidhHeight;
             qreal boxYPosition = y * Constants::defaultWidhHeight;
-            box->setRect(boxXPosition, boxYPosition, Constants::defaultWidhHeight, Constants::defaultWidhHeight);
+			box->setPos(boxXPosition, boxYPosition);
+			// box->setRect(boxXPosition, boxYPosition, Constants::defaultWidhHeight, Constants::defaultWidhHeight);
+			
+			connect(box, &ChessBox::boxClicked, this, &ChessBoard::boxClicked);
 
             this->chessBoxes.append(box);
+			scene->addItem(box);
             // Dodaj pole do grupy
-            chessBoardGroup->addToGroup(box);
+            addToGroup(box);
+			box->setFlag(QGraphicsItem::ItemIsSelectable); // Ta linia ustawia flagê umo¿liwiaj¹c¹ zaznaczanie elementu
+			box->setFlag(QGraphicsItem::ItemIsFocusable);   // Ta linia ustawia flagê umo¿liwiaj¹c¹ dostawanie siê do elementu w wyniku klikniêcia
         }
     }
+}
+
+void ChessBoard::boxClicked(const Position& position)
+{
+	qDebug() << "klikniety na x: " << position.x << " y: " << position.y;
 }
