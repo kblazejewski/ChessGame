@@ -1,7 +1,8 @@
 #include "ChessPiece.h"
 
-ChessPiece::ChessPiece(Position position, Player player)
+ChessPiece::ChessPiece(Position position, Player player, PieceType pieceType)
 {
+	this->type = pieceType;
 	this->position = position;
 	this->player = player;
 	this->didTakeFirstMove = false;
@@ -20,12 +21,21 @@ void ChessPiece::setPossibleMoves(QList<Position> legalMoves)
 
 const PieceType ChessPiece::getPieceType()
 {
+	if (this->type)
+	{
+		return this->type;
+	}
 	return this->type;
 }
 
 const Player ChessPiece::getPlayer()
 {
 	return this->player;
+}
+
+const Position ChessPiece::getPosition()
+{
+	return this->position;
 }
 
 

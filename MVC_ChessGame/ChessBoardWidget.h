@@ -1,23 +1,34 @@
 #pragma once
-#include <qgraphicsview.h>
+#include <QGraphicsView>
 #include "ChessBoard.h"
 #include "Position.h"
+#include "ChessController.h"
+#include "qlist.h"
+#include "ChessPiece.h"
+#include "ChessPieceBox.h"
 
-class ChessBoardWidget :
-    public QGraphicsView
+class ChessController;
+
+class ChessBoardWidget : public QGraphicsView
 {
     Q_OBJECT
 
 public:
-    ChessBoardWidget(QWidget* parent = nullptr);
-    Position getMousePosition();
+    ChessBoardWidget(ChessController* chessController, QWidget* parent = nullptr);
+
+public slots:
+    void initializeChessBoard();
+    void updateBoard(const QList<ChessPiece*>& chessPieces);
+
+signals:
+    void gameStarted();
+
 private:
     QGraphicsScene* scene;
     ChessBoard* chessBoard;
-    void initializeChessBoard();
+    ChessController* chessController;
+
     void initializeBackgroundColor();
     void displayMenu();
-
     void drawTitle();
 };
-

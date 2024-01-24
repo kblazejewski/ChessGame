@@ -4,6 +4,6 @@ class KnightPiece :
     public ChessPiece
 {
 public:
-    KnightPiece(Position position, Player player);
+    KnightPiece(Position position, Player player, PieceType pieceType);
 };
 

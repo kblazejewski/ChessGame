@@ -1,6 +1,5 @@
 #include "KingPiece.h"
 
-KingPiece::KingPiece(Position position, Player player):ChessPiece(position, player)
+KingPiece::KingPiece(Position position, Player player, PieceType pieceType):ChessPiece(position, player, pieceType)
 {
-	this->type = PieceType::King;
 }

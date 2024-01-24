@@ -3,8 +3,10 @@
 #include "Constants.h"
 #include <QBrush>
 #include "Utils.h"
+#include "ActionButton.h"
 
-ChessBoardWidget::ChessBoardWidget(QWidget* parent)
+ChessBoardWidget::ChessBoardWidget(ChessController* chessController, QWidget* parent)
+    : QGraphicsView(parent), chessController(chessController)
 {
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -14,16 +16,18 @@ ChessBoardWidget::ChessBoardWidget(QWidget* parent)
     scene->setSceneRect(0, 0, Constants::viewWidth, Constants::viewHeight);
     setScene(scene);
 
-    //initializing chessBoard
-    initializeChessBoard();
 
     //initialize background color
     initializeBackgroundColor();
     drawTitle();
+    displayMenu();
+
 }
 
 void ChessBoardWidget::initializeChessBoard()
 {
+    scene->clear();
+    drawTitle();
     //initializing chessboard
     chessBoard = new ChessBoard(scene);
 
@@ -32,6 +36,17 @@ void ChessBoardWidget::initializeChessBoard()
 
     chessBoard->setPosition(centerX, centerY);
     scene->addItem(chessBoard);
+    emit gameStarted();
+}
+
+void ChessBoardWidget::updateBoard(const QList<ChessPiece*>& chessPieces)
+{
+    qDebug() << "BoardUpdated";
+    for (auto piece:chessPieces) 
+    {
+        qDebug() << piece->getPieceType();
+    }
+    chessBoard->updateBoard(chessPieces);
 }
 
 void ChessBoardWidget::initializeBackgroundColor()
@@ -46,7 +61,23 @@ void ChessBoardWidget::initializeBackgroundColor()
 
 void ChessBoardWidget::displayMenu()
 {
+    // Start button
+    ActionButton* startButton = new ActionButton("Play");
+    double buttonXPosition = this->width() / 2 - startButton->boundingRect().width() / 2;
+    double buttonYPosition = 275;
+    startButton->setPos(buttonXPosition, buttonYPosition);
 
+    connect(startButton, SIGNAL(buttonPressed()), this, SLOT(initializeChessBoard()));
+    scene->addItem(startButton);
+
+    // Quit button
+    ActionButton* quitButton = new ActionButton("Quit");
+    double quitXPosition = this->width() / 2 - quitButton->boundingRect().width() / 2;
+    double quitYPosition = 350;
+    quitButton->setPos(quitXPosition, quitYPosition);
+
+    //connect(quitButton, SIGNAL(buttonPressed()), this, SLOT(quitGame()));
+    scene->addItem(quitButton);
 }
 
 void ChessBoardWidget::drawTitle()
@@ -58,3 +89,5 @@ void ChessBoardWidget::drawTitle()
     title->setPos(xPosition, yPosition);
     scene->addItem(title);
 }
+
+

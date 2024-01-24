@@ -5,6 +5,6 @@ class QueenPiece :
     public ChessPiece
 {
 public:
-    QueenPiece(Position position, Player player);
+    QueenPiece(Position position, Player player, PieceType pieceType);
 };
 

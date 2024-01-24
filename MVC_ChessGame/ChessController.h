@@ -1,9 +1,13 @@
 #pragma once
 #include "ChessGame.h"
 #include "ChessBoardWidget.h"
+#include <qobject.h>
 
-class ChessController
+class ChessBoardWidget;
+
+class ChessController : public QObject
 {
+	Q_OBJECT
 public:
 	ChessController();
 	ChessBoardWidget* getChessBoardWidget();

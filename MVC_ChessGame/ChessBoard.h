@@ -15,14 +15,14 @@ private:
     QGraphicsItemGroup* chessBoardGroup;  // Dodaj deklaracjê dla grupy
     void draw();
     QList <ChessBox*> chessBoxes;
-    QList <QPointer<ChessPieceBox>> chessPieceBoxes;
+    QList <ChessPieceBox*> chessPieceBoxes;
 
     QString getImagePath(ChessPiece* piece);
+    void deletePieceBoxes();
 
 public:
+    void updateBoard(const QList<ChessPiece*> chessPieces);
     ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent = nullptr);
     void setPosition(qreal x, qreal y);
-
-    void updatePieceView(QList <ChessPiece*> whitePieces, QList <ChessPiece*> blackPieces);
 
 };

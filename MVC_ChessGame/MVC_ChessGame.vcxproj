@@ -118,7 +118,7 @@
     <ClInclude Include="ChessBoard.h" />
     <ClInclude Include="ChessBoardModel.h" />
     <ClInclude Include="ChessBox.h" />
-    <ClInclude Include="ChessGame.h" />
+    <QtMoc Include="ChessGame.h" />
     <ClInclude Include="ChessPiece.h" />
     <ClInclude Include="ChessPieceBox.h" />
     <ClInclude Include="Constants.h" />
@@ -127,10 +127,13 @@
     <ClInclude Include="PawnPiece.h" />
     <ClInclude Include="Position.h" />
     <QtMoc Include="ChessBoardWidget.h" />
-    <ClInclude Include="ChessController.h" />
+    <QtMoc Include="ChessController.h" />
     <ClInclude Include="QueenPiece.h" />
     <ClInclude Include="RookPiece.h" />
     <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

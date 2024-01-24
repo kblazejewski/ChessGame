@@ -7,6 +7,7 @@
 #include "BishopPiece.h"
 #include "QueenPiece.h"
 #include "KingPiece.h"
+#include "PawnPiece.h"
 
 
 void ChessBoardModel::initializePieces()
@@ -26,20 +27,28 @@ void ChessBoardModel::initializePieces()
 			{
 			case 0:
 				type = PieceType::Rook;
+				break;
 			case 7:
 				type = PieceType:: Rook;
+				break;
 			case 1:
 				type = PieceType::Knight;
+				break;
 			case 6:
 				type = PieceType::Knight;
+				break;
 			case 2:
 				type = PieceType::Bishop;
+				break;
 			case 5:
 				type = PieceType::Bishop;
+				break;
 			case 3:
 				type = PieceType::Queen;
+				break;
 			case 4:
 				type = PieceType::King;
+				break;
 			}
 
 			if (row == 1 || row == 6)
@@ -50,34 +59,30 @@ void ChessBoardModel::initializePieces()
 			Position position = { column, row };
 			if (type == PieceType::Rook)
 			{
-				piece = new RookPiece(position, player);
+				piece = new RookPiece(position, player, type);
 			}
 			else if (type == PieceType::Knight)
 			{
-				piece = new KnightPiece(position, player);
+				piece = new KnightPiece(position, player, type);
 			}
 			else if (type == PieceType::Bishop)
 			{
-				piece = new BishopPiece(position, player);
+				piece = new BishopPiece(position, player, type);
 			}
 			else if (type == PieceType::Queen)
 			{
-				piece = new QueenPiece(position, player);
+				piece = new QueenPiece(position, player, type);
 			}
 			else if (type == PieceType::King)
 			{
-				piece = new KingPiece(position, player);
+				piece = new KingPiece(position, player, type);
+			}
+			else if (type == PieceType::Pawn)
+			{
+				piece = new PawnPiece(position, player, type);
 			}
 
-
-			if (player == Player::White)
-			{
-				this->whitePieces.append(piece);
-			}
-			else
-			{
-				this->blackPieces.append(piece);
-			}
+			this->pieces.append(piece);
 		}
 	}
 }
@@ -85,4 +90,9 @@ void ChessBoardModel::initializePieces()
 ChessBoardModel::ChessBoardModel()
 {
 	initializePieces();
+}
+
+QList<ChessPiece*> ChessBoardModel::getPieces()
+{
+	return this->pieces;
 }

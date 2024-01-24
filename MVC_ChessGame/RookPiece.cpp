@@ -1,6 +1,5 @@
 #include "RookPiece.h"
 
-RookPiece::RookPiece(Position position, Player player) :ChessPiece(position, player)
+RookPiece::RookPiece(Position position, Player player, PieceType pieceType) :ChessPiece(position, player, pieceType)
 {
-	this->type = PieceType::Rook;
 }

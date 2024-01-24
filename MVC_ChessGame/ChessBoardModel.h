@@ -5,12 +5,11 @@
 class ChessBoardModel
 {
 private:
-	QList<ChessPiece*> whitePieces;
-	QList<ChessPiece*> blackPieces;
+	QList<ChessPiece*> pieces;
 
 	void initializePieces();
 public:
 	ChessBoardModel();
-
+	QList<ChessPiece*> getPieces();
 };
 

@@ -76,6 +76,46 @@ QString ChessBoard::getImagePath(ChessPiece* piece)
 	return "images/" + imageFileName;
 }
 
+void ChessBoard::deletePieceBoxes()
+{
+	if (!this->chessPieceBoxes.isEmpty())
+	{
+		for (auto pieceBox : this->chessPieceBoxes)
+		{
+			delete pieceBox;
+		}
+		this->chessPieceBoxes.clear();
+	}
+	else
+	{
+		return;
+	}
+}
+
+void ChessBoard::updateBoard(const QList<ChessPiece*> chessPieces)
+{
+	if (!chessPieces.isEmpty())
+	{
+		for (auto piece : chessPieces)
+		{
+			QString imagePath = getImagePath(piece);
+			ChessPieceBox* pieceBox = new ChessPieceBox(piece->getPosition(), imagePath, this);
+
+			//int pieceXPosition = Constants::startXPosition + piece->getPosition().x * Constants::defaultWidhHeight;
+			//int pieceYPosition = Constants::startYPosition + piece->getPosition().y * Constants::defaultWidhHeight;
+
+			int pieceXPosition = piece->getPosition().x * Constants::defaultWidhHeight;
+			int pieceYPosition = piece->getPosition().y * Constants::defaultWidhHeight;
+
+			pieceBox->setRect(0, 0, Constants::defaultWidhHeight, Constants::defaultWidhHeight);
+			pieceBox->setPos(pieceXPosition, pieceYPosition);
+
+			this->chessPieceBoxes.append(pieceBox);
+			chessBoardGroup->addToGroup(pieceBox);
+		}
+	}
+}
+
 ChessBoard::ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent)
     : QGraphicsRectItem(parent), scene(sceneIn)
 {

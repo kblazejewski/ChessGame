@@ -93,9 +93,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChessController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Position.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -112,9 +109,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ChessPieceBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ChessGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ChessBoardModel.h">
@@ -149,5 +143,14 @@
     <QtMoc Include="ChessBoardWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ChessController.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ChessGame.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

@@ -20,14 +20,15 @@ private:
 	bool didTakeFirstMove;
 	Player player;
 	QList<Position> possibleMoves;
+	PieceType type;
 public:
-	ChessPiece(Position position, Player player);
+	ChessPiece(Position position, Player player, PieceType pieceType);
 	virtual ~ChessPiece() = default;
 	const QList<Position> getPossibleMoves();
 	void setPossibleMoves(QList<Position> legalMoves);
 	const PieceType getPieceType();
 	const Player getPlayer();
-protected:
-	PieceType type;
+	const Position getPosition();
+
 };
 
