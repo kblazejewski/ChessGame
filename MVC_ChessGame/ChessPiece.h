@@ -30,6 +30,8 @@ public:
 	const Player getPlayer();
 	const Position getPosition();
 	void setPosition(Position position);
+	// przekazanie ca³ej listy pionów, by obliczyæ mo¿liwe pozycje (nawet i w przypadku bicia w przelocie)
+	virtual bool validateMove(Position positionToMove, QList<ChessPiece*> chessPieces) = 0;
 
 };
 

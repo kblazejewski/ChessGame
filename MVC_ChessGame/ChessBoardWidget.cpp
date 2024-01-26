@@ -21,10 +21,6 @@ ChessBoardWidget::ChessBoardWidget(ChessController* chessController, QWidget* pa
     initializeBackgroundColor();
     drawTitle();
     displayMenu();
-
-    ChessBox* box = new ChessBox(Qt::red, { 0, 0 });
-    scene->addItem(box);
-    
 }
 
 void ChessBoardWidget::handleSquareClicked(const Position& position)
