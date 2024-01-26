@@ -38,4 +38,9 @@ const Position ChessPiece::getPosition()
 	return this->position;
 }
 
+void ChessPiece::setPosition(Position position)
+{
+	this->position = position;
+}
+
 

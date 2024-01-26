@@ -24,7 +24,13 @@ ChessBoardWidget::ChessBoardWidget(ChessController* chessController, QWidget* pa
 
     ChessBox* box = new ChessBox(Qt::red, { 0, 0 });
     scene->addItem(box);
+    
+}
 
+void ChessBoardWidget::handleSquareClicked(const Position& position)
+{
+    this->chessController->handleBoxClicked(position);
+    qDebug() << "Klik w widget na pos x: " << position.x << " y: " << position.y;
 }
 
 void ChessBoardWidget::initializeChessBoard()
@@ -43,6 +49,7 @@ void ChessBoardWidget::initializeChessBoard()
     started = true;
     scene->views().first()->update();
     emit gameStarted();
+    connect(this->chessBoard, &ChessBoard::signalBoxClicked, this, &ChessBoardWidget::handleSquareClicked);
 }
 
 void ChessBoardWidget::updateBoard(const QList<ChessPiece*>& chessPieces)
@@ -53,6 +60,15 @@ void ChessBoardWidget::updateBoard(const QList<ChessPiece*>& chessPieces)
         qDebug() << piece->getPieceType();
     }*/
     chessBoard->updateBoard(chessPieces);
+}
+
+void ChessBoardWidget::mousePressEvent(QMouseEvent* event)
+{
+    if (event->button() == Qt::RightButton)
+    {
+        this->chessController->cancelMove();
+    }
+    QGraphicsView::mousePressEvent(event);
 }
 
 void ChessBoardWidget::initializeBackgroundColor()

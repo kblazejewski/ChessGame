@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     //setCentralWidget(this->chessBoardWidget);
     this->chessController = new ChessController();
     setCentralWidget(this->chessController->getChessBoardWidget());
+    resize(centralWidget()->size());
+    setFixedSize(size());
 }
 
 MainWindow::~MainWindow()

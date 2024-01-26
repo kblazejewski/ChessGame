@@ -15,7 +15,6 @@ class ChessBoard : public QObject, public QGraphicsItemGroup {
     Q_OBJECT
 private:
     QGraphicsScene* scene;
-    //QGraphicsItemGroup* chessBoardGroup;  // Dodaj deklaracjê dla grupy
     void draw();
     QList <ChessBox*> chessBoxes;
     QList <ChessPieceBox*> chessPieceBoxes;
@@ -23,11 +22,13 @@ private:
     QString getImagePath(ChessPiece* piece);
     void deletePieceBoxes();
     
+signals:
+    void signalBoxClicked(const Position& position);
+
 public slots:
     void boxClicked(const Position& position);
 
 public:
     void updateBoard(const QList<ChessPiece*> chessPieces);
     ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent = nullptr);
-    Position getPositionAtMousePoint(QPoint point);
 };

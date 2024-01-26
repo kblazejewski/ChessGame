@@ -124,22 +124,6 @@ ChessBoard::ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent)
     draw();
 }
 
-Position ChessBoard::getPositionAtMousePoint(QPoint point)
-{
-	for (auto box : chessBoxes)
-	{
-		QPointF boxPosition = box->pos();
-		if ((point.x() < (boxPosition.x() + box->rect().width())) &&
-			(point.x() > boxPosition.x()) &&
-			(point.y() < (boxPosition.y() + box->rect().height())) &&
-			(point.y() > boxPosition.y()))
-		{
-			return box->getPosition();
-		}
-	}
-	return { 0, 0 };
-}
-
 
 void ChessBoard::draw()
 {
@@ -168,5 +152,6 @@ void ChessBoard::draw()
 
 void ChessBoard::boxClicked(const Position& position)
 {
+	emit signalBoxClicked(position);
 	qDebug() << "klikniety na x: " << position.x << " y: " << position.y;
 }

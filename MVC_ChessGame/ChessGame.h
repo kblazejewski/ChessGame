@@ -10,6 +10,8 @@ class ChessGame : public QObject
 
 public:
     ChessGame();
+    void makeMove(Position posFrom, Position posTo);
+    ChessPiece* getPieceAtPositionActivePlayer(Position position);
     
 public slots:
     void startGame();

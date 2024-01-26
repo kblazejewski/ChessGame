@@ -18,18 +18,21 @@ class ChessBoardWidget : public QGraphicsView
 public:
     ChessBoardWidget(ChessController* chessController, QWidget* parent = nullptr);
     bool started = false;
+    
 public slots:
     void initializeChessBoard();
     void updateBoard(const QList<ChessPiece*>& chessPieces);
+    void handleSquareClicked(const Position& position);
 
 signals:
     void gameStarted();
-
+   
 private:
     QGraphicsScene* scene;
     ChessBoard* chessBoard;
     ChessController* chessController;
 
+    void mousePressEvent(QMouseEvent* event);
     void initializeBackgroundColor();
     void displayMenu();
     void drawTitle();

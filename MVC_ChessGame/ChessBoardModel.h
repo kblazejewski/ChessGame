@@ -6,10 +6,16 @@ class ChessBoardModel
 {
 private:
 	QList<ChessPiece*> pieces;
-
 	void initializePieces();
+	Player whosTurn;
+
 public:
+	ChessPiece* getPieceAt(Position position);
+	void removePieceAt(Position position);
+	void movePieceTo(ChessPiece* piece, Position position);
 	ChessBoardModel();
 	QList<ChessPiece*> getPieces();
+	const Player getWhosTurn();
+	void switchTurn();
 };
 

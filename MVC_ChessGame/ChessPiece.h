@@ -29,6 +29,7 @@ public:
 	const PieceType getPieceType();
 	const Player getPlayer();
 	const Position getPosition();
+	void setPosition(Position position);
 
 };
 

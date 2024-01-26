@@ -87,12 +87,64 @@ void ChessBoardModel::initializePieces()
 	}
 }
 
+
+ChessPiece* ChessBoardModel::getPieceAt(Position position)
+{
+	for (auto piece : this->pieces)
+	{
+		if (piece->getPosition().x == position.x && piece->getPosition().y == position.y)
+		{
+			return piece;
+		}
+	}
+	return nullptr;
+}
+
+void ChessBoardModel::removePieceAt(Position position)
+{
+	for (auto piece : this->pieces)
+	{
+		if (piece->getPosition().x == position.x && piece->getPosition().y == position.y)
+		{
+			this->pieces.removeOne(piece);
+			delete piece;
+		}
+	}
+}
+
+void ChessBoardModel::movePieceTo(ChessPiece* piece, Position position)
+{
+	// tutaj pewnie trzeba bedzie coœ dodaæ
+	if (piece)
+	{
+		piece->setPosition(position);
+	}
+}
+
 ChessBoardModel::ChessBoardModel()
 {
 	initializePieces();
+	this->whosTurn = Player::White;
 }
 
 QList<ChessPiece*> ChessBoardModel::getPieces()
 {
 	return this->pieces;
+}
+
+const Player ChessBoardModel::getWhosTurn()
+{
+	return this->whosTurn;
+}
+
+void ChessBoardModel::switchTurn()
+{
+	if (this->whosTurn == Player::White)
+	{
+		this->whosTurn = Player::Black;
+	}
+	else
+	{
+		this->whosTurn = Player::White;
+	}
 }
