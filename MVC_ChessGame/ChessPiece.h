@@ -21,6 +21,7 @@ private:
 	Player player;
 	QList<Position> possibleMoves;
 	PieceType type;
+	
 public:
 	ChessPiece(Position position, Player player, PieceType pieceType);
 	virtual ~ChessPiece() = default;
@@ -33,5 +34,10 @@ public:
 	// przekazanie ca³ej listy pionów, by obliczyæ mo¿liwe pozycje (nawet i w przypadku bicia w przelocie)
 	virtual bool validateMove(Position positionToMove, QList<ChessPiece*> chessPieces) = 0;
 
+protected:
+	const bool validateDiagonalMove(Position positionToMove, QList<ChessPiece*> chessPieces);
+	const bool validateVerticalOrHorizontalMove(Position positionToMove, QList<ChessPiece*> chessPieces);
+	const bool validateOneFieldMove(Position positionToMove, QList<ChessPiece*> chessPieces);
+	const bool validateAnotherPieceIntersection(Position positionToMove, QList<ChessPiece*> chessPieces);
 };
 

@@ -7,5 +7,6 @@ class RookPiece :
 {
 public:
 	RookPiece(Position position, Player player, PieceType pieceType);
+	virtual bool validateMove(Position positionToMove, QList<ChessPiece*> chessPieces) override;
 };
 
