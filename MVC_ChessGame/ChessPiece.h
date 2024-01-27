@@ -33,6 +33,8 @@ public:
 	void setPosition(Position position);
 	// przekazanie ca³ej listy pionów, by obliczyæ mo¿liwe pozycje (nawet i w przypadku bicia w przelocie)
 	virtual bool validateMove(Position positionToMove, QList<ChessPiece*> chessPieces) = 0;
+	const bool madeFirstMove();
+	void takeFirsMove();
 
 protected:
 	const bool validateDiagonalMove(Position positionToMove, QList<ChessPiece*> chessPieces);

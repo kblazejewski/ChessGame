@@ -21,6 +21,7 @@ private:
 
     QString getImagePath(ChessPiece* piece);
     void deletePieceBoxes();
+    ChessBox* getBoxAtPosition(Position position);
     
 signals:
     void signalBoxClicked(const Position& position);
@@ -31,4 +32,6 @@ public slots:
 public:
     void updateBoard(const QList<ChessPiece*> chessPieces);
     ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent = nullptr);
+    void changeColorUnderAttack(ChessPiece* piece);
+    void restoreDefaultColor();
 };

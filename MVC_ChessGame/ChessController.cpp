@@ -22,6 +22,7 @@ void ChessController::handleBoxClicked(Position position)
 		this->positionFrom = this->chessGame->getPieceAtPositionActivePlayer(position)->getPosition();
 		this->positionFromActive = true;
 		// do widgetu by podœwietli³o mo¿liwe pola
+		this->chessBoardWidget->markPossibleMoves(this->chessGame->getPieceAtPositionActivePlayer(position));
 		qDebug() << "Wybrano figure: " << this->chessGame->getPieceAtPositionActivePlayer(position)->getPieceType() << "gracza: " << this->chessGame->getPieceAtPositionActivePlayer(position)->getPlayer();
 		return;
 	}

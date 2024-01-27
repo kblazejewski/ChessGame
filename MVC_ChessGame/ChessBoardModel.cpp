@@ -125,6 +125,7 @@ ChessBoardModel::ChessBoardModel()
 {
 	initializePieces();
 	this->whosTurn = Player::White;
+	calculatePossibleMoves();
 }
 
 QList<ChessPiece*> ChessBoardModel::getPieces()
@@ -146,5 +147,26 @@ void ChessBoardModel::switchTurn()
 	else
 	{
 		this->whosTurn = Player::White;
+	}
+}
+
+void ChessBoardModel::calculatePossibleMoves()
+{
+	for (auto piece : this->pieces)
+	{
+		QList<Position> possibleMoves;
+		possibleMoves.clear();
+		for (int y = 0; y < Constants::numberOfRowsCols; y++)
+		{
+			for (int x = 0; x < Constants::numberOfRowsCols; x++)
+			{
+				Position positionToMove = { x, y };
+				if (piece->validateMove(positionToMove, this->pieces))
+				{
+					possibleMoves.append(positionToMove);
+				}
+			}
+			piece->setPossibleMoves(possibleMoves);
+		}
 	}
 }

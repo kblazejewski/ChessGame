@@ -153,19 +153,23 @@ const bool ChessPiece::validateAnotherPieceIntersection(Position positionToMove,
 			}
 		}
 
-		
-		/*if (requestedActivePiecePosition &&
-			positionToCheck.x != positionToMove.x &&
-			positionToCheck.y != positionToMove.y &&
-			positionToCheck.x == requestedActivePiecePosition->x &&
-			positionToCheck.y == requestedActivePiecePosition->y)
+		//if (positionToCheck.x == positionToMove.x && positionToCheck.y == positionToMove.y)
+		//{
+		//	if (pieceToCheck && (pieceToCheck->getPlayer() != this->getPlayer()))
+		//	{
+		//		return true;
+		//	}
+		//}
+		if (pieceToCheck)
 		{
-			return false;
-		}*/
-
-		if (pieceToCheck && (pieceToCheck->position.x != positionToMove.x || pieceToCheck->position.y != positionToMove.y))
-		{
-			return false;
+			if (positionToCheck.x == positionToMove.x && positionToCheck.y == positionToMove.y)
+				{
+					continue;
+				}
+			else
+			{
+				return false;
+			}
 		}
 	}
 
@@ -214,6 +218,16 @@ const Position ChessPiece::getPosition()
 void ChessPiece::setPosition(Position position)
 {
 	this->position = position;
+}
+
+const bool ChessPiece::madeFirstMove()
+{
+	return this->didTakeFirstMove;
+}
+
+void ChessPiece::takeFirsMove()
+{
+	this->didTakeFirstMove = true;
 }
 
 

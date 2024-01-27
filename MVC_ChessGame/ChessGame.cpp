@@ -9,14 +9,27 @@ ChessGame::ChessGame()
 
 void ChessGame::makeMove(Position posFrom, Position posTo)
 {
-	
-	if (this->chessBoardModel.getPieceAt(posTo))
+	ChessPiece* pieceToMove = getPieceAtPositionActivePlayer(posFrom);
+	if (pieceToMove)
 	{
-		this->chessBoardModel.removePieceAt(posTo);
+		for (auto position : pieceToMove->getPossibleMoves())
+		{
+			// jeœli to jest ruch dozwolony
+			if (position.x == posTo.x && position.y == posTo.y)
+			{
+				if (this->chessBoardModel.getPieceAt(posTo))
+				{
+					this->chessBoardModel.removePieceAt(posTo);
+				}
+				pieceToMove->takeFirsMove(); // set that piece take a firs move
+				this->chessBoardModel.movePieceTo(pieceToMove, posTo);
+				this->chessBoardModel.switchTurn();
+				this->chessBoardModel.calculatePossibleMoves();
+				emit updateBoard(chessBoardModel.getPieces());
+			}
+		}
 	}
-	this->chessBoardModel.movePieceTo(getPieceAtPositionActivePlayer(posFrom), posTo);
-	this->chessBoardModel.switchTurn();
-	emit updateBoard(chessBoardModel.getPieces());
+	
 }
 
 ChessPiece* ChessGame::getPieceAtPositionActivePlayer(Position position)

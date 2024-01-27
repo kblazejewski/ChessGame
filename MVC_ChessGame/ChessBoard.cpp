@@ -124,6 +124,38 @@ ChessBoard::ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent)
     draw();
 }
 
+void ChessBoard::changeColorUnderAttack(ChessPiece* piece)
+{
+	if (piece)
+	{
+		for (auto pos : piece->getPossibleMoves())
+		{
+			ChessBox* box = getBoxAtPosition(pos);
+			box->changeColorUnderAttack();
+		}
+	}
+}
+
+void ChessBoard::restoreDefaultColor()
+{
+	for (auto box : this->chessBoxes)
+	{
+		box->restoreDefaultColor();
+	}
+}
+
+ChessBox* ChessBoard::getBoxAtPosition(Position position)
+{
+	for (auto box: this->chessBoxes)
+	{
+		if (box->getPosition().x == position.x && box->getPosition().y == position.y)
+		{
+			return box;
+		}
+	}
+	return nullptr;
+}
+
 
 void ChessBoard::draw()
 {

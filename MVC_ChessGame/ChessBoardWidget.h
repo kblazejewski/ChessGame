@@ -18,6 +18,7 @@ class ChessBoardWidget : public QGraphicsView
 public:
     ChessBoardWidget(ChessController* chessController, QWidget* parent = nullptr);
     bool started = false;
+    void markPossibleMoves(ChessPiece* piece);
     
 public slots:
     void initializeChessBoard();

@@ -23,6 +23,11 @@ ChessBoardWidget::ChessBoardWidget(ChessController* chessController, QWidget* pa
     displayMenu();
 }
 
+void ChessBoardWidget::markPossibleMoves(ChessPiece* piece)
+{
+    this->chessBoard->changeColorUnderAttack(piece);
+}
+
 void ChessBoardWidget::handleSquareClicked(const Position& position)
 {
     this->chessController->handleBoxClicked(position);
@@ -56,6 +61,7 @@ void ChessBoardWidget::updateBoard(const QList<ChessPiece*>& chessPieces)
         qDebug() << piece->getPieceType();
     }*/
     chessBoard->updateBoard(chessPieces);
+    chessBoard->restoreDefaultColor();
 }
 
 void ChessBoardWidget::mousePressEvent(QMouseEvent* event)
@@ -63,6 +69,7 @@ void ChessBoardWidget::mousePressEvent(QMouseEvent* event)
     if (event->button() == Qt::RightButton)
     {
         this->chessController->cancelMove();
+        this->chessBoard->restoreDefaultColor();
     }
     QGraphicsView::mousePressEvent(event);
 }
