@@ -185,7 +185,7 @@ ChessPiece::ChessPiece(Position position, Player player, PieceType pieceType)
 	this->didTakeFirstMove = false;
 }
 
-const QList<Position> ChessPiece::getPossibleMoves()
+const QList<Position> ChessPiece::getPossibleMoves() const
 {
 	return this->possibleMoves;
 }
@@ -196,7 +196,7 @@ void ChessPiece::setPossibleMoves(QList<Position> legalMoves)
 	this->possibleMoves = legalMoves;
 }
 
-const PieceType ChessPiece::getPieceType()
+const PieceType ChessPiece::getPieceType() const
 {
 	if (this->type)
 	{
@@ -205,12 +205,12 @@ const PieceType ChessPiece::getPieceType()
 	return this->type;
 }
 
-const Player ChessPiece::getPlayer()
+const Player ChessPiece::getPlayer() const
 {
 	return this->player;
 }
 
-const Position ChessPiece::getPosition()
+const Position ChessPiece::getPosition() const
 {
 	return this->position;
 }
@@ -220,14 +220,15 @@ void ChessPiece::setPosition(Position position)
 	this->position = position;
 }
 
-const bool ChessPiece::madeFirstMove()
+void ChessPiece::setFirstMoveTaken()
+{
+	this->didTakeFirstMove = true;
+}
+
+const bool ChessPiece::firstMoveTaken() const
 {
 	return this->didTakeFirstMove;
 }
 
-void ChessPiece::takeFirsMove()
-{
-	this->didTakeFirstMove = true;
-}
 
 

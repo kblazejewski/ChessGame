@@ -53,7 +53,7 @@ bool PawnPiece::validateMove(Position positionToMove, QList<ChessPiece*> chessPi
 				}
 			}
 			// o dwa pola
-			else if (abs(yDiference) == 2 && !this->madeFirstMove())
+			else if (abs(yDiference) == 2 && !this->firstMoveTaken())
 			{
 				// nie mo¿e byæ figury
 				if (!pieceOnPositionToMove)
@@ -79,4 +79,14 @@ bool PawnPiece::validateMove(Position positionToMove, QList<ChessPiece*> chessPi
 	
 	return canMove;
 	
+}
+
+ChessPiece* PawnPiece::deepCopy() const
+{
+	ChessPiece* copiedPiece = new PawnPiece(this->getPosition(), this->getPlayer(), this->getPieceType());
+	if (this->firstMoveTaken())
+	{
+		copiedPiece->setFirstMoveTaken();
+	}
+	return copiedPiece;
 }

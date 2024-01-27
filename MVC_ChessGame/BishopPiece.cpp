@@ -9,3 +9,13 @@ bool BishopPiece::validateMove(Position positionToMove, QList<ChessPiece*> chess
     return validateDiagonalMove(positionToMove, chessPieces)
         && validateAnotherPieceIntersection(positionToMove, chessPieces);
 }
+
+ChessPiece* BishopPiece::deepCopy() const
+{
+    ChessPiece* copiedPiece = new BishopPiece(this->getPosition(), this->getPlayer(), this->getPieceType());
+    if (this->firstMoveTaken())
+    {
+        copiedPiece->setFirstMoveTaken();
+    }
+    return copiedPiece;
+}

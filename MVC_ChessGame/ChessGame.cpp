@@ -21,7 +21,7 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 				{
 					this->chessBoardModel.removePieceAt(posTo);
 				}
-				pieceToMove->takeFirsMove(); // set that piece take a firs move
+				pieceToMove->setFirstMoveTaken(); // set that piece take a firs move
 				this->chessBoardModel.movePieceTo(pieceToMove, posTo);
 				this->chessBoardModel.switchTurn();
 				this->chessBoardModel.calculatePossibleMoves();

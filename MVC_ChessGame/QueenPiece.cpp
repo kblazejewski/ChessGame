@@ -10,3 +10,13 @@ bool QueenPiece::validateMove(Position positionToMove, QList<ChessPiece*> chessP
         && ((validateDiagonalMove(positionToMove, chessPieces)
             || validateVerticalOrHorizontalMove(positionToMove, chessPieces)));
 }
+
+ChessPiece* QueenPiece::deepCopy() const
+{
+    ChessPiece* copiedPiece = new QueenPiece(this->getPosition(), this->getPlayer(), this->getPieceType());
+    if (this->firstMoveTaken())
+    {
+        copiedPiece->setFirstMoveTaken();
+    }
+    return copiedPiece;
+}

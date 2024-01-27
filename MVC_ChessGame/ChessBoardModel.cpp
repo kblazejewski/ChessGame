@@ -100,6 +100,21 @@ ChessPiece* ChessBoardModel::getPieceAt(Position position)
 	return nullptr;
 }
 
+ChessPiece* ChessBoardModel::getPieceAtGivenPosition(Position position, QList<ChessPiece*> chessPieces)
+{
+	if (!chessPieces.isEmpty())
+	{
+		for (auto piece : chessPieces)
+		{
+			if (piece->getPosition().x == position.x && piece->getPosition().y == position.y)
+			{
+				return piece;
+			}
+		}	
+	}
+	return nullptr;
+}
+
 void ChessBoardModel::removePieceAt(Position position)
 {
 	for (auto piece : this->pieces)
@@ -108,6 +123,22 @@ void ChessBoardModel::removePieceAt(Position position)
 		{
 			this->pieces.removeOne(piece);
 			delete piece;
+		}
+	}
+}
+
+void ChessBoardModel::removePieceAtGivenPosition(Position position, QList<ChessPiece*> chessPieces)
+{
+	if (!chessPieces.isEmpty())
+	{
+		for (auto piece : chessPieces)
+		{
+			if (piece->getPosition().x == position.x && piece->getPosition().y == position.y)
+			{
+				chessPieces.removeOne(piece);
+				delete piece;
+				return;
+			}
 		}
 	}
 }
@@ -152,21 +183,155 @@ void ChessBoardModel::switchTurn()
 
 void ChessBoardModel::calculatePossibleMoves()
 {
-	for (auto piece : this->pieces)
+	if (!this->pieces.isEmpty())
 	{
-		QList<Position> possibleMoves;
-		possibleMoves.clear();
-		for (int y = 0; y < Constants::numberOfRowsCols; y++)
+		for (auto piece : this->pieces)
 		{
-			for (int x = 0; x < Constants::numberOfRowsCols; x++)
+			QList<Position> possibleMoves;
+			possibleMoves.clear();
+
+			for (int y = 0; y < Constants::numberOfRowsCols; y++)
 			{
-				Position positionToMove = { x, y };
-				if (piece->validateMove(positionToMove, this->pieces))
+				for (int x = 0; x < Constants::numberOfRowsCols; x++)
 				{
-					possibleMoves.append(positionToMove);
+					// copy of the current position
+					QList<ChessPiece*> copiedCurrentPosition = getCopyOfCurrentPosition();
+
+					ChessPiece* pieceToCheck = getPieceAtGivenPosition(piece->getPosition(), copiedCurrentPosition);
+
+
+					Position positionToMove = { x, y };
+					if (pieceToCheck->validateMove(positionToMove, copiedCurrentPosition))
+					{
+						//make move
+						if (this->getPieceAtGivenPosition(positionToMove,copiedCurrentPosition))
+						{
+							/*this->removePieceAtGivenPosition(positionToMove, copiedCurrentPosition);*/
+							for (auto pieceToRemove : copiedCurrentPosition)
+							{
+								if (pieceToRemove->getPosition().x == positionToMove.x && pieceToRemove->getPosition().y == positionToMove.y)
+								{
+									copiedCurrentPosition.removeOne(pieceToRemove);
+									delete pieceToRemove;
+								}
+							}
+						}
+						this->movePieceTo(pieceToCheck, positionToMove);
+	
+
+						//recalculate
+						this->calculatePossibleMovesForGivenPosition(copiedCurrentPosition);
+
+						//check if king is not in check -> move valid
+						if (!this->isKingInCheckInGivenPosition(pieceToCheck->getPlayer(), copiedCurrentPosition))
+						{
+							possibleMoves.append(positionToMove);
+						}
+					}
+
+					// deleting current position
+					while (!copiedCurrentPosition.isEmpty())
+					{
+						ChessPiece* copied = copiedCurrentPosition.takeFirst();
+						delete copied;
+					}
+					copiedCurrentPosition.clear();
 				}
 			}
 			piece->setPossibleMoves(possibleMoves);
 		}
 	}
 }
+
+void ChessBoardModel::calculatePossibleMovesForGivenPosition(QList<ChessPiece*> chessPieces)
+{
+	for (auto piece : chessPieces)
+	{
+		if (piece)
+		{
+			QList<Position> possibleMoves;
+			possibleMoves.clear();
+			for (int y = 0; y < Constants::numberOfRowsCols; y++)
+			{
+				for (int x = 0; x < Constants::numberOfRowsCols; x++)
+				{
+					Position positionToMove = { x, y };
+					if (piece->validateMove(positionToMove, chessPieces))
+					{
+						possibleMoves.append(positionToMove);
+					}
+				}
+				piece->setPossibleMoves(possibleMoves);
+			}
+		}
+	}
+}
+
+QList<ChessPiece*> ChessBoardModel::getCopyOfCurrentPosition()
+{
+	QList<ChessPiece*> copyOfPieces;
+	if (!this->pieces.isEmpty())
+	{
+		for (auto piece : this->pieces) 
+		{
+			copyOfPieces.append(piece->deepCopy());
+		}
+	}
+	return copyOfPieces;
+}
+
+
+
+void ChessBoardModel::restorePosition(QList<ChessPiece*> chessPieces)
+{
+	if (!this->pieces.isEmpty())
+	{
+		for (auto piece : this->pieces)
+		{
+			delete piece;
+		}
+	}
+	this->pieces.clear();
+
+	this->pieces = chessPieces;
+}
+
+const bool ChessBoardModel::isKingInCheckInGivenPosition(Player player, QList<ChessPiece*> chessPieces) const
+{
+	ChessPiece* king = nullptr;
+	if (!chessPieces.isEmpty())
+	{
+		for (auto piece : chessPieces)
+		{
+			if (player == Player::White && piece->getPieceType() == PieceType::King && piece->getPlayer() == Player::White)
+			{
+				//get white king
+				king = piece;
+				break;
+			}
+			else if (player == Player::Black && piece->getPieceType() == PieceType::King && piece->getPlayer() == Player::Black)
+			{
+				//get black king
+				king = piece;
+				break;
+			}
+		}
+	}
+
+	if (king)
+	{
+		for (auto piece : chessPieces)
+		{
+			// if in possible moves is king position, king is in check
+			for (auto possibleMove : piece->getPossibleMoves())
+			{
+				if (possibleMove.x == king->getPosition().x && possibleMove.y == king->getPosition().y)
+				{
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+

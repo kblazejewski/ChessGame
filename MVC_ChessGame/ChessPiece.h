@@ -25,16 +25,18 @@ private:
 public:
 	ChessPiece(Position position, Player player, PieceType pieceType);
 	virtual ~ChessPiece() = default;
-	const QList<Position> getPossibleMoves();
+	const QList<Position> getPossibleMoves() const;
 	void setPossibleMoves(QList<Position> legalMoves);
-	const PieceType getPieceType();
-	const Player getPlayer();
-	const Position getPosition();
+	const PieceType getPieceType() const;
+	const Player getPlayer() const;
+	const Position getPosition() const;
 	void setPosition(Position position);
 	// przekazanie ca³ej listy pionów, by obliczyæ mo¿liwe pozycje (nawet i w przypadku bicia w przelocie)
 	virtual bool validateMove(Position positionToMove, QList<ChessPiece*> chessPieces) = 0;
-	const bool madeFirstMove();
-	void takeFirsMove();
+	void setFirstMoveTaken();
+	const bool firstMoveTaken() const;
+	virtual ChessPiece* deepCopy() const = 0;
+
 
 protected:
 	const bool validateDiagonalMove(Position positionToMove, QList<ChessPiece*> chessPieces);

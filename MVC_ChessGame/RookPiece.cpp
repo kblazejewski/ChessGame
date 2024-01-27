@@ -9,3 +9,13 @@ bool RookPiece::validateMove(Position positionToMove, QList<ChessPiece*> chessPi
     return validateVerticalOrHorizontalMove(positionToMove, chessPieces) 
         && validateAnotherPieceIntersection(positionToMove, chessPieces);
 }
+
+ChessPiece* RookPiece::deepCopy() const
+{
+    ChessPiece* copiedPiece = new RookPiece(this->getPosition(), this->getPlayer(), this->getPieceType());
+    if (this->firstMoveTaken())
+    {
+        copiedPiece->setFirstMoveTaken();
+    }
+    return copiedPiece;
+}
