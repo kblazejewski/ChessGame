@@ -113,6 +113,7 @@ void ChessBoardModel::clearEnPassantData()
 	//set the pos to -1 , -1 
 	this->enPassantCapturePosition = { -1, -1 };
 	this->enPassantMovePosition = { -1,-1 };
+	restoreAllPawnsVulnerablnes();
 }
 
 ChessPiece* ChessBoardModel::getPieceAt(Position position)

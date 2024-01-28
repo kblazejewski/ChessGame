@@ -82,7 +82,7 @@ bool PawnPiece::validateMove(Position positionToMove, QList<ChessPiece*> chessPi
 						if (piece->getPieceType() == PieceType::Pawn)
 						{
 							PawnPiece* nearestPawn = dynamic_cast<PawnPiece*> (piece);
-							if (nearestPawn->enPassantVurnelable)
+							if (nearestPawn->enPassantVurnelable && nearestPawn->getPosition().x == positionToMove.x)
 							{
 								canMove = true;
 							}
