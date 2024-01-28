@@ -335,3 +335,21 @@ const bool ChessBoardModel::isKingInCheckInGivenPosition(Player player, QList<Ch
 	return false;
 }
 
+const bool ChessBoardModel::isCheckMate(Player player) const
+{
+	if (!this->pieces.isEmpty())
+	{
+		for (auto piece : this->pieces)
+		{
+			if (piece->getPlayer() == player)
+			{
+				if (piece->getPossibleMoves().length()>0)
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+}
+

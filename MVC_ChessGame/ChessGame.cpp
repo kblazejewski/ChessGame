@@ -25,6 +25,10 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 				this->chessBoardModel.movePieceTo(pieceToMove, posTo);
 				this->chessBoardModel.switchTurn();
 				this->chessBoardModel.calculatePossibleMoves();
+				if (this->chessBoardModel.isCheckMate(this->chessBoardModel.getWhosTurn()))
+				{
+					qDebug() << "MAT";
+				}
 				emit updateBoard(chessBoardModel.getPieces());
 			}
 		}

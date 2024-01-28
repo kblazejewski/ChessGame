@@ -26,5 +26,6 @@ public:
 	QList<ChessPiece*> getCopyOfCurrentPosition(); // deep copy of actual position
 	void restorePosition(QList<ChessPiece*> chessPieces);
 	const bool isKingInCheckInGivenPosition(Player player, QList<ChessPiece*> chessPieces) const;
+	const bool isCheckMate(Player player) const;
 };
 

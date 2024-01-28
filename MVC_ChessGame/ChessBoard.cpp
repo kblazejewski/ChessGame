@@ -126,6 +126,7 @@ ChessBoard::ChessBoard(QGraphicsScene* sceneIn, QGraphicsItem* parent)
 
 void ChessBoard::changeColorUnderAttack(ChessPiece* piece)
 {
+	restoreDefaultColor();
 	if (piece)
 	{
 		for (auto pos : piece->getPossibleMoves())

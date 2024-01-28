@@ -24,7 +24,7 @@ ChessBoardWidget::ChessBoardWidget(ChessController* chessController, QWidget* pa
 }
 
 void ChessBoardWidget::markPossibleMoves(ChessPiece* piece)
-{
+{   
     this->chessBoard->changeColorUnderAttack(piece);
 }
 
