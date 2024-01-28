@@ -34,6 +34,36 @@ void ChessBoardWidget::handleSquareClicked(const Position& position)
     qDebug() << "Klik w widget na pos x: " << position.x << " y: " << position.y;
 }
 
+void ChessBoardWidget::showWinnerPanel(Player winner)
+{
+    scene->clear();
+
+
+    int fontSize = 30;
+    int yPosition = 100;
+    QString win = (winner == Player::White) ? "WHITE" : "BLACK";
+    QGraphicsTextItem* title = Utils::createTextItem(win + "WON", fontSize, Qt::white);
+    double xPosition = this->width() / 2 - title->boundingRect().width() / 2;
+    title->setPos(xPosition, yPosition);
+    scene->addItem(title);
+
+
+    // Quit button
+    ActionButton* quitButton = new ActionButton("Quit");
+    double quitXPosition = this->width() / 2 - quitButton->boundingRect().width() / 2;
+    double quitYPosition = 150;
+    quitButton->setPos(quitXPosition, quitYPosition);
+
+    connect(quitButton, SIGNAL(buttonPressed()), this, SLOT(quit()));
+    scene->addItem(quitButton);
+}
+
+void ChessBoardWidget::quit()
+{
+    qDebug() << "Forced close";
+    close();
+}
+
 void ChessBoardWidget::initializeChessBoard()
 {
     scene->clear();
@@ -94,15 +124,6 @@ void ChessBoardWidget::displayMenu()
 
     connect(startButton, SIGNAL(buttonPressed()), this, SLOT(initializeChessBoard()));
     scene->addItem(startButton);
-
-    // Quit button
-    ActionButton* quitButton = new ActionButton("Quit");
-    double quitXPosition = this->width() / 2 - quitButton->boundingRect().width() / 2;
-    double quitYPosition = 350;
-    quitButton->setPos(quitXPosition, quitYPosition);
-
-    //connect(quitButton, SIGNAL(buttonPressed()), this, SLOT(quitGame()));
-    scene->addItem(quitButton);
 }
 
 void ChessBoardWidget::drawTitle()

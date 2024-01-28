@@ -27,7 +27,14 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 				this->chessBoardModel.calculatePossibleMoves();
 				if (this->chessBoardModel.isCheckMate(this->chessBoardModel.getWhosTurn()))
 				{
-					qDebug() << "MAT";
+					if (this->chessBoardModel.getWhosTurn() == Player::White)
+					{
+						this->winner == Player::Black;
+					}
+					else
+					{
+						this->winner == Player::White;
+					}
 				}
 				emit updateBoard(chessBoardModel.getPieces());
 			}
@@ -53,5 +60,6 @@ void ChessGame::startGame()
 {
 	qDebug() << "Gra wystartowala";
 	this->gameStarted = true;
+	this->winner = Player::None;
 	emit updateBoard(chessBoardModel.getPieces());
 }

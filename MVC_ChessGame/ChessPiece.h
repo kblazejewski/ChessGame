@@ -10,7 +10,7 @@ enum PieceType
 
 enum Player
 {
-	Black, White
+	Black, White, None
 };
 
 class ChessPiece

@@ -18,8 +18,11 @@ public slots:
 
 signals:
     void updateBoard(const QList<ChessPiece*> chessPieces);
+    //void gameOver();
+
 
 private:
     ChessBoardModel chessBoardModel;
     bool gameStarted;
+    Player winner;
 };
