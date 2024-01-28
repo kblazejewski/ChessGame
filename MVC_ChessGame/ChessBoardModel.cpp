@@ -353,3 +353,111 @@ const bool ChessBoardModel::isCheckMate(Player player) const
 	}
 }
 
+const bool ChessBoardModel::isPromotionAvailable() const
+{
+	if (!this->pieces.isEmpty())
+	{
+		for (auto piece: this->pieces)
+		{
+			if (piece->getPieceType() == PieceType::Pawn)
+			{
+				if (piece->getPlayer() == Player::White)
+				{
+					if (piece->getPosition().y == 0)
+					{
+						return true;
+					}
+				}
+				else
+				{
+					if (piece->getPosition().y == 7)
+					{
+						return true;
+					}
+				}
+			}
+		}
+	}
+	return false;
+}
+
+void ChessBoardModel::promotePawn(PieceType pieceType)
+{
+	ChessPiece* pawnToPromote = nullptr;
+	if (!this->pieces.isEmpty())
+	{
+		for (auto piece : this->pieces)
+		{
+			if (piece->getPieceType() == PieceType::Pawn)
+			{
+				if (piece->getPlayer() == Player::White)
+				{
+					if (piece->getPosition().y == 0)
+					{
+						pawnToPromote = piece;
+						break;
+					}
+				}
+				else
+				{
+					if (piece->getPosition().y == 7)
+					{
+						pawnToPromote = piece;
+						break;
+					}
+				}
+			}
+		}
+	}
+	if (pawnToPromote)
+	{
+		Position pos = pawnToPromote->getPosition();
+		Player player = pawnToPromote->getPlayer();
+
+		//deleting pawn 
+		this->pieces.removeOne(pawnToPromote);
+		delete pawnToPromote;
+
+		ChessPiece* newPiece = nullptr;
+		if (pieceType == PieceType::Queen)
+		{
+			newPiece = new QueenPiece(pos, player, pieceType);
+			this->pieces.append(newPiece);
+		}
+		else if (pieceType == PieceType::Knight)
+		{
+			newPiece = new KnightPiece(pos, player, pieceType);
+			this->pieces.append(newPiece);
+		}
+		else if (pieceType == PieceType::Rook)
+		{
+			newPiece = new RookPiece(pos, player, pieceType);
+			this->pieces.append(newPiece);
+		}
+		else if (pieceType == PieceType::Bishop)
+		{
+			newPiece = new BishopPiece(pos, player, pieceType);
+			this->pieces.append(newPiece);
+		}
+	}
+}
+
+void ChessBoardModel::performCastle(Player player, bool isShortCastle)
+{
+	int kingStartColumn = 4;
+	int kingTargetColumn = (isShortCastle) ? 6 : 2;
+	int rookStartColumn = (isShortCastle) ? 7 : 0;
+	int rookTargetColumn = (isShortCastle) ? 5 : 3;
+
+	int row = (player == Player::White) ? 7 : 0;
+
+	ChessPiece* king = getPieceAt({ kingStartColumn, row });
+	ChessPiece* rook = getPieceAt({ rookStartColumn, row });
+
+	if (king && rook && king->getPieceType() == PieceType::King && rook->getPieceType() == PieceType::Rook)
+	{
+			movePieceTo(king, { kingTargetColumn, row });
+			movePieceTo(rook, { rookTargetColumn, row });
+	}
+}
+

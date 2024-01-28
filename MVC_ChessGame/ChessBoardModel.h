@@ -27,5 +27,8 @@ public:
 	void restorePosition(QList<ChessPiece*> chessPieces);
 	const bool isKingInCheckInGivenPosition(Player player, QList<ChessPiece*> chessPieces) const;
 	const bool isCheckMate(Player player) const;
+	const bool isPromotionAvailable()const;
+	void promotePawn(PieceType pieceType);
+	void performCastle(Player player, bool isShortCastle);
 };
 

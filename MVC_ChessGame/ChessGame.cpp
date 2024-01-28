@@ -17,6 +17,19 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 			// jeœli to jest ruch dozwolony
 			if (position.x == posTo.x && position.y == posTo.y)
 			{
+				// castling
+				if (pieceToMove->getPieceType() == PieceType::King && qAbs(posTo.x - posFrom.x) == 2)
+				{
+					bool isShortCastle = (posTo.x > posFrom.x);
+					chessBoardModel.performCastle(chessBoardModel.getWhosTurn(), isShortCastle);
+
+					this->chessBoardModel.switchTurn();
+					this->chessBoardModel.calculatePossibleMoves();
+					emit updateBoard(chessBoardModel.getPieces());
+					return;
+				}
+
+
 				if (this->chessBoardModel.getPieceAt(posTo))
 				{
 					this->chessBoardModel.removePieceAt(posTo);
@@ -38,6 +51,11 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 						this->winner = Player::White;
 						emit gameOver(this->winner);
 					}
+				}
+				if (this->chessBoardModel.isPromotionAvailable())
+				{
+					qDebug() << "Promocja dostepna";
+					this->chessBoardModel.promotePawn(PieceType::Queen);
 				}
 				emit updateBoard(chessBoardModel.getPieces());
 			}
