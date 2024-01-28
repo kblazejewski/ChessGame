@@ -24,7 +24,7 @@ public slots:
     void initializeChessBoard();
     void updateBoard(const QList<ChessPiece*>& chessPieces);
     void handleSquareClicked(const Position& position);
-    void showWinnerPanel(Player winner);
+    void showWinnerPanel(Player &winner);
     void quit();
 
 signals:

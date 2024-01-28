@@ -3,7 +3,7 @@
 
 ChessGame::ChessGame()
 {
-	this->chessBoardModel = ChessBoardModel();
+	//this->chessBoardModel = ChessBoardModel();
 	this->gameStarted = false;
 }
 
@@ -27,13 +27,16 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 				this->chessBoardModel.calculatePossibleMoves();
 				if (this->chessBoardModel.isCheckMate(this->chessBoardModel.getWhosTurn()))
 				{
+					qDebug() << "MAT";
 					if (this->chessBoardModel.getWhosTurn() == Player::White)
 					{
-						this->winner == Player::Black;
+						this->winner = Player::Black;
+						emit gameOver(this->winner);
 					}
 					else
 					{
-						this->winner == Player::White;
+						this->winner = Player::White;
+						emit gameOver(this->winner);
 					}
 				}
 				emit updateBoard(chessBoardModel.getPieces());
@@ -59,6 +62,7 @@ ChessPiece* ChessGame::getPieceAtPositionActivePlayer(Position position)
 void ChessGame::startGame()
 {
 	qDebug() << "Gra wystartowala";
+	this->chessBoardModel = ChessBoardModel();
 	this->gameStarted = true;
 	this->winner = Player::None;
 	emit updateBoard(chessBoardModel.getPieces());

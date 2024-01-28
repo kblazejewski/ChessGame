@@ -186,5 +186,4 @@ void ChessBoard::draw()
 void ChessBoard::boxClicked(const Position& position)
 {
 	emit signalBoxClicked(position);
-	qDebug() << "klikniety na x: " << position.x << " y: " << position.y;
 }

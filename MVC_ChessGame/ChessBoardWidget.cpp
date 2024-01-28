@@ -31,31 +31,23 @@ void ChessBoardWidget::markPossibleMoves(ChessPiece* piece)
 void ChessBoardWidget::handleSquareClicked(const Position& position)
 {
     this->chessController->handleBoxClicked(position);
-    qDebug() << "Klik w widget na pos x: " << position.x << " y: " << position.y;
 }
 
-void ChessBoardWidget::showWinnerPanel(Player winner)
+void ChessBoardWidget::showWinnerPanel(Player &winner)
 {
-    scene->clear();
+    qDebug() << "MAT";
+    scene->removeItem(this->chessBoard);
 
 
     int fontSize = 30;
     int yPosition = 100;
     QString win = (winner == Player::White) ? "WHITE" : "BLACK";
-    QGraphicsTextItem* title = Utils::createTextItem(win + "WON", fontSize, Qt::white);
-    double xPosition = this->width() / 2 - title->boundingRect().width() / 2;
-    title->setPos(xPosition, yPosition);
-    scene->addItem(title);
+    QGraphicsTextItem* winnerText = Utils::createTextItem(win + " WON", fontSize, Qt::white);
+    double xPosition = this->width() / 2 - winnerText->boundingRect().width() / 2;
+    winnerText->setPos(xPosition, yPosition);
+    scene->addItem(winnerText);
 
-
-    // Quit button
-    ActionButton* quitButton = new ActionButton("Quit");
-    double quitXPosition = this->width() / 2 - quitButton->boundingRect().width() / 2;
-    double quitYPosition = 150;
-    quitButton->setPos(quitXPosition, quitYPosition);
-
-    connect(quitButton, SIGNAL(buttonPressed()), this, SLOT(quit()));
-    scene->addItem(quitButton);
+    displayMenu();
 }
 
 void ChessBoardWidget::quit()
@@ -85,11 +77,6 @@ void ChessBoardWidget::initializeChessBoard()
 
 void ChessBoardWidget::updateBoard(const QList<ChessPiece*>& chessPieces)
 {
-    qDebug() << "BoardUpdated";
-    /*for (auto piece:chessPieces) 
-    {
-        qDebug() << piece->getPieceType();
-    }*/
     chessBoard->updateBoard(chessPieces);
     chessBoard->restoreDefaultColor();
 }
@@ -117,7 +104,7 @@ void ChessBoardWidget::initializeBackgroundColor()
 void ChessBoardWidget::displayMenu()
 {
     // Start button
-    ActionButton* startButton = new ActionButton("Play");
+    ActionButton* startButton = new ActionButton("New Game");
     double buttonXPosition = this->width() / 2 - startButton->boundingRect().width() / 2;
     double buttonYPosition = 275;
     startButton->setPos(buttonXPosition, buttonYPosition);

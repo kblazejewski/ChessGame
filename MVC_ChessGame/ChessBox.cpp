@@ -33,6 +33,5 @@ void ChessBox::restoreDefaultColor()
 
 void ChessBox::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
-	qDebug() << "clicked";
 	emit boxClicked(this->position);
 }

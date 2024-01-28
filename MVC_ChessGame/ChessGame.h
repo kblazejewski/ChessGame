@@ -18,7 +18,7 @@ public slots:
 
 signals:
     void updateBoard(const QList<ChessPiece*> chessPieces);
-    //void gameOver();
+    void gameOver(Player &winner);
 
 
 private:

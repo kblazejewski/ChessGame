@@ -8,6 +8,8 @@ ChessController::ChessController()
 	this->positionToActive = false;
 	connect(this->chessBoardWidget, SIGNAL(gameStarted()), this->chessGame, SLOT(startGame()));
 	connect(this->chessGame, SIGNAL(updateBoard(const QList<ChessPiece*>&)), this->chessBoardWidget, SLOT(updateBoard(const QList<ChessPiece*>&)));
+	connect(this->chessGame, &ChessGame::gameOver, this->chessBoardWidget, &ChessBoardWidget::showWinnerPanel);
+
 }
 
 ChessBoardWidget* ChessController::getChessBoardWidget()
@@ -23,7 +25,6 @@ void ChessController::handleBoxClicked(Position position)
 		this->positionFromActive = true;
 		// do widgetu by podœwietli³o mo¿liwe pola
 		this->chessBoardWidget->markPossibleMoves(this->chessGame->getPieceAtPositionActivePlayer(position));
-		qDebug() << "Wybrano figure: " << this->chessGame->getPieceAtPositionActivePlayer(position)->getPieceType() << "gracza: " << this->chessGame->getPieceAtPositionActivePlayer(position)->getPlayer();
 		return;
 	}
 	//jesli ju¿ pozycja Z zosta³a ustalona to wykonaj ruch
@@ -43,7 +44,6 @@ void ChessController::handleBoxClicked(Position position)
 
 void ChessController::cancelMove()
 {
-	qDebug() << "Ruch anulowany";
 	this->positionFromActive = false;
 	this->positionToActive = false;
 }
