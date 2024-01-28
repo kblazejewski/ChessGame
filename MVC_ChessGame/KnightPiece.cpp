@@ -33,7 +33,7 @@ bool KnightPiece::validateMove(Position positionToMove, QList<ChessPiece*> chess
 	return false;
 }
 
-ChessPiece* KnightPiece::deepCopy() const
+ChessPiece* KnightPiece::deepCopy()
 {
 	ChessPiece* copiedPiece = new KnightPiece(this->getPosition(), this->getPlayer(), this->getPieceType());
 	if (this->firstMoveTaken())

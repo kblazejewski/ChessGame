@@ -1,9 +1,11 @@
 #include "ChessGame.h"
 #include <qdebug.h>
+#include "PawnPiece.h"
 
 ChessGame::ChessGame()
 {
 	//this->chessBoardModel = ChessBoardModel();
+	this->winner = Player::None;
 	this->gameStarted = false;
 }
 
@@ -17,6 +19,28 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 			// jeœli to jest ruch dozwolony
 			if (position.x == posTo.x && position.y == posTo.y)
 			{
+				// enpassant
+				//check if pawn make a double move
+				if (pieceToMove->getPieceType() == PieceType::Pawn)
+				{
+					if (posTo.x == this->chessBoardModel.getEnPassantMovePosition().x && posTo.y == this->chessBoardModel.getEnPassantMovePosition().y)
+					{
+						this->chessBoardModel.removePieceAt(this->chessBoardModel.getEnPassantCapturePositon());
+						this->chessBoardModel.clearEnPassantData();
+					}
+					else
+					{
+						this->chessBoardModel.clearEnPassantData();
+					}
+					if (abs(posFrom.y - posTo.y) == 2)
+					{
+						qDebug() << "Double move";
+						PawnPiece* pawn = dynamic_cast<PawnPiece*> (pieceToMove);
+						pawn->setEnPassantVurnelable();
+						this->chessBoardModel.setEnPassantCapturePosition(position);
+						this->chessBoardModel.setEnPassantMovePosition({ pieceToMove->getPosition().x, (posFrom.y + posTo.y) / 2 });
+					}
+				}
 				// castling
 				if (pieceToMove->getPieceType() == PieceType::King && qAbs(posTo.x - posFrom.x) == 2)
 				{

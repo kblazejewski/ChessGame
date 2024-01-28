@@ -10,8 +10,17 @@ private:
 	QList<ChessPiece*> pieces;
 	void initializePieces();
 	Player whosTurn;
+	Position enPassantCapturePosition;
+	Position enPassantMovePosition;
 
 public:
+	//enpassant logic
+	void setEnPassantCapturePosition(Position postion);
+	const Position getEnPassantCapturePositon() const;
+	void setEnPassantMovePosition(Position position);
+	const Position getEnPassantMovePosition() const;
+	void clearEnPassantData();
+
 	ChessPiece* getPieceAt(Position position);
 	ChessPiece* getPieceAtGivenPosition(Position position, QList<ChessPiece*> chessPieces);
 	void removePieceAt(Position position);
@@ -30,5 +39,6 @@ public:
 	const bool isPromotionAvailable()const;
 	void promotePawn(PieceType pieceType);
 	void performCastle(Player player, bool isShortCastle);
+	void restoreAllPawnsVulnerablnes();
 };
 

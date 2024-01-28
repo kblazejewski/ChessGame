@@ -88,6 +88,33 @@ void ChessBoardModel::initializePieces()
 }
 
 
+void ChessBoardModel::setEnPassantCapturePosition(Position postion)
+{
+	this->enPassantCapturePosition = postion;
+}
+
+const Position ChessBoardModel::getEnPassantCapturePositon() const
+{
+	return this->enPassantCapturePosition;
+}
+
+void ChessBoardModel::setEnPassantMovePosition(Position position)
+{
+	this->enPassantMovePosition = position;
+}
+
+const Position ChessBoardModel::getEnPassantMovePosition() const
+{
+	return this->enPassantMovePosition;
+}
+
+void ChessBoardModel::clearEnPassantData()
+{
+	//set the pos to -1 , -1 
+	this->enPassantCapturePosition = { -1, -1 };
+	this->enPassantMovePosition = { -1,-1 };
+}
+
 ChessPiece* ChessBoardModel::getPieceAt(Position position)
 {
 	for (auto piece : this->pieces)
@@ -458,6 +485,21 @@ void ChessBoardModel::performCastle(Player player, bool isShortCastle)
 	{
 			movePieceTo(king, { kingTargetColumn, row });
 			movePieceTo(rook, { rookTargetColumn, row });
+	}
+}
+
+void ChessBoardModel::restoreAllPawnsVulnerablnes()
+{
+	if (!this->pieces.isEmpty())
+	{
+		for (auto piece : this->pieces)
+		{
+			if (piece->getPieceType() == PieceType::Pawn)
+			{
+				PawnPiece* pawn = dynamic_cast<PawnPiece*> (piece);
+				pawn->resetEnPassantVurnelable();
+			}
+		}
 	}
 }
 

@@ -7,6 +7,6 @@ class QueenPiece :
 public:
     QueenPiece(Position position, Player player, PieceType pieceType);
     virtual bool validateMove(Position positionToMove, QList<ChessPiece*> chessPieces) override;
-    virtual ChessPiece* deepCopy() const override;
+    virtual ChessPiece* deepCopy() override;
 };
 

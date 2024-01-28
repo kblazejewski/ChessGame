@@ -96,7 +96,7 @@ bool KingPiece::validateMove(Position positionToMove, QList<ChessPiece*> chessPi
     }
 }
 
-ChessPiece* KingPiece::deepCopy() const
+ChessPiece* KingPiece::deepCopy()
 {
     ChessPiece* copiedPiece = new KingPiece(this->getPosition(), this->getPlayer(), this->getPieceType());
     if (this->firstMoveTaken())

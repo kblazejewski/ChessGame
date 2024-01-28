@@ -35,7 +35,7 @@ public:
 	virtual bool validateMove(Position positionToMove, QList<ChessPiece*> chessPieces) = 0;
 	void setFirstMoveTaken();
 	const bool firstMoveTaken() const;
-	virtual ChessPiece* deepCopy() const = 0;
+	virtual ChessPiece* deepCopy() = 0;
 
 
 protected:

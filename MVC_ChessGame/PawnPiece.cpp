@@ -1,6 +1,6 @@
 #include "PawnPiece.h"
 
-PawnPiece::PawnPiece(Position position, Player player, PieceType pieceType):ChessPiece(position, player, pieceType)
+PawnPiece::PawnPiece(Position position, Player player, PieceType pieceType):ChessPiece(position, player, pieceType), enPassantVurnelable(false)
 {
 }
 
@@ -73,7 +73,24 @@ bool PawnPiece::validateMove(Position positionToMove, QList<ChessPiece*> chessPi
 				{
 					canMove = true;
 				}
+				//jeœli bicie w przelocie
+				//wyszukanie pól obok piona
+				for (auto piece : chessPieces)
+				{
+					if (abs(piece->getPosition().x - this->getPosition().x) == 1 && piece->getPosition().y == this->getPosition().y)
+					{
+						if (piece->getPieceType() == PieceType::Pawn)
+						{
+							PawnPiece* nearestPawn = dynamic_cast<PawnPiece*> (piece);
+							if (nearestPawn->enPassantVurnelable)
+							{
+								canMove = true;
+							}
+						}
+					}
+				}
 			}
+			
 		}
 	}
 	
@@ -81,12 +98,27 @@ bool PawnPiece::validateMove(Position positionToMove, QList<ChessPiece*> chessPi
 	
 }
 
-ChessPiece* PawnPiece::deepCopy() const
+ChessPiece* PawnPiece::deepCopy() 
 {
 	ChessPiece* copiedPiece = new PawnPiece(this->getPosition(), this->getPlayer(), this->getPieceType());
 	if (this->firstMoveTaken())
 	{
 		copiedPiece->setFirstMoveTaken();
+		if (this->enPassantVurnelable)
+		{
+			PawnPiece* pawn = dynamic_cast<PawnPiece*> (copiedPiece);
+			pawn->setEnPassantVurnelable();
+		}
 	}
 	return copiedPiece;
+}
+
+void PawnPiece::setEnPassantVurnelable()
+{
+	this->enPassantVurnelable = true;
+}
+
+void PawnPiece::resetEnPassantVurnelable()
+{
+	this->enPassantVurnelable = false;
 }
