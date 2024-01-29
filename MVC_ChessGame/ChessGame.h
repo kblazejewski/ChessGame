@@ -31,4 +31,5 @@ private:
     bool gameStarted;
     bool gamePaused;
     Player winner;
+    void clearGameHistory();
 };

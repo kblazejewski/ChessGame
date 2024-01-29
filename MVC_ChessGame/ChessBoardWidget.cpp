@@ -35,19 +35,18 @@ void ChessBoardWidget::handleSquareClicked(const Position& position)
 
 void ChessBoardWidget::showWinnerPanel(Player &winner)
 {
-    qDebug() << "MAT";
-    scene->removeItem(this->chessBoard);
+    //scene->removeItem(this->chessBoard);
 
 
     int fontSize = 30;
-    int yPosition = 100;
+    int yPosition = 600;
     QString win = (winner == Player::White) ? "WHITE" : "BLACK";
     QGraphicsTextItem* winnerText = Utils::createTextItem(win + " WON", fontSize, Qt::white);
     double xPosition = this->width() / 2 - winnerText->boundingRect().width() / 2;
     winnerText->setPos(xPosition, yPosition);
     scene->addItem(winnerText);
-
-    displayMenu();
+    undoButton->setVisible(false);
+    //displayMenu();
 }
 
 void ChessBoardWidget::quit()
@@ -83,13 +82,23 @@ void ChessBoardWidget::initializeChessBoard()
     connect(this->chessBoard, &ChessBoard::signalBoxClicked, this, &ChessBoardWidget::handleSquareClicked);
 
     // undo button
-    ActionButton* undoButton = new ActionButton("Undo");
+    undoButton = new ActionButton("Undo");
     double buttonXPosition = chessBoard->boundingRect().width() - 450;
     double buttonYPosition = 275;
     undoButton->setPos(buttonXPosition, buttonYPosition);
 
     connect(undoButton, &ActionButton::buttonPressed, this, &ChessBoardWidget::undoRequest);
     scene->addItem(undoButton);
+    undoButton->setVisible(true);
+
+    // reset button
+    resetButton = new ActionButton("Reset Game");
+    double resetButtonXPosition = chessBoard->boundingRect().width() - 450;
+    double resetButtonYPosition = 325;
+    resetButton->setPos(resetButtonXPosition, resetButtonYPosition);
+
+    connect(resetButton, SIGNAL(buttonPressed()), this, SLOT(initializeChessBoard()));
+    scene->addItem(resetButton);
 
     //adding promotion button;
     this->queenButton = new ActionButton("Queen");
