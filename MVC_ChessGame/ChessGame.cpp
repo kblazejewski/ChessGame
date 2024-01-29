@@ -130,6 +130,8 @@ void ChessGame::startGame()
 	this->chessBoardModel = ChessBoardModel();
 	this->gameStarted = true;
 	this->winner = Player::None;
+	clearGameHistory();
+	saveRound();
 	emit updateBoard(chessBoardModel.getPieces());
 }
 
@@ -163,4 +165,15 @@ void ChessGame::undoMove()
 		// Emituj sygna³ aktualizacji szachownicy
 		emit updateBoard(chessBoardModel.getPieces());
 	}
+}
+
+
+void ChessGame::clearGameHistory()
+{
+	for (const QList<ChessPiece*>& round : gameHistory) {
+		for (ChessPiece* piece : round) {
+			delete piece;
+		}
+	}
+	gameHistory.clear();
 }

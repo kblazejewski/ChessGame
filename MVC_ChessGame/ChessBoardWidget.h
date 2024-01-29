@@ -22,10 +22,7 @@ public:
     bool started = false;
     void markPossibleMoves(ChessPiece* piece);
 
-    ActionButton* queenButton;
-    ActionButton* rookButton;
-    ActionButton* bishopButton;
-    ActionButton* knightButton;
+
     
 public slots:
     void initializeChessBoard();
@@ -48,7 +45,12 @@ private:
     QGraphicsScene* scene;
     ChessBoard* chessBoard;
     ChessController* chessController;
-
+    ActionButton* queenButton;
+    ActionButton* rookButton;
+    ActionButton* bishopButton;
+    ActionButton* knightButton;
+    ActionButton* undoButton;
+    ActionButton* resetButton;
 
     void mousePressEvent(QMouseEvent* event);
     void initializeBackgroundColor();
