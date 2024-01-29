@@ -56,6 +56,14 @@ void ChessBoardWidget::quit()
     close();
 }
 
+void ChessBoardWidget::showPromotionButtons()
+{
+    queenButton->setVisible(true);
+    bishopButton->setVisible(true);
+    rookButton->setVisible(true);
+    knightButton->setVisible(true);
+}
+
 void ChessBoardWidget::initializeChessBoard()
 {
     scene->clear();
@@ -76,12 +84,46 @@ void ChessBoardWidget::initializeChessBoard()
 
     // undo button
     ActionButton* undoButton = new ActionButton("Undo");
-    double buttonXPosition = 0;
+    double buttonXPosition = chessBoard->boundingRect().width() - 450;
     double buttonYPosition = 275;
     undoButton->setPos(buttonXPosition, buttonYPosition);
 
     connect(undoButton, &ActionButton::buttonPressed, this, &ChessBoardWidget::undoRequest);
     scene->addItem(undoButton);
+
+    //adding promotion button;
+    this->queenButton = new ActionButton("Queen");
+    double queenButtonXPosition = chessBoard->boundingRect().width() + 450;
+    double queenButtonYPosition = 275;
+    this->queenButton->setPos(queenButtonXPosition, queenButtonYPosition);
+    connect(queenButton, &ActionButton::buttonPressed, this, &ChessBoardWidget::promoteToQueen);
+
+    //adding promotion button;
+    this->bishopButton = new ActionButton("Bishop");
+    double bishopButtonXPosition = chessBoard->boundingRect().width() + 450;
+    double bishopButtonYPosition = 325;
+    this->bishopButton->setPos(bishopButtonXPosition, bishopButtonYPosition);
+    connect(bishopButton, &ActionButton::buttonPressed, this, &ChessBoardWidget::promoteToBishop);
+
+    //adding promotion button;
+    this->rookButton = new ActionButton("Rook");
+    double rookButtonXPosition = chessBoard->boundingRect().width() + 450;
+    double rookButtonYPosition = 375;
+    this->rookButton->setPos(rookButtonXPosition, rookButtonYPosition);
+    connect(rookButton, &ActionButton::buttonPressed, this, &ChessBoardWidget::promoteToRook);
+
+    //adding promotion button;
+    this->knightButton = new ActionButton("Knight");
+    double knightButtonXPosition = chessBoard->boundingRect().width() + 450;
+    double knightButtonYPosition = 425;
+    this->knightButton->setPos(knightButtonXPosition, knightButtonYPosition);
+    connect(knightButton, &ActionButton::buttonPressed, this, &ChessBoardWidget::promoteToKnight);
+
+    scene->addItem(this->queenButton);
+    scene->addItem(this->bishopButton);
+    scene->addItem(this->rookButton);
+    scene->addItem(this->knightButton);
+    hidePromotionButtons();
 }
 
 void ChessBoardWidget::updateBoard(const QList<ChessPiece*>& chessPieces)
@@ -130,6 +172,14 @@ void ChessBoardWidget::drawTitle()
     double xPosition = this->width() / 2 - title->boundingRect().width() / 2;
     title->setPos(xPosition, yPosition);
     scene->addItem(title);
+}
+
+void ChessBoardWidget::hidePromotionButtons()
+{
+    queenButton->setVisible(false);
+    bishopButton->setVisible(false);
+    rookButton->setVisible(false);
+    knightButton->setVisible(false);
 }
 
 

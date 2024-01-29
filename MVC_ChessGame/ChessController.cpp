@@ -10,6 +10,11 @@ ChessController::ChessController()
 	connect(this->chessGame, SIGNAL(updateBoard(const QList<ChessPiece*>&)), this->chessBoardWidget, SLOT(updateBoard(const QList<ChessPiece*>&)));
 	connect(this->chessGame, &ChessGame::gameOver, this->chessBoardWidget, &ChessBoardWidget::showWinnerPanel);
 	connect(this->chessBoardWidget, &ChessBoardWidget::undoRequest, this->chessGame, &ChessGame::undoMove);
+	connect(this->chessGame, &ChessGame::promotionActive, this->chessBoardWidget, &ChessBoardWidget::showPromotionButtons);
+	connect(this->chessBoardWidget, &ChessBoardWidget::promoteToQueen, this, &ChessController::handlePromoteToQueen);
+	connect(this->chessBoardWidget, &ChessBoardWidget::promoteToBishop, this, &ChessController::handlePromoteToBishop);
+	connect(this->chessBoardWidget, &ChessBoardWidget::promoteToRook, this, &ChessController::handlePromoteToRook);
+	connect(this->chessBoardWidget, &ChessBoardWidget::promoteToKnight, this, &ChessController::handlePromoteToKnight);
 }
 
 ChessBoardWidget* ChessController::getChessBoardWidget()
@@ -46,5 +51,29 @@ void ChessController::cancelMove()
 {
 	this->positionFromActive = false;
 	this->positionToActive = false;
+}
+
+void ChessController::handlePromoteToQueen()
+{
+	this->chessGame->promotePawn(PieceType::Queen);
+	this->chessBoardWidget->hidePromotionButtons();
+}
+
+void ChessController::handlePromoteToBishop()
+{
+	this->chessGame->promotePawn(PieceType::Bishop);
+	this->chessBoardWidget->hidePromotionButtons();
+}
+
+void ChessController::handlePromoteToRook()
+{
+	this->chessGame->promotePawn(PieceType::Rook);
+	this->chessBoardWidget->hidePromotionButtons();
+}
+
+void ChessController::handlePromoteToKnight()
+{
+	this->chessGame->promotePawn(PieceType::Knight);
+	this->chessBoardWidget->hidePromotionButtons();
 }
 

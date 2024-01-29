@@ -13,6 +13,7 @@ public:
     void makeMove(Position posFrom, Position posTo);
     ChessPiece* getPieceAtPositionActivePlayer(Position position);
     void saveRound();
+    void promotePawn(PieceType type);
     
 public slots:
     void startGame();
@@ -21,11 +22,13 @@ public slots:
 signals:
     void updateBoard(const QList<ChessPiece*> chessPieces);
     void gameOver(Player &winner);
+    void promotionActive();
 
 
 private:
     QList<QList<ChessPiece*>> gameHistory;
     ChessBoardModel chessBoardModel;
     bool gameStarted;
+    bool gamePaused;
     Player winner;
 };
