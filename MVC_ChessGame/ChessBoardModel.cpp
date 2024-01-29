@@ -222,6 +222,10 @@ void ChessBoardModel::calculatePossibleMoves()
 			{
 				for (int x = 0; x < Constants::numberOfRowsCols; x++)
 				{
+					if (!piece)
+					{
+						break;
+					}
 					// copy of the current position
 					QList<ChessPiece*> copiedCurrentPosition = getCopyOfCurrentPosition();
 
@@ -302,7 +306,10 @@ QList<ChessPiece*> ChessBoardModel::getCopyOfCurrentPosition()
 	{
 		for (auto piece : this->pieces) 
 		{
-			copyOfPieces.append(piece->deepCopy());
+			if (piece)
+			{
+				copyOfPieces.append(piece->deepCopy());
+			}
 		}
 	}
 	return copyOfPieces;
@@ -312,12 +319,10 @@ QList<ChessPiece*> ChessBoardModel::getCopyOfCurrentPosition()
 
 void ChessBoardModel::restorePosition(QList<ChessPiece*> chessPieces)
 {
-	if (!this->pieces.isEmpty())
+	// deleting current position
+	while (!this->pieces.isEmpty())
 	{
-		for (auto piece : this->pieces)
-		{
-			delete piece;
-		}
+		delete this->pieces.takeFirst();
 	}
 	this->pieces.clear();
 
