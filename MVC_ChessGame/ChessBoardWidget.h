@@ -29,6 +29,7 @@ public slots:
 
 signals:
     void gameStarted();
+    void undoRequest();
    
 private:
     QGraphicsScene* scene;

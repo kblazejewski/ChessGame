@@ -9,7 +9,7 @@ ChessController::ChessController()
 	connect(this->chessBoardWidget, SIGNAL(gameStarted()), this->chessGame, SLOT(startGame()));
 	connect(this->chessGame, SIGNAL(updateBoard(const QList<ChessPiece*>&)), this->chessBoardWidget, SLOT(updateBoard(const QList<ChessPiece*>&)));
 	connect(this->chessGame, &ChessGame::gameOver, this->chessBoardWidget, &ChessBoardWidget::showWinnerPanel);
-
+	connect(this->chessBoardWidget, &ChessBoardWidget::undoRequest, this->chessGame, &ChessGame::undoMove);
 }
 
 ChessBoardWidget* ChessController::getChessBoardWidget()

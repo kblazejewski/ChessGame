@@ -73,6 +73,15 @@ void ChessBoardWidget::initializeChessBoard()
     scene->views().first()->update();
     emit gameStarted();
     connect(this->chessBoard, &ChessBoard::signalBoxClicked, this, &ChessBoardWidget::handleSquareClicked);
+
+    // undo button
+    ActionButton* undoButton = new ActionButton("Undo");
+    double buttonXPosition = 0;
+    double buttonYPosition = 275;
+    undoButton->setPos(buttonXPosition, buttonYPosition);
+
+    connect(undoButton, &ActionButton::buttonPressed, this, &ChessBoardWidget::undoRequest);
+    scene->addItem(undoButton);
 }
 
 void ChessBoardWidget::updateBoard(const QList<ChessPiece*>& chessPieces)

@@ -4,9 +4,9 @@
 
 ChessGame::ChessGame()
 {
-	//this->chessBoardModel = ChessBoardModel();
 	this->winner = Player::None;
 	this->gameStarted = false;
+	saveRound();
 }
 
 void ChessGame::makeMove(Position posFrom, Position posTo)
@@ -26,16 +26,12 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 					if (posTo.x == this->chessBoardModel.getEnPassantMovePosition().x && posTo.y == this->chessBoardModel.getEnPassantMovePosition().y)
 					{
 						this->chessBoardModel.removePieceAt(this->chessBoardModel.getEnPassantCapturePositon());
-						this->chessBoardModel.clearEnPassantData();
-					}
-					else
-					{
-						this->chessBoardModel.clearEnPassantData();
 					}
 					if (abs(posFrom.y - posTo.y) == 2)
 					{
 						qDebug() << "Double move";
 						PawnPiece* pawn = dynamic_cast<PawnPiece*> (pieceToMove);
+						this->chessBoardModel.clearEnPassantData();
 						pawn->setEnPassantVurnelable();
 						this->chessBoardModel.setEnPassantCapturePosition(position);
 						this->chessBoardModel.setEnPassantMovePosition({ pieceToMove->getPosition().x, (posFrom.y + posTo.y) / 2 });
@@ -49,6 +45,7 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 
 					this->chessBoardModel.switchTurn();
 					this->chessBoardModel.calculatePossibleMoves();
+					saveRound();
 					emit updateBoard(chessBoardModel.getPieces());
 					return;
 				}
@@ -68,11 +65,13 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 					if (this->chessBoardModel.getWhosTurn() == Player::White)
 					{
 						this->winner = Player::Black;
+						saveRound();
 						emit gameOver(this->winner);
 					}
 					else
 					{
 						this->winner = Player::White;
+						saveRound();
 						emit gameOver(this->winner);
 					}
 				}
@@ -81,6 +80,7 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 					qDebug() << "Promocja dostepna";
 					this->chessBoardModel.promotePawn(PieceType::Queen);
 				}
+				saveRound();
 				emit updateBoard(chessBoardModel.getPieces());
 			}
 		}
@@ -101,6 +101,11 @@ ChessPiece* ChessGame::getPieceAtPositionActivePlayer(Position position)
 	return nullptr;
 }
 
+void ChessGame::saveRound()
+{
+	this->gameHistory.append(this->chessBoardModel.getCopyOfCurrentPosition());
+}
+
 void ChessGame::startGame()
 {
 	qDebug() << "Gra wystartowala";
@@ -108,4 +113,36 @@ void ChessGame::startGame()
 	this->gameStarted = true;
 	this->winner = Player::None;
 	emit updateBoard(chessBoardModel.getPieces());
+}
+
+void ChessGame::undoMove()
+{
+	// SprawdŸ, czy istnieje co najmniej dwa zapisane stany gry
+	if (gameHistory.size() >= 2)
+	{
+		// Pobierz przedostatni zapisany stan gry
+		QList<ChessPiece*> previousGameState = gameHistory.at(gameHistory.size()-2);
+
+		// Wgraj go na szachownicê
+		chessBoardModel.restorePosition(previousGameState);
+
+		// Usuñ ostatni zapisany stan gry
+		QList<ChessPiece*> lastGameState = gameHistory.takeLast();
+		while (!lastGameState.isEmpty())
+		{
+			delete lastGameState.takeFirst();
+		}
+		gameHistory.removeLast();
+
+		// Prze³¹cz na poprzedniego gracza
+		chessBoardModel.switchTurn();
+
+		// Ponownie oblicz mo¿liwe ruchy
+		chessBoardModel.calculatePossibleMoves();
+
+		saveRound();
+
+		// Emituj sygna³ aktualizacji szachownicy
+		emit updateBoard(chessBoardModel.getPieces());
+	}
 }
