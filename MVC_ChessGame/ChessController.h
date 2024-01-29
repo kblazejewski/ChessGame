@@ -15,6 +15,12 @@ public:
 	void handleBoxClicked(Position position);
 	void cancelMove();
 
+public slots:
+	void handlePromoteToQueen();
+	void handlePromoteToBishop();
+	void handlePromoteToRook();
+	void handlePromoteToKnight();
+
 private:
 	Position positionFrom;
 	bool positionFromActive;

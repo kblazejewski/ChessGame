@@ -6,6 +6,7 @@ ChessGame::ChessGame()
 {
 	this->winner = Player::None;
 	this->gameStarted = false;
+	this->gamePaused = false;
 	saveRound();
 }
 
@@ -77,8 +78,11 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 				}
 				if (this->chessBoardModel.isPromotionAvailable())
 				{
+					this->gamePaused = true;
 					qDebug() << "Promocja dostepna";
-					this->chessBoardModel.promotePawn(PieceType::Queen);
+					emit promotionActive();
+					return;
+					//this->chessBoardModel.promotePawn(PieceType::Queen);
 				}
 				saveRound();
 				emit updateBoard(chessBoardModel.getPieces());
@@ -90,6 +94,10 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 
 ChessPiece* ChessGame::getPieceAtPositionActivePlayer(Position position)
 {
+	if (this->gamePaused)
+	{
+		return nullptr;
+	}
 	ChessPiece* piece = chessBoardModel.getPieceAt(position);
 	if (piece)
 	{
@@ -104,6 +112,16 @@ ChessPiece* ChessGame::getPieceAtPositionActivePlayer(Position position)
 void ChessGame::saveRound()
 {
 	this->gameHistory.append(this->chessBoardModel.getCopyOfCurrentPosition());
+}
+
+void ChessGame::promotePawn(PieceType type)
+{
+	this->chessBoardModel.promotePawn(type);
+	this->chessBoardModel.calculatePossibleMoves();
+	saveRound();
+	this->gamePaused = false;
+	emit updateBoard(chessBoardModel.getPieces());
+	
 }
 
 void ChessGame::startGame()
