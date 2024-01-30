@@ -76,7 +76,6 @@ void ChessBoardWidget::initializeChessBoard()
 
     chessBoard->setPos(centerX, centerY);
     scene->addItem(chessBoard);
-    started = true;
     scene->views().first()->update();
     emit gameStarted();
     connect(this->chessBoard, &ChessBoard::signalBoxClicked, this, &ChessBoardWidget::handleSquareClicked);

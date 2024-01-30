@@ -17,7 +17,7 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 	{
 		for (auto position : pieceToMove->getPossibleMoves())
 		{
-			// jeœli to jest ruch dozwolony
+			// if move is possible
 			if (position.x == posTo.x && position.y == posTo.y)
 			{
 				// enpassant
@@ -82,7 +82,6 @@ void ChessGame::makeMove(Position posFrom, Position posTo)
 					qDebug() << "Promocja dostepna";
 					emit promotionActive();
 					return;
-					//this->chessBoardModel.promotePawn(PieceType::Queen);
 				}
 				saveRound();
 				emit updateBoard(chessBoardModel.getPieces());
@@ -137,16 +136,11 @@ void ChessGame::startGame()
 
 void ChessGame::undoMove()
 {
-	// SprawdŸ, czy istnieje co najmniej dwa zapisane stany gry
+
 	if (gameHistory.size() >= 2)
 	{
-		// Pobierz przedostatni zapisany stan gry
 		QList<ChessPiece*> previousGameState = gameHistory.at(gameHistory.size()-2);
-
-		// Wgraj go na szachownicê
 		chessBoardModel.restorePosition(previousGameState);
-
-		// Usuñ ostatni zapisany stan gry
 		QList<ChessPiece*> lastGameState = gameHistory.takeLast();
 		while (!lastGameState.isEmpty())
 		{
@@ -154,15 +148,9 @@ void ChessGame::undoMove()
 		}
 		gameHistory.removeLast();
 
-		// Prze³¹cz na poprzedniego gracza
 		chessBoardModel.switchTurn();
-
-		// Ponownie oblicz mo¿liwe ruchy
 		chessBoardModel.calculatePossibleMoves();
-
 		saveRound();
-
-		// Emituj sygna³ aktualizacji szachownicy
 		emit updateBoard(chessBoardModel.getPieces());
 	}
 }

@@ -40,41 +40,39 @@ bool PawnPiece::validateMove(Position positionToMove, QList<ChessPiece*> chessPi
 	bool canMove = false;
 	if (wantsToMoveInGoodDirection)
 	{
-		//ruch w linii prostej
+		// move in straight line
 		if (xDiference == 0)
 		{
-			// o jedno pole
+			// by one field
 			if (abs(yDiference) == 1)
 			{
-				// nie mo¿e byæ figury
+				// no piece
 				if (!pieceOnPositionToMove)
 				{
 					canMove = true;
 				}
 			}
-			// o dwa pola
+			// by two fields
 			else if (abs(yDiference) == 2 && !this->firstMoveTaken())
 			{
-				// nie mo¿e byæ figury
+				// no piece
 				if (!pieceOnPositionToMove)
 				{
 					canMove = true;
 				}
 			}
 		}
-		// jeœli ruch po skosie
+		// diagonal move
 		else if (abs(xDiference) == 1)
 		{
-			// jeœli ruch po skosie
 			if (abs(yDiference) == 1)
 			{
-				// sprawdŸ czy na skoœnym polu jest figura i czy jest przeciwnego gracza
+				// check if on diagonal field is piece and if is oponnent player
 				if (pieceOnPositionToMove && (pieceOnPositionToMove->getPlayer() != this->getPlayer()))
 				{
 					canMove = true;
 				}
-				//jeœli bicie w przelocie
-				//wyszukanie pól obok piona
+				// if enpassant
 				for (auto piece : chessPieces)
 				{
 					if (abs(piece->getPosition().x - this->getPosition().x) == 1 && piece->getPosition().y == this->getPosition().y)
