@@ -1,0 +1,161 @@
+\doxysection{Chess\+Game Class Reference}
+\hypertarget{class_chess_game}{}\label{class_chess_game}\index{ChessGame@{ChessGame}}
+
+
+The \doxylink{class_chess_game}{Chess\+Game} class represents the logic and state of a chess game.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Game.\+h$>$}
+
+
+
+Inheritance diagram for Chess\+Game\+:
+% FIG 0
+
+
+Collaboration diagram for Chess\+Game\+:
+% FIG 1
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_chess_game_a0f7c5f73b6dc43d0dcb8cb8e99229271}\label{class_chess_game_a0f7c5f73b6dc43d0dcb8cb8e99229271} 
+void {\bfseries start\+Game} ()
+\begin{DoxyCompactList}\small\item\em Starts a new game. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_game_aaad77cd9c728a449a291dffcff23adeb}\label{class_chess_game_aaad77cd9c728a449a291dffcff23adeb} 
+void {\bfseries undo\+Move} ()
+\begin{DoxyCompactList}\small\item\em Undoes the last move. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_chess_game_a0a1ace159e2805445f647971ebe5f58c}{update\+Board}} (const QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Signal emitted to update the graphical representation of the chessboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_a12134e63810d34ec8dfbd7046158afc2}{game\+Over}} (Player \&winner)
+\begin{DoxyCompactList}\small\item\em Signal emitted when the game is over. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_game_a055b325ef98debcf6d67454e288803cd}\label{class_chess_game_a055b325ef98debcf6d67454e288803cd} 
+void {\bfseries promotion\+Active} ()
+\begin{DoxyCompactList}\small\item\em Signal emitted when pawn promotion is active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_chess_game_a7c9d1caa97c7ca5737f187a6066662b2}\label{class_chess_game_a7c9d1caa97c7ca5737f187a6066662b2} 
+{\bfseries Chess\+Game} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_chess_game}{Chess\+Game}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_ac6d0b5e0ac325a23fa4f82570835344b}{make\+Move}} (\mbox{\hyperlink{struct_position}{Position}} pos\+From, \mbox{\hyperlink{struct_position}{Position}} pos\+To)
+\begin{DoxyCompactList}\small\item\em Makes a move on the chessboard. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_chess_game_a24fe7521a6a85a3db3ef6d369ce87965}{get\+Piece\+At\+Position\+Active\+Player}} (\mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Gets the chess piece at the specified position for the active player. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_game_a1c20aad78bca37c7d5a22be1ef397532}\label{class_chess_game_a1c20aad78bca37c7d5a22be1ef397532} 
+void {\bfseries save\+Round} ()
+\begin{DoxyCompactList}\small\item\em Saves the current round to the game history. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_game_aeeb405a0f6e10ec844fab2ff0a4a0392}{promote\+Pawn}} (Piece\+Type type)
+\begin{DoxyCompactList}\small\item\em Promotes a pawn to the specified piece type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_chess_game}{Chess\+Game} class represents the logic and state of a chess game. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chess_game_a12134e63810d34ec8dfbd7046158afc2}\label{class_chess_game_a12134e63810d34ec8dfbd7046158afc2} 
+\index{ChessGame@{ChessGame}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!ChessGame@{ChessGame}}
+\doxysubsubsection{\texorpdfstring{gameOver}{gameOver}}
+{\footnotesize\ttfamily void Chess\+Game\+::game\+Over (\begin{DoxyParamCaption}\item[{Player \&}]{winner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal emitted when the game is over. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em winner} & The player who won the game. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{class_chess_game_a24fe7521a6a85a3db3ef6d369ce87965}\label{class_chess_game_a24fe7521a6a85a3db3ef6d369ce87965} 
+\index{ChessGame@{ChessGame}!getPieceAtPositionActivePlayer@{getPieceAtPositionActivePlayer}}
+\index{getPieceAtPositionActivePlayer@{getPieceAtPositionActivePlayer}!ChessGame@{ChessGame}}
+\doxysubsubsection{\texorpdfstring{getPieceAtPositionActivePlayer()}{getPieceAtPositionActivePlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} Chess\+Game\+::get\+Piece\+At\+Position\+Active\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Gets the chess piece at the specified position for the active player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position on the chessboard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the chess piece at the specified position for the active player. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{class_chess_game_ac6d0b5e0ac325a23fa4f82570835344b}\label{class_chess_game_ac6d0b5e0ac325a23fa4f82570835344b} 
+\index{ChessGame@{ChessGame}!makeMove@{makeMove}}
+\index{makeMove@{makeMove}!ChessGame@{ChessGame}}
+\doxysubsubsection{\texorpdfstring{makeMove()}{makeMove()}}
+{\footnotesize\ttfamily void Chess\+Game\+::make\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{pos\+From,  }\item[{\mbox{\hyperlink{struct_position}{Position}}}]{pos\+To }\end{DoxyParamCaption})}
+
+
+
+Makes a move on the chessboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+From} & The starting position of the move. \\
+\hline
+{\em pos\+To} & The destination position of the move. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{class_chess_game_aeeb405a0f6e10ec844fab2ff0a4a0392}\label{class_chess_game_aeeb405a0f6e10ec844fab2ff0a4a0392} 
+\index{ChessGame@{ChessGame}!promotePawn@{promotePawn}}
+\index{promotePawn@{promotePawn}!ChessGame@{ChessGame}}
+\doxysubsubsection{\texorpdfstring{promotePawn()}{promotePawn()}}
+{\footnotesize\ttfamily void Chess\+Game\+::promote\+Pawn (\begin{DoxyParamCaption}\item[{Piece\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Promotes a pawn to the specified piece type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type to which the pawn should be promoted. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+\Hypertarget{class_chess_game_a0a1ace159e2805445f647971ebe5f58c}\label{class_chess_game_a0a1ace159e2805445f647971ebe5f58c} 
+\index{ChessGame@{ChessGame}!updateBoard@{updateBoard}}
+\index{updateBoard@{updateBoard}!ChessGame@{ChessGame}}
+\doxysubsubsection{\texorpdfstring{updateBoard}{updateBoard}}
+{\footnotesize\ttfamily void Chess\+Game\+::update\+Board (\begin{DoxyParamCaption}\item[{const QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal emitted to update the graphical representation of the chessboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chess\+Pieces} & The list of chess pieces on the board. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 9
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Game.\+h\item 
+Chess\+Game.\+cpp\end{DoxyCompactItemize}

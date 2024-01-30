@@ -1,0 +1,145 @@
+\doxysection{Chess\+Board Class Reference}
+\hypertarget{class_chess_board}{}\label{class_chess_board}\index{ChessBoard@{ChessBoard}}
+
+
+The \doxylink{class_chess_board}{Chess\+Board} class represents the chessboard in the graphical user interface.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Board.\+h$>$}
+
+
+
+Inheritance diagram for Chess\+Board\+:
+% FIG 0
+
+
+Collaboration diagram for Chess\+Board\+:
+% FIG 1
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_chess_board_a5d276699dcaec0fdfe6ea172c5f78b59}{box\+Clicked}} (const \mbox{\hyperlink{struct_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em Slot function called when a chessbox is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_chess_board_a3e23c6e3d62f7181e559cdf42f6a3166}{signal\+Box\+Clicked}} (const \mbox{\hyperlink{struct_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em Signal emitted when a chessbox is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_chess_board_a95dbc04e65e1f68d67aa582370fda034}{update\+Board}} (const QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Updates the chessboard with the current state of the game. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_board_ac73671a2762c2073a152bfb40d21315a}{Chess\+Board}} (QGraphics\+Scene \texorpdfstring{$\ast$}{*}scene\+In, QGraphics\+Item \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_chess_board}{Chess\+Board}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_a0899e7bb8b30186587d927f58469ce17}{change\+Color\+Under\+Attack}} (\mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*}piece)
+\begin{DoxyCompactList}\small\item\em Changes the color of chessboard squares to indicate pieces under attack. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_aa85d5e51b081379451b982cb4acd162d}\label{class_chess_board_aa85d5e51b081379451b982cb4acd162d} 
+void {\bfseries restore\+Default\+Color} ()
+\begin{DoxyCompactList}\small\item\em Restores the default background color of all chessboard squares. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_chess_board}{Chess\+Board} class represents the chessboard in the graphical user interface. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_chess_board_ac73671a2762c2073a152bfb40d21315a}\label{class_chess_board_ac73671a2762c2073a152bfb40d21315a} 
+\index{ChessBoard@{ChessBoard}!ChessBoard@{ChessBoard}}
+\index{ChessBoard@{ChessBoard}!ChessBoard@{ChessBoard}}
+\doxysubsubsection{\texorpdfstring{ChessBoard()}{ChessBoard()}}
+{\footnotesize\ttfamily Chess\+Board\+::\+Chess\+Board (\begin{DoxyParamCaption}\item[{QGraphics\+Scene \texorpdfstring{$\ast$}{*}}]{scene\+In,  }\item[{QGraphics\+Item \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_chess_board}{Chess\+Board}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene\+In} & The QGraphics\+Scene containing the chessboard. \\
+\hline
+{\em parent} & The parent QGraphics\+Item. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chess_board_a5d276699dcaec0fdfe6ea172c5f78b59}\label{class_chess_board_a5d276699dcaec0fdfe6ea172c5f78b59} 
+\index{ChessBoard@{ChessBoard}!boxClicked@{boxClicked}}
+\index{boxClicked@{boxClicked}!ChessBoard@{ChessBoard}}
+\doxysubsubsection{\texorpdfstring{boxClicked}{boxClicked}}
+{\footnotesize\ttfamily void Chess\+Board\+::box\+Clicked (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot function called when a chessbox is clicked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the clicked chessbox. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 2
+\Hypertarget{class_chess_board_a0899e7bb8b30186587d927f58469ce17}\label{class_chess_board_a0899e7bb8b30186587d927f58469ce17} 
+\index{ChessBoard@{ChessBoard}!changeColorUnderAttack@{changeColorUnderAttack}}
+\index{changeColorUnderAttack@{changeColorUnderAttack}!ChessBoard@{ChessBoard}}
+\doxysubsubsection{\texorpdfstring{changeColorUnderAttack()}{changeColorUnderAttack()}}
+{\footnotesize\ttfamily void Chess\+Board\+::change\+Color\+Under\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*}}]{piece }\end{DoxyParamCaption})}
+
+
+
+Changes the color of chessboard squares to indicate pieces under attack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & The chess piece under attack. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{class_chess_board_a3e23c6e3d62f7181e559cdf42f6a3166}\label{class_chess_board_a3e23c6e3d62f7181e559cdf42f6a3166} 
+\index{ChessBoard@{ChessBoard}!signalBoxClicked@{signalBoxClicked}}
+\index{signalBoxClicked@{signalBoxClicked}!ChessBoard@{ChessBoard}}
+\doxysubsubsection{\texorpdfstring{signalBoxClicked}{signalBoxClicked}}
+{\footnotesize\ttfamily void Chess\+Board\+::signal\+Box\+Clicked (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal emitted when a chessbox is clicked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the clicked chessbox. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{class_chess_board_a95dbc04e65e1f68d67aa582370fda034}\label{class_chess_board_a95dbc04e65e1f68d67aa582370fda034} 
+\index{ChessBoard@{ChessBoard}!updateBoard@{updateBoard}}
+\index{updateBoard@{updateBoard}!ChessBoard@{ChessBoard}}
+\doxysubsubsection{\texorpdfstring{updateBoard()}{updateBoard()}}
+{\footnotesize\ttfamily void Chess\+Board\+::update\+Board (\begin{DoxyParamCaption}\item[{const QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})}
+
+
+
+Updates the chessboard with the current state of the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chess\+Pieces} & The list of chess pieces on the board. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Board.\+h\item 
+Chess\+Board.\+cpp\end{DoxyCompactItemize}

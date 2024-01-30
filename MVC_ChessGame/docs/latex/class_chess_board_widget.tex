@@ -1,0 +1,174 @@
+\doxysection{Chess\+Board\+Widget Class Reference}
+\hypertarget{class_chess_board_widget}{}\label{class_chess_board_widget}\index{ChessBoardWidget@{ChessBoardWidget}}
+
+
+The \doxylink{class_chess_board_widget}{Chess\+Board\+Widget} class represents the graphical user interface for the chess game.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Board\+Widget.\+h$>$}
+
+
+
+Inheritance diagram for Chess\+Board\+Widget\+:
+% FIG 0
+
+
+Collaboration diagram for Chess\+Board\+Widget\+:
+% FIG 1
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_chess_board_widget_a465e9c198c5511ffca7ebd5d741643cb}\label{class_chess_board_widget_a465e9c198c5511ffca7ebd5d741643cb} 
+void {\bfseries initialize\+Chess\+Board} ()
+\begin{DoxyCompactList}\small\item\em Initializes the chessboard and starts the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_widget_a07b3570ce8dd2ba392ec656a7fbd9df6}{update\+Board}} (const QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ \&chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Updates the chessboard with the current state of the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_widget_a4908fafe4bd7fb814d8767534eb85fa5}{handle\+Square\+Clicked}} (const \mbox{\hyperlink{struct_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em Handles the click event on a chessboard square. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_widget_a3f565239d9e0220872020f8168b15d1d}{show\+Winner\+Panel}} (Player \&winner)
+\begin{DoxyCompactList}\small\item\em Displays the winner panel with the winning player\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_widget_a9710e37fc86359a902702d4a81485d3d}\label{class_chess_board_widget_a9710e37fc86359a902702d4a81485d3d} 
+void {\bfseries quit} ()
+\begin{DoxyCompactList}\small\item\em Quits the game. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_widget_a089d8a763ae952de68cf6a4037f7656e}\label{class_chess_board_widget_a089d8a763ae952de68cf6a4037f7656e} 
+void {\bfseries show\+Promotion\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em Shows the promotion buttons when a pawn reaches the end of the board. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_widget_a3644376bc07f178d66800899c5304493}\label{class_chess_board_widget_a3644376bc07f178d66800899c5304493} 
+void {\bfseries hide\+Promotion\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em Hides the promotion buttons. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_chess_board_widget_afd3a493083400ff46be0a671896d815e}\label{class_chess_board_widget_afd3a493083400ff46be0a671896d815e} 
+void {\bfseries game\+Started} ()
+\begin{DoxyCompactList}\small\item\em Signal emitted when the game is started. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_widget_a4b2c479e09912e5d11a20a0b02c76577}\label{class_chess_board_widget_a4b2c479e09912e5d11a20a0b02c76577} 
+void {\bfseries undo\+Request} ()
+\begin{DoxyCompactList}\small\item\em Signal emitted when an undo move is requested. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_widget_abc413bbbcecd540148eab7d11c3e0f5a}\label{class_chess_board_widget_abc413bbbcecd540148eab7d11c3e0f5a} 
+void {\bfseries promote\+To\+Queen} ()
+\begin{DoxyCompactList}\small\item\em Signal emitted when a pawn is promoted to a queen. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_widget_a4d9e65ed21dd2b6435a0da17ecd12584}\label{class_chess_board_widget_a4d9e65ed21dd2b6435a0da17ecd12584} 
+void {\bfseries promote\+To\+Rook} ()
+\begin{DoxyCompactList}\small\item\em Signal emitted when a pawn is promoted to a rook. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_widget_a8fbe3490c0d9fddd8b1dc1c2d8ad0f47}\label{class_chess_board_widget_a8fbe3490c0d9fddd8b1dc1c2d8ad0f47} 
+void {\bfseries promote\+To\+Bishop} ()
+\begin{DoxyCompactList}\small\item\em Signal emitted when a pawn is promoted to a bishop. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_widget_a9ecc0bf8aaf4f878c9916fd050fa617a}\label{class_chess_board_widget_a9ecc0bf8aaf4f878c9916fd050fa617a} 
+void {\bfseries promote\+To\+Knight} ()
+\begin{DoxyCompactList}\small\item\em Signal emitted when a pawn is promoted to a knight. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_board_widget_a60cc94db0ed12fcfc44e3c33b9f6a19c}{Chess\+Board\+Widget}} (\mbox{\hyperlink{class_chess_controller}{Chess\+Controller}} \texorpdfstring{$\ast$}{*}chess\+Controller, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_chess_board_widget}{Chess\+Board\+Widget}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_widget_a418f21d3bdbe7e828aa2021528508b94}{mark\+Possible\+Moves}} (\mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*}piece)
+\begin{DoxyCompactList}\small\item\em Marks the possible moves for the given chess piece on the chessboard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_chess_board_widget}{Chess\+Board\+Widget} class represents the graphical user interface for the chess game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_chess_board_widget_a60cc94db0ed12fcfc44e3c33b9f6a19c}\label{class_chess_board_widget_a60cc94db0ed12fcfc44e3c33b9f6a19c} 
+\index{ChessBoardWidget@{ChessBoardWidget}!ChessBoardWidget@{ChessBoardWidget}}
+\index{ChessBoardWidget@{ChessBoardWidget}!ChessBoardWidget@{ChessBoardWidget}}
+\doxysubsubsection{\texorpdfstring{ChessBoardWidget()}{ChessBoardWidget()}}
+{\footnotesize\ttfamily Chess\+Board\+Widget\+::\+Chess\+Board\+Widget (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chess_controller}{Chess\+Controller}} \texorpdfstring{$\ast$}{*}}]{chess\+Controller,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_chess_board_widget}{Chess\+Board\+Widget}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chess\+Controller} & The associated \doxylink{class_chess_controller}{Chess\+Controller} instance. \\
+\hline
+{\em parent} & The parent widget. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chess_board_widget_a4908fafe4bd7fb814d8767534eb85fa5}\label{class_chess_board_widget_a4908fafe4bd7fb814d8767534eb85fa5} 
+\index{ChessBoardWidget@{ChessBoardWidget}!handleSquareClicked@{handleSquareClicked}}
+\index{handleSquareClicked@{handleSquareClicked}!ChessBoardWidget@{ChessBoardWidget}}
+\doxysubsubsection{\texorpdfstring{handleSquareClicked}{handleSquareClicked}}
+{\footnotesize\ttfamily void Chess\+Board\+Widget\+::handle\+Square\+Clicked (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Handles the click event on a chessboard square. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the clicked square. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{class_chess_board_widget_a418f21d3bdbe7e828aa2021528508b94}\label{class_chess_board_widget_a418f21d3bdbe7e828aa2021528508b94} 
+\index{ChessBoardWidget@{ChessBoardWidget}!markPossibleMoves@{markPossibleMoves}}
+\index{markPossibleMoves@{markPossibleMoves}!ChessBoardWidget@{ChessBoardWidget}}
+\doxysubsubsection{\texorpdfstring{markPossibleMoves()}{markPossibleMoves()}}
+{\footnotesize\ttfamily void Chess\+Board\+Widget\+::mark\+Possible\+Moves (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*}}]{piece }\end{DoxyParamCaption})}
+
+
+
+Marks the possible moves for the given chess piece on the chessboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & The chess piece for which possible moves will be marked. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{class_chess_board_widget_a3f565239d9e0220872020f8168b15d1d}\label{class_chess_board_widget_a3f565239d9e0220872020f8168b15d1d} 
+\index{ChessBoardWidget@{ChessBoardWidget}!showWinnerPanel@{showWinnerPanel}}
+\index{showWinnerPanel@{showWinnerPanel}!ChessBoardWidget@{ChessBoardWidget}}
+\doxysubsubsection{\texorpdfstring{showWinnerPanel}{showWinnerPanel}}
+{\footnotesize\ttfamily void Chess\+Board\+Widget\+::show\+Winner\+Panel (\begin{DoxyParamCaption}\item[{Player \&}]{winner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Displays the winner panel with the winning player\textquotesingle{}s name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em winner} & The winning player. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{class_chess_board_widget_a07b3570ce8dd2ba392ec656a7fbd9df6}\label{class_chess_board_widget_a07b3570ce8dd2ba392ec656a7fbd9df6} 
+\index{ChessBoardWidget@{ChessBoardWidget}!updateBoard@{updateBoard}}
+\index{updateBoard@{updateBoard}!ChessBoardWidget@{ChessBoardWidget}}
+\doxysubsubsection{\texorpdfstring{updateBoard}{updateBoard}}
+{\footnotesize\ttfamily void Chess\+Board\+Widget\+::update\+Board (\begin{DoxyParamCaption}\item[{const QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ \&}]{chess\+Pieces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Updates the chessboard with the current state of the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chess\+Pieces} & The list of chess pieces on the board. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 8
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Board\+Widget.\+h\item 
+Chess\+Board\+Widget.\+cpp\end{DoxyCompactItemize}

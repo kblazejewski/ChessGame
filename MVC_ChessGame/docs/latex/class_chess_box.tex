@@ -1,0 +1,123 @@
+\doxysection{Chess\+Box Class Reference}
+\hypertarget{class_chess_box}{}\label{class_chess_box}\index{ChessBox@{ChessBox}}
+
+
+The \doxylink{class_chess_box}{Chess\+Box} class represents a single square on the chessboard.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Box.\+h$>$}
+
+
+
+Inheritance diagram for Chess\+Box\+:
+% FIG 0
+
+
+Collaboration diagram for Chess\+Box\+:
+% FIG 1
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_chess_box_a000db299686669270b3fde8ca6598745}{box\+Clicked}} (const \mbox{\hyperlink{struct_position}{Position}} \&position)
+\begin{DoxyCompactList}\small\item\em Signal emitted when the chessbox is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_box_a96311ef5fc3206faac92e11a0150ec65}{Chess\+Box}} (QColor background\+Color, \mbox{\hyperlink{struct_position}{Position}} position, QGraphics\+Item \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_chess_box}{Chess\+Box}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_box_a3bfae44656783f6210fb8d2d0fd39bbd}{set\+Position}} (\mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the chessbox. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{struct_position}{Position}} \mbox{\hyperlink{class_chess_box_a3b890622c80a311718ad94bfba132992}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Gets the position of the chessbox. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_box_a81f40be243dd43a633023bb1bfd0493a}\label{class_chess_box_a81f40be243dd43a633023bb1bfd0493a} 
+void {\bfseries change\+Color\+Under\+Attack} ()
+\begin{DoxyCompactList}\small\item\em Changes the background color of the chessbox to indicate it is under attack. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_box_af3e02f2d09d428627b6fd6d99e08923d}\label{class_chess_box_af3e02f2d09d428627b6fd6d99e08923d} 
+void {\bfseries restore\+Default\+Color} ()
+\begin{DoxyCompactList}\small\item\em Restores the default background color of the chessbox. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_box_a1c6e112b0765e7dd451252994a5ddefe}\label{class_chess_box_a1c6e112b0765e7dd451252994a5ddefe} 
+void {\bfseries mouse\+Press\+Event} (QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Detect mouse click. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_chess_box}{Chess\+Box} class represents a single square on the chessboard. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_chess_box_a96311ef5fc3206faac92e11a0150ec65}\label{class_chess_box_a96311ef5fc3206faac92e11a0150ec65} 
+\index{ChessBox@{ChessBox}!ChessBox@{ChessBox}}
+\index{ChessBox@{ChessBox}!ChessBox@{ChessBox}}
+\doxysubsubsection{\texorpdfstring{ChessBox()}{ChessBox()}}
+{\footnotesize\ttfamily Chess\+Box\+::\+Chess\+Box (\begin{DoxyParamCaption}\item[{QColor}]{background\+Color,  }\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position,  }\item[{QGraphics\+Item \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_chess_box}{Chess\+Box}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em background\+Color} & The initial background color of the chessbox. \\
+\hline
+{\em position} & The position of the chessbox on the chessboard. \\
+\hline
+{\em parent} & The parent QGraphics\+Item. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chess_box_a000db299686669270b3fde8ca6598745}\label{class_chess_box_a000db299686669270b3fde8ca6598745} 
+\index{ChessBox@{ChessBox}!boxClicked@{boxClicked}}
+\index{boxClicked@{boxClicked}!ChessBox@{ChessBox}}
+\doxysubsubsection{\texorpdfstring{boxClicked}{boxClicked}}
+{\footnotesize\ttfamily void Chess\+Box\+::box\+Clicked (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_position}{Position}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal emitted when the chessbox is clicked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the clicked chessbox. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{class_chess_box_a3b890622c80a311718ad94bfba132992}\label{class_chess_box_a3b890622c80a311718ad94bfba132992} 
+\index{ChessBox@{ChessBox}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!ChessBox@{ChessBox}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_position}{Position}} Chess\+Box\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the position of the chessbox. 
+
+\begin{DoxyReturn}{Returns}
+The position of the chessbox. 
+\end{DoxyReturn}
+\Hypertarget{class_chess_box_a3bfae44656783f6210fb8d2d0fd39bbd}\label{class_chess_box_a3bfae44656783f6210fb8d2d0fd39bbd} 
+\index{ChessBox@{ChessBox}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!ChessBox@{ChessBox}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Chess\+Box\+::set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Sets the position of the chessbox. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The new position of the chessbox. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Box.\+h\item 
+Chess\+Box.\+cpp\end{DoxyCompactItemize}

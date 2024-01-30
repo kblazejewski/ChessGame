@@ -1,0 +1,22 @@
+digraph "ChessGame::promotePawn"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="ChessGame::promotePawn",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Promotes a pawn to the specified piece type."];
+  Node1 -> Node2 [id="edge9_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ChessController::handlePromote\lToBishop",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_controller.html#a1ef391574537c77e05facc3a4623c388",tooltip="Slot to handle promoting a pawn to a bishop."];
+  Node2 -> Node3 [id="edge10_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="ChessController::ChessController",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_controller.html#a1a5ce0f8a8706dd670b8da59e3f4d0d3",tooltip="Constructor for ChessController."];
+  Node1 -> Node4 [id="edge11_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="ChessController::handlePromote\lToKnight",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_controller.html#aa5bf2e2638621609aaf5f79c9a7621c9",tooltip="Slot to handle promoting a pawn to a knight."];
+  Node4 -> Node3 [id="edge12_Node000004_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node5 [id="edge13_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="ChessController::handlePromote\lToQueen",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_controller.html#ad281d64ec4c63ad737edff6f76c62182",tooltip="Slot to handle promoting a pawn to a queen."];
+  Node5 -> Node3 [id="edge14_Node000005_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node6 [id="edge15_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="ChessController::handlePromote\lToRook",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_controller.html#a31f9d1b347d44627572370863fe0b67c",tooltip="Slot to handle promoting a pawn to a rook."];
+  Node6 -> Node3 [id="edge16_Node000006_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+}

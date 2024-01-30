@@ -1,0 +1,75 @@
+\doxysection{Utils Class Reference}
+\hypertarget{class_utils}{}\label{class_utils}\index{Utils@{Utils}}
+
+
+The \doxylink{class_utils}{Utils} class provides utility functions for graphical items.  
+
+
+
+
+{\ttfamily \#include $<$Utils.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_utils_ae7aaa2a35ce81327f317488869015bce}{set\+Bacground\+Color}} (QColor color, QAbstract\+Graphics\+Shape\+Item \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Sets the background color of a QAbstract\+Graphics\+Shape\+Item. \end{DoxyCompactList}\item 
+static QGraphics\+Text\+Item \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_utils_aa61cb7c68912475b416045297fb462c4}{create\+Text\+Item}} (QString title, int font\+Size, QColor text\+Color, QGraphics\+Item \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Creates a QGraphics\+Text\+Item with the specified title, font size, and text color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_utils}{Utils} class provides utility functions for graphical items. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_utils_aa61cb7c68912475b416045297fb462c4}\label{class_utils_aa61cb7c68912475b416045297fb462c4} 
+\index{Utils@{Utils}!createTextItem@{createTextItem}}
+\index{createTextItem@{createTextItem}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{createTextItem()}{createTextItem()}}
+{\footnotesize\ttfamily QGraphics\+Text\+Item \texorpdfstring{$\ast$}{*} Utils\+::create\+Text\+Item (\begin{DoxyParamCaption}\item[{QString}]{title,  }\item[{int}]{font\+Size,  }\item[{QColor}]{text\+Color,  }\item[{QGraphics\+Item \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a QGraphics\+Text\+Item with the specified title, font size, and text color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The text content of the item. \\
+\hline
+{\em font\+Size} & The font size of the text. \\
+\hline
+{\em text\+Color} & The color of the text. \\
+\hline
+{\em parent} & The parent QGraphics\+Item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created QGraphics\+Text\+Item. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 0
+\Hypertarget{class_utils_ae7aaa2a35ce81327f317488869015bce}\label{class_utils_ae7aaa2a35ce81327f317488869015bce} 
+\index{Utils@{Utils}!setBacgroundColor@{setBacgroundColor}}
+\index{setBacgroundColor@{setBacgroundColor}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{setBacgroundColor()}{setBacgroundColor()}}
+{\footnotesize\ttfamily void Utils\+::set\+Bacground\+Color (\begin{DoxyParamCaption}\item[{QColor}]{color,  }\item[{QAbstract\+Graphics\+Shape\+Item \texorpdfstring{$\ast$}{*}}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets the background color of a QAbstract\+Graphics\+Shape\+Item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The background color to set. \\
+\hline
+{\em item} & The QAbstract\+Graphics\+Shape\+Item whose background color will be set. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 1
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Utils.\+h\item 
+Utils.\+cpp\end{DoxyCompactItemize}

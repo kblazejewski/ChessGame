@@ -1,0 +1,150 @@
+\doxysection{Pawn\+Piece Class Reference}
+\hypertarget{class_pawn_piece}{}\label{class_pawn_piece}\index{PawnPiece@{PawnPiece}}
+
+
+The \doxylink{class_pawn_piece}{Pawn\+Piece} class represents the pawn chess piece.  
+
+
+
+
+{\ttfamily \#include $<$Pawn\+Piece.\+h$>$}
+
+
+
+Inheritance diagram for Pawn\+Piece\+:
+% FIG 0
+
+
+Collaboration diagram for Pawn\+Piece\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pawn_piece_acc7bab51a6115f209c3d1a3c4771ef36}{Pawn\+Piece}} (\mbox{\hyperlink{struct_position}{Position}} position, Player player, Piece\+Type piece\+Type)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_pawn_piece}{Pawn\+Piece}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_pawn_piece_a12734fe45a72966a04d43ea3e4c4f42b}{validate\+Move}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces) override
+\begin{DoxyCompactList}\small\item\em Validates the move of the pawn piece to the specified position. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_pawn_piece_a246b6f86ed7774491bbec0bd2f1e07d0}{deep\+Copy}} () override
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of the pawn piece. \end{DoxyCompactList}\item 
+\Hypertarget{class_pawn_piece_a3a94c5449a9ab8fc1cd62dd0d48aed45}\label{class_pawn_piece_a3a94c5449a9ab8fc1cd62dd0d48aed45} 
+void {\bfseries set\+En\+Passant\+Vurnelable} ()
+\begin{DoxyCompactList}\small\item\em Sets the pawn piece as vulnerable to en passant capture. \end{DoxyCompactList}\item 
+\Hypertarget{class_pawn_piece_aafed96896d6751b7f59465fa6828730e}\label{class_pawn_piece_aafed96896d6751b7f59465fa6828730e} 
+void {\bfseries reset\+En\+Passant\+Vurnelable} ()
+\begin{DoxyCompactList}\small\item\em Resets the vulnerability of the pawn piece to en passant capture. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_piece_aea586cdfa66666cfe67c549c0aac27dc}{Chess\+Piece}} (\mbox{\hyperlink{struct_position}{Position}} position, Player player, Piece\+Type piece\+Type)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_chess_piece}{Chess\+Piece}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Chess\+Piece} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_chess_piece}{Chess\+Piece}. \end{DoxyCompactList}\item 
+const QList$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ \mbox{\hyperlink{class_chess_piece_a6364cfab0ddb83266f3a3ae458661090}{get\+Possible\+Moves}} () const
+\begin{DoxyCompactList}\small\item\em Gets the list of possible moves for the chess piece. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_piece_a040e9fa1a5993259d6798dfd97212267}{set\+Possible\+Moves}} (QList$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ legal\+Moves)
+\begin{DoxyCompactList}\small\item\em Sets the list of possible moves for the chess piece. \end{DoxyCompactList}\item 
+const Piece\+Type \mbox{\hyperlink{class_chess_piece_a334618388830072f1f7775a1adf510a8}{get\+Piece\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Gets the type of the chess piece. \end{DoxyCompactList}\item 
+const Player \mbox{\hyperlink{class_chess_piece_aa449c4e3dd08c3f3aa08309a6bf59062}{get\+Player}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player to whom the chess piece belongs. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{struct_position}{Position}} \mbox{\hyperlink{class_chess_piece_a0d288a080fad78ca88a3cbef84566dcb}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current position of the chess piece on the chessboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_piece_a0fca2beecfad938262fbe64e9cb77c5c}{set\+Position}} (\mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the chess piece on the chessboard. \end{DoxyCompactList}\item 
+void {\bfseries set\+First\+Move\+Taken} ()
+\begin{DoxyCompactList}\small\item\em Sets the flag indicating that the first move has been taken. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_piece_a7dd2c8580a749a8cac1b13a0d1b32e1e}{first\+Move\+Taken}} () const
+\begin{DoxyCompactList}\small\item\em Checks whether the first move has been taken. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}}}
+\begin{DoxyCompactItemize}
+\item 
+const bool \mbox{\hyperlink{class_chess_piece_a63f27383ff9fa386a1350623d35218b4}{validate\+Diagonal\+Move}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Validates a diagonal move for the chess piece. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_piece_adf77f2c7208baf41bfd6417692f973ee}{validate\+Vertical\+Or\+Horizontal\+Move}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Validates a vertical or horizontal move for the chess piece. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_piece_a231eafa49e8a1a8232acbb488301ebc6}{validate\+One\+Field\+Move}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Validates a one-\/field move for the chess piece. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_piece_a93b460de9600b44d35168e4180cc6288}{validate\+Another\+Piece\+Intersection}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Validates the intersection with another chess piece for the chess piece. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_pawn_piece}{Pawn\+Piece} class represents the pawn chess piece. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_pawn_piece_acc7bab51a6115f209c3d1a3c4771ef36}\label{class_pawn_piece_acc7bab51a6115f209c3d1a3c4771ef36} 
+\index{PawnPiece@{PawnPiece}!PawnPiece@{PawnPiece}}
+\index{PawnPiece@{PawnPiece}!PawnPiece@{PawnPiece}}
+\doxysubsubsection{\texorpdfstring{PawnPiece()}{PawnPiece()}}
+{\footnotesize\ttfamily Pawn\+Piece\+::\+Pawn\+Piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position,  }\item[{Player}]{player,  }\item[{Piece\+Type}]{piece\+Type }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_pawn_piece}{Pawn\+Piece}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The initial position of the pawn piece. \\
+\hline
+{\em player} & The player to whom the pawn piece belongs. \\
+\hline
+{\em piece\+Type} & The type of the pawn piece. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pawn_piece_a246b6f86ed7774491bbec0bd2f1e07d0}\label{class_pawn_piece_a246b6f86ed7774491bbec0bd2f1e07d0} 
+\index{PawnPiece@{PawnPiece}!deepCopy@{deepCopy}}
+\index{deepCopy@{deepCopy}!PawnPiece@{PawnPiece}}
+\doxysubsubsection{\texorpdfstring{deepCopy()}{deepCopy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} Pawn\+Piece\+::deep\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a deep copy of the pawn piece. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the deep copy of the pawn piece. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_chess_piece_ab28043f16500adc9af2813a9776f9574}{Chess\+Piece}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+\Hypertarget{class_pawn_piece_a12734fe45a72966a04d43ea3e4c4f42b}\label{class_pawn_piece_a12734fe45a72966a04d43ea3e4c4f42b} 
+\index{PawnPiece@{PawnPiece}!validateMove@{validateMove}}
+\index{validateMove@{validateMove}!PawnPiece@{PawnPiece}}
+\doxysubsubsection{\texorpdfstring{validateMove()}{validateMove()}}
+{\footnotesize\ttfamily bool Pawn\+Piece\+::validate\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position\+To\+Move,  }\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Validates the move of the pawn piece to the specified position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\+To\+Move} & The position to which the pawn piece is to be moved. \\
+\hline
+{\em chess\+Pieces} & The list of all chess pieces on the chessboard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the move is valid, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_chess_piece_a3c4512bba73b8f590f45b395c4fc074b}{Chess\+Piece}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pawn\+Piece.\+h\item 
+Pawn\+Piece.\+cpp\end{DoxyCompactItemize}

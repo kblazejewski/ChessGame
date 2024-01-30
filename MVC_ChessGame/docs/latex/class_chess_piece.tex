@@ -1,0 +1,335 @@
+\doxysection{Chess\+Piece Class Reference}
+\hypertarget{class_chess_piece}{}\label{class_chess_piece}\index{ChessPiece@{ChessPiece}}
+
+
+The \doxylink{class_chess_piece}{Chess\+Piece} class represents a generic chess piece.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Piece.\+h$>$}
+
+
+
+Inheritance diagram for Chess\+Piece\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chess_piece_aea586cdfa66666cfe67c549c0aac27dc}{Chess\+Piece}} (\mbox{\hyperlink{struct_position}{Position}} position, Player player, Piece\+Type piece\+Type)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_chess_piece}{Chess\+Piece}. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_piece_ad527cdb099318b0beed6ece1cec68792}\label{class_chess_piece_ad527cdb099318b0beed6ece1cec68792} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Chess\+Piece} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_chess_piece}{Chess\+Piece}. \end{DoxyCompactList}\item 
+const QList$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ \mbox{\hyperlink{class_chess_piece_a6364cfab0ddb83266f3a3ae458661090}{get\+Possible\+Moves}} () const
+\begin{DoxyCompactList}\small\item\em Gets the list of possible moves for the chess piece. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_piece_a040e9fa1a5993259d6798dfd97212267}{set\+Possible\+Moves}} (QList$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ legal\+Moves)
+\begin{DoxyCompactList}\small\item\em Sets the list of possible moves for the chess piece. \end{DoxyCompactList}\item 
+const Piece\+Type \mbox{\hyperlink{class_chess_piece_a334618388830072f1f7775a1adf510a8}{get\+Piece\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Gets the type of the chess piece. \end{DoxyCompactList}\item 
+const Player \mbox{\hyperlink{class_chess_piece_aa449c4e3dd08c3f3aa08309a6bf59062}{get\+Player}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player to whom the chess piece belongs. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{struct_position}{Position}} \mbox{\hyperlink{class_chess_piece_a0d288a080fad78ca88a3cbef84566dcb}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current position of the chess piece on the chessboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_piece_a0fca2beecfad938262fbe64e9cb77c5c}{set\+Position}} (\mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the chess piece on the chessboard. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_chess_piece_a3c4512bba73b8f590f45b395c4fc074b}{validate\+Move}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)=0
+\begin{DoxyCompactList}\small\item\em Validates the move of the chess piece to the specified position. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_piece_ab57c93bf1710ae5aa0e0c314deb11ee1}\label{class_chess_piece_ab57c93bf1710ae5aa0e0c314deb11ee1} 
+void {\bfseries set\+First\+Move\+Taken} ()
+\begin{DoxyCompactList}\small\item\em Sets the flag indicating that the first move has been taken. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_piece_a7dd2c8580a749a8cac1b13a0d1b32e1e}{first\+Move\+Taken}} () const
+\begin{DoxyCompactList}\small\item\em Checks whether the first move has been taken. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_chess_piece_ab28043f16500adc9af2813a9776f9574}{deep\+Copy}} ()=0
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of the chess piece. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const bool \mbox{\hyperlink{class_chess_piece_a63f27383ff9fa386a1350623d35218b4}{validate\+Diagonal\+Move}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Validates a diagonal move for the chess piece. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_piece_adf77f2c7208baf41bfd6417692f973ee}{validate\+Vertical\+Or\+Horizontal\+Move}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Validates a vertical or horizontal move for the chess piece. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_piece_a231eafa49e8a1a8232acbb488301ebc6}{validate\+One\+Field\+Move}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Validates a one-\/field move for the chess piece. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_piece_a93b460de9600b44d35168e4180cc6288}{validate\+Another\+Piece\+Intersection}} (\mbox{\hyperlink{struct_position}{Position}} position\+To\+Move, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Validates the intersection with another chess piece for the chess piece. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_chess_piece}{Chess\+Piece} class represents a generic chess piece. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_chess_piece_aea586cdfa66666cfe67c549c0aac27dc}\label{class_chess_piece_aea586cdfa66666cfe67c549c0aac27dc} 
+\index{ChessPiece@{ChessPiece}!ChessPiece@{ChessPiece}}
+\index{ChessPiece@{ChessPiece}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{ChessPiece()}{ChessPiece()}}
+{\footnotesize\ttfamily Chess\+Piece\+::\+Chess\+Piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position,  }\item[{Player}]{player,  }\item[{Piece\+Type}]{piece\+Type }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_chess_piece}{Chess\+Piece}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The initial position of the chess piece. \\
+\hline
+{\em player} & The player to whom the chess piece belongs. \\
+\hline
+{\em piece\+Type} & The type of the chess piece. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chess_piece_ab28043f16500adc9af2813a9776f9574}\label{class_chess_piece_ab28043f16500adc9af2813a9776f9574} 
+\index{ChessPiece@{ChessPiece}!deepCopy@{deepCopy}}
+\index{deepCopy@{deepCopy}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{deepCopy()}{deepCopy()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} Chess\+Piece\+::deep\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a deep copy of the chess piece. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the deep copy of the chess piece. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_bishop_piece_a2d7087885033876140cb201f10bd3908}{Bishop\+Piece}}, \mbox{\hyperlink{class_king_piece_ac6853be0b8551a60b850950f7d2ce289}{King\+Piece}}, \mbox{\hyperlink{class_knight_piece_a56597fe941702ca469a763354a67cfdc}{Knight\+Piece}}, \mbox{\hyperlink{class_pawn_piece_a246b6f86ed7774491bbec0bd2f1e07d0}{Pawn\+Piece}}, \mbox{\hyperlink{class_queen_piece_af587ae9eca39172bfe845e022aca0414}{Queen\+Piece}}, and \mbox{\hyperlink{class_rook_piece_aa62634839acb6e58e3465a90ebce2494}{Rook\+Piece}}.
+
+\Hypertarget{class_chess_piece_a7dd2c8580a749a8cac1b13a0d1b32e1e}\label{class_chess_piece_a7dd2c8580a749a8cac1b13a0d1b32e1e} 
+\index{ChessPiece@{ChessPiece}!firstMoveTaken@{firstMoveTaken}}
+\index{firstMoveTaken@{firstMoveTaken}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{firstMoveTaken()}{firstMoveTaken()}}
+{\footnotesize\ttfamily const bool Chess\+Piece\+::first\+Move\+Taken (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks whether the first move has been taken. 
+
+\begin{DoxyReturn}{Returns}
+True if the first move has been taken, false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{class_chess_piece_a334618388830072f1f7775a1adf510a8}\label{class_chess_piece_a334618388830072f1f7775a1adf510a8} 
+\index{ChessPiece@{ChessPiece}!getPieceType@{getPieceType}}
+\index{getPieceType@{getPieceType}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{getPieceType()}{getPieceType()}}
+{\footnotesize\ttfamily const Piece\+Type Chess\+Piece\+::get\+Piece\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the type of the chess piece. 
+
+\begin{DoxyReturn}{Returns}
+The type of the chess piece. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{class_chess_piece_aa449c4e3dd08c3f3aa08309a6bf59062}\label{class_chess_piece_aa449c4e3dd08c3f3aa08309a6bf59062} 
+\index{ChessPiece@{ChessPiece}!getPlayer@{getPlayer}}
+\index{getPlayer@{getPlayer}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{getPlayer()}{getPlayer()}}
+{\footnotesize\ttfamily const Player Chess\+Piece\+::get\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the player to whom the chess piece belongs. 
+
+\begin{DoxyReturn}{Returns}
+The player (Black, White, or None). 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{class_chess_piece_a0d288a080fad78ca88a3cbef84566dcb}\label{class_chess_piece_a0d288a080fad78ca88a3cbef84566dcb} 
+\index{ChessPiece@{ChessPiece}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_position}{Position}} Chess\+Piece\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the current position of the chess piece on the chessboard. 
+
+\begin{DoxyReturn}{Returns}
+The current position. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{class_chess_piece_a6364cfab0ddb83266f3a3ae458661090}\label{class_chess_piece_a6364cfab0ddb83266f3a3ae458661090} 
+\index{ChessPiece@{ChessPiece}!getPossibleMoves@{getPossibleMoves}}
+\index{getPossibleMoves@{getPossibleMoves}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{getPossibleMoves()}{getPossibleMoves()}}
+{\footnotesize\ttfamily const QList$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ Chess\+Piece\+::get\+Possible\+Moves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the list of possible moves for the chess piece. 
+
+\begin{DoxyReturn}{Returns}
+List of possible moves. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{class_chess_piece_a0fca2beecfad938262fbe64e9cb77c5c}\label{class_chess_piece_a0fca2beecfad938262fbe64e9cb77c5c} 
+\index{ChessPiece@{ChessPiece}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Chess\+Piece\+::set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Sets the position of the chess piece on the chessboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The new position. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{class_chess_piece_a040e9fa1a5993259d6798dfd97212267}\label{class_chess_piece_a040e9fa1a5993259d6798dfd97212267} 
+\index{ChessPiece@{ChessPiece}!setPossibleMoves@{setPossibleMoves}}
+\index{setPossibleMoves@{setPossibleMoves}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{setPossibleMoves()}{setPossibleMoves()}}
+{\footnotesize\ttfamily void Chess\+Piece\+::set\+Possible\+Moves (\begin{DoxyParamCaption}\item[{QList$<$ \mbox{\hyperlink{struct_position}{Position}} $>$}]{legal\+Moves }\end{DoxyParamCaption})}
+
+
+
+Sets the list of possible moves for the chess piece. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em legal\+Moves} & The list of legal moves. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{class_chess_piece_a93b460de9600b44d35168e4180cc6288}\label{class_chess_piece_a93b460de9600b44d35168e4180cc6288} 
+\index{ChessPiece@{ChessPiece}!validateAnotherPieceIntersection@{validateAnotherPieceIntersection}}
+\index{validateAnotherPieceIntersection@{validateAnotherPieceIntersection}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{validateAnotherPieceIntersection()}{validateAnotherPieceIntersection()}}
+{\footnotesize\ttfamily const bool Chess\+Piece\+::validate\+Another\+Piece\+Intersection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position\+To\+Move,  }\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Validates the intersection with another chess piece for the chess piece. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\+To\+Move} & The position to which the chess piece is to be moved. \\
+\hline
+{\em chess\+Pieces} & The list of all chess pieces on the chessboard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the intersection is valid, false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 8
+\Hypertarget{class_chess_piece_a63f27383ff9fa386a1350623d35218b4}\label{class_chess_piece_a63f27383ff9fa386a1350623d35218b4} 
+\index{ChessPiece@{ChessPiece}!validateDiagonalMove@{validateDiagonalMove}}
+\index{validateDiagonalMove@{validateDiagonalMove}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{validateDiagonalMove()}{validateDiagonalMove()}}
+{\footnotesize\ttfamily const bool Chess\+Piece\+::validate\+Diagonal\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position\+To\+Move,  }\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Validates a diagonal move for the chess piece. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\+To\+Move} & The position to which the chess piece is to be moved. \\
+\hline
+{\em chess\+Pieces} & The list of all chess pieces on the chessboard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the diagonal move is valid, false otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{class_chess_piece_a3c4512bba73b8f590f45b395c4fc074b}\label{class_chess_piece_a3c4512bba73b8f590f45b395c4fc074b} 
+\index{ChessPiece@{ChessPiece}!validateMove@{validateMove}}
+\index{validateMove@{validateMove}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{validateMove()}{validateMove()}}
+{\footnotesize\ttfamily virtual bool Chess\+Piece\+::validate\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position\+To\+Move,  }\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Validates the move of the chess piece to the specified position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\+To\+Move} & The position to which the chess piece is to be moved. \\
+\hline
+{\em chess\+Pieces} & The list of all chess pieces on the chessboard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the move is valid, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_bishop_piece_a20dc649553a32eebcf5123e28975acd6}{Bishop\+Piece}}, \mbox{\hyperlink{class_king_piece_ab1ed420879174df86031d079bb6fb0da}{King\+Piece}}, \mbox{\hyperlink{class_knight_piece_a013d5efd73b6f83a8f24c02676536592}{Knight\+Piece}}, \mbox{\hyperlink{class_pawn_piece_a12734fe45a72966a04d43ea3e4c4f42b}{Pawn\+Piece}}, \mbox{\hyperlink{class_queen_piece_a534ecb3f70bd9430220c4a0b1c76fa04}{Queen\+Piece}}, and \mbox{\hyperlink{class_rook_piece_aff545d776116c3e8f3ca6dc00feda4e6}{Rook\+Piece}}.
+
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{class_chess_piece_a231eafa49e8a1a8232acbb488301ebc6}\label{class_chess_piece_a231eafa49e8a1a8232acbb488301ebc6} 
+\index{ChessPiece@{ChessPiece}!validateOneFieldMove@{validateOneFieldMove}}
+\index{validateOneFieldMove@{validateOneFieldMove}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{validateOneFieldMove()}{validateOneFieldMove()}}
+{\footnotesize\ttfamily const bool Chess\+Piece\+::validate\+One\+Field\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position\+To\+Move,  }\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Validates a one-\/field move for the chess piece. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\+To\+Move} & The position to which the chess piece is to be moved. \\
+\hline
+{\em chess\+Pieces} & The list of all chess pieces on the chessboard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the one-\/field move is valid, false otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\Hypertarget{class_chess_piece_adf77f2c7208baf41bfd6417692f973ee}\label{class_chess_piece_adf77f2c7208baf41bfd6417692f973ee} 
+\index{ChessPiece@{ChessPiece}!validateVerticalOrHorizontalMove@{validateVerticalOrHorizontalMove}}
+\index{validateVerticalOrHorizontalMove@{validateVerticalOrHorizontalMove}!ChessPiece@{ChessPiece}}
+\doxysubsubsection{\texorpdfstring{validateVerticalOrHorizontalMove()}{validateVerticalOrHorizontalMove()}}
+{\footnotesize\ttfamily const bool Chess\+Piece\+::validate\+Vertical\+Or\+Horizontal\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position\+To\+Move,  }\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Validates a vertical or horizontal move for the chess piece. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\+To\+Move} & The position to which the chess piece is to be moved. \\
+\hline
+{\em chess\+Pieces} & The list of all chess pieces on the chessboard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the vertical or horizontal move is valid, false otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 14
+Here is the caller graph for this function\+:
+% FIG 15
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Piece.\+h\item 
+Chess\+Piece.\+cpp\end{DoxyCompactItemize}

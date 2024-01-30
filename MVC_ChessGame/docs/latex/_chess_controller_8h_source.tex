@@ -1,0 +1,43 @@
+\doxysection{Chess\+Controller.\+h}
+\hypertarget{_chess_controller_8h_source}{}\label{_chess_controller_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}ChessGame.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}ChessBoardWidget.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <qobject.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Position.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_chess_board_widget}{ChessBoardWidget}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_chess_controller}{ChessController}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_chess_controller_a1a5ce0f8a8706dd670b8da59e3f4d0d3}{ChessController}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_chess_board_widget}{ChessBoardWidget}}*\ \mbox{\hyperlink{class_chess_controller_af146a2d6c5a68a292cf8fd1704b79825}{getChessBoardWidget}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_controller_a39a0b8f5fd5ea736c1c0b00297de638a}{handleBoxClicked}}(\mbox{\hyperlink{struct_position}{Position}}\ position);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_controller_aa317aa935ded2026036320e0631ba296}{cancelMove}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_controller_ad281d64ec4c63ad737edff6f76c62182}{handlePromoteToQueen}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_controller_a1ef391574537c77e05facc3a4623c388}{handlePromoteToBishop}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_controller_a31f9d1b347d44627572370863fe0b67c}{handlePromoteToRook}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_controller_aa5bf2e2638621609aaf5f79c9a7621c9}{handlePromoteToKnight}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{struct_position}{Position}}\ positionFrom;\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ positionFromActive;\ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{struct_position}{Position}}\ positionTo;\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ positionToActive;\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_chess_game}{ChessGame}}*\ chessGame;\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_chess_board_widget}{ChessBoardWidget}}*\ chessBoardWidget;\ }
+\DoxyCodeLine{00067\ \};}
+
+\end{DoxyCode}

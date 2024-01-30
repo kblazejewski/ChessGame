@@ -1,0 +1,76 @@
+\doxysection{Chess\+Board\+Widget.\+h}
+\hypertarget{_chess_board_widget_8h_source}{}\label{_chess_board_widget_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QGraphicsView>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}ChessBoard.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Position.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}ChessController.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}qlist.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}ChessPiece.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}ChessPieceBox.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QMouseEvent>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}ChessBox.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}ActionButton.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_action_button}{ActionButton}};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_chess_controller}{ChessController}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_chess_board_widget}{ChessBoardWidget}}\ :\ \textcolor{keyword}{public}\ QGraphicsView}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_chess_board_widget_a60cc94db0ed12fcfc44e3c33b9f6a19c}{ChessBoardWidget}}(\mbox{\hyperlink{class_chess_controller}{ChessController}}*\ chessController,\ QWidget*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a418f21d3bdbe7e828aa2021528508b94}{markPossibleMoves}}(\mbox{\hyperlink{class_chess_piece}{ChessPiece}}*\ piece);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a465e9c198c5511ffca7ebd5d741643cb}{initializeChessBoard}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a07b3570ce8dd2ba392ec656a7fbd9df6}{updateBoard}}(\textcolor{keyword}{const}\ QList<ChessPiece*>\&\ chessPieces);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a4908fafe4bd7fb814d8767534eb85fa5}{handleSquareClicked}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_position}{Position}}\&\ position);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a3f565239d9e0220872020f8168b15d1d}{showWinnerPanel}}(Player\&\ winner);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a9710e37fc86359a902702d4a81485d3d}{quit}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a089d8a763ae952de68cf6a4037f7656e}{showPromotionButtons}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a3644376bc07f178d66800899c5304493}{hidePromotionButtons}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ signals:}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_afd3a493083400ff46be0a671896d815e}{gameStarted}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a4b2c479e09912e5d11a20a0b02c76577}{undoRequest}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_abc413bbbcecd540148eab7d11c3e0f5a}{promoteToQueen}}();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a4d9e65ed21dd2b6435a0da17ecd12584}{promoteToRook}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a8fbe3490c0d9fddd8b1dc1c2d8ad0f47}{promoteToBishop}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_board_widget_a9ecc0bf8aaf4f878c9916fd050fa617a}{promoteToKnight}}();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00109\ \ \ \ \ QGraphicsScene*\ scene;\ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_chess_board}{ChessBoard}}*\ chessBoard;\ }
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_chess_controller}{ChessController}}*\ chessController;\ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{class_action_button}{ActionButton}}*\ queenButton;\ }
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{class_action_button}{ActionButton}}*\ rookButton;\ }
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{class_action_button}{ActionButton}}*\ bishopButton;\ }
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{class_action_button}{ActionButton}}*\ knightButton;\ }
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{class_action_button}{ActionButton}}*\ undoButton;\ }
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{class_action_button}{ActionButton}}*\ resetButton;\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ mousePressEvent(QMouseEvent*\ event);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ initializeBackgroundColor();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ displayMenu();}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ drawTitle();}
+\DoxyCodeLine{00139\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,63 @@
+\doxysection{Chess\+Piece.\+h}
+\hypertarget{_chess_piece_8h_source}{}\label{_chess_piece_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <qstring.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Position.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <qlist.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{enum}\ PieceType}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ Pawn,\ Rook,\ Bishop,\ Knight,\ Queen,\ King}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{enum}\ Player}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ Black,\ White,\ None}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_chess_piece}{ChessPiece}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{struct_position}{Position}}\ position;\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ didTakeFirstMove;\ }
+\DoxyCodeLine{00031\ \ \ \ \ Player\ player;\ }
+\DoxyCodeLine{00032\ \ \ \ \ QList<Position>\ possibleMoves;\ }
+\DoxyCodeLine{00033\ \ \ \ \ PieceType\ type;\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_chess_piece_aea586cdfa66666cfe67c549c0aac27dc}{ChessPiece}}(\mbox{\hyperlink{struct_position}{Position}}\ position,\ Player\ player,\ PieceType\ pieceType);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_chess_piece_ad527cdb099318b0beed6ece1cec68792}{\string~ChessPiece}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{const}\ QList<Position>\ \mbox{\hyperlink{class_chess_piece_a6364cfab0ddb83266f3a3ae458661090}{getPossibleMoves}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_piece_a040e9fa1a5993259d6798dfd97212267}{setPossibleMoves}}(QList<Position>\ legalMoves);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{const}\ PieceType\ \mbox{\hyperlink{class_chess_piece_a334618388830072f1f7775a1adf510a8}{getPieceType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{const}\ Player\ \mbox{\hyperlink{class_chess_piece_aa449c4e3dd08c3f3aa08309a6bf59062}{getPlayer}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_position}{Position}}\ \mbox{\hyperlink{class_chess_piece_a0d288a080fad78ca88a3cbef84566dcb}{getPosition}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_piece_a0fca2beecfad938262fbe64e9cb77c5c}{setPosition}}(\mbox{\hyperlink{struct_position}{Position}}\ position);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_chess_piece_a3c4512bba73b8f590f45b395c4fc074b}{validateMove}}(\mbox{\hyperlink{struct_position}{Position}}\ positionToMove,\ QList<ChessPiece*>\ chessPieces)\ =\ 0;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_chess_piece_ab57c93bf1710ae5aa0e0c314deb11ee1}{setFirstMoveTaken}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_chess_piece_a7dd2c8580a749a8cac1b13a0d1b32e1e}{firstMoveTaken}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_chess_piece}{ChessPiece}}*\ \mbox{\hyperlink{class_chess_piece_ab28043f16500adc9af2813a9776f9574}{deepCopy}}()\ =\ 0;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_chess_piece_a63f27383ff9fa386a1350623d35218b4}{validateDiagonalMove}}(\mbox{\hyperlink{struct_position}{Position}}\ positionToMove,\ QList<ChessPiece*>\ chessPieces);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_chess_piece_adf77f2c7208baf41bfd6417692f973ee}{validateVerticalOrHorizontalMove}}(\mbox{\hyperlink{struct_position}{Position}}\ positionToMove,\ QList<ChessPiece*>\ chessPieces);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_chess_piece_a231eafa49e8a1a8232acbb488301ebc6}{validateOneFieldMove}}(\mbox{\hyperlink{struct_position}{Position}}\ positionToMove,\ QList<ChessPiece*>\ chessPieces);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_chess_piece_a93b460de9600b44d35168e4180cc6288}{validateAnotherPieceIntersection}}(\mbox{\hyperlink{struct_position}{Position}}\ positionToMove,\ QList<ChessPiece*>\ chessPieces);}
+\DoxyCodeLine{00142\ \};}
+
+\end{DoxyCode}

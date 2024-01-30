@@ -1,0 +1,17 @@
+digraph "ChessBoardModel::performCastle"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="ChessBoardModel::perform\lCastle",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Performs castling for the specified player."];
+  Node1 -> Node2 [id="edge5_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ChessBoardModel::getPieceAt",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_board_model.html#a6ab1327c5818aebcbf5cfce3482d5843",tooltip="Gets the chess piece at the specified position."];
+  Node1 -> Node3 [id="edge6_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="ChessPiece::getPieceType",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_piece.html#a334618388830072f1f7775a1adf510a8",tooltip="Gets the type of the chess piece."];
+  Node1 -> Node4 [id="edge7_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="ChessBoardModel::movePieceTo",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_board_model.html#a0ca13e64de6e6cb7ffec509cb0e72b47",tooltip="Moves a chess piece to the specified position."];
+  Node4 -> Node5 [id="edge8_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="ChessPiece::setPosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_piece.html#a0fca2beecfad938262fbe64e9cb77c5c",tooltip="Sets the position of the chess piece on the chessboard."];
+}

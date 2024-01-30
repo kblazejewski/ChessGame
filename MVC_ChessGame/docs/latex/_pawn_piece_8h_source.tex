@@ -1,0 +1,25 @@
+\doxysection{Pawn\+Piece.\+h}
+\hypertarget{_pawn_piece_8h_source}{}\label{_pawn_piece_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}ChessPiece.h"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_pawn_piece}{PawnPiece}}\ :}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_chess_piece}{ChessPiece}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_pawn_piece_acc7bab51a6115f209c3d1a3c4771ef36}{PawnPiece}}(\mbox{\hyperlink{struct_position}{Position}}\ position,\ Player\ player,\ PieceType\ pieceType);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_pawn_piece_a12734fe45a72966a04d43ea3e4c4f42b}{validateMove}}(\mbox{\hyperlink{struct_position}{Position}}\ positionToMove,\ QList<ChessPiece*>\ chessPieces)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_chess_piece}{ChessPiece}}*\ \mbox{\hyperlink{class_pawn_piece_a246b6f86ed7774491bbec0bd2f1e07d0}{deepCopy}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pawn_piece_a3a94c5449a9ab8fc1cd62dd0d48aed45}{setEnPassantVurnelable}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pawn_piece_aafed96896d6751b7f59465fa6828730e}{resetEnPassantVurnelable}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ enPassantVurnelable;\ }
+\DoxyCodeLine{00045\ \};}
+
+\end{DoxyCode}

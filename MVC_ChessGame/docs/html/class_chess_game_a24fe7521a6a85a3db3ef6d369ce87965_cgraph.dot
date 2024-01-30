@@ -1,0 +1,13 @@
+digraph "ChessGame::getPieceAtPositionActivePlayer"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="ChessGame::getPieceAtPosition\lActivePlayer",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Gets the chess piece at the specified position for the active player."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ChessBoardModel::getPieceAt",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_board_model.html#a6ab1327c5818aebcbf5cfce3482d5843",tooltip="Gets the chess piece at the specified position."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="ChessPiece::getPlayer",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_chess_piece.html#aa449c4e3dd08c3f3aa08309a6bf59062",tooltip="Gets the player to whom the chess piece belongs."];
+}

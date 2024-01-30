@@ -1,0 +1,93 @@
+\doxysection{Chess\+Controller Class Reference}
+\hypertarget{class_chess_controller}{}\label{class_chess_controller}\index{ChessController@{ChessController}}
+
+
+The \doxylink{class_chess_controller}{Chess\+Controller} class handles the communication between the \doxylink{class_chess_game}{Chess\+Game} logic and the \doxylink{class_chess_board_widget}{Chess\+Board\+Widget} GUI.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Controller.\+h$>$}
+
+
+
+Inheritance diagram for Chess\+Controller\+:
+% FIG 0
+
+
+Collaboration diagram for Chess\+Controller\+:
+% FIG 1
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_chess_controller_ad281d64ec4c63ad737edff6f76c62182}\label{class_chess_controller_ad281d64ec4c63ad737edff6f76c62182} 
+void {\bfseries handle\+Promote\+To\+Queen} ()
+\begin{DoxyCompactList}\small\item\em Slot to handle promoting a pawn to a queen. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_controller_a1ef391574537c77e05facc3a4623c388}\label{class_chess_controller_a1ef391574537c77e05facc3a4623c388} 
+void {\bfseries handle\+Promote\+To\+Bishop} ()
+\begin{DoxyCompactList}\small\item\em Slot to handle promoting a pawn to a bishop. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_controller_a31f9d1b347d44627572370863fe0b67c}\label{class_chess_controller_a31f9d1b347d44627572370863fe0b67c} 
+void {\bfseries handle\+Promote\+To\+Rook} ()
+\begin{DoxyCompactList}\small\item\em Slot to handle promoting a pawn to a rook. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_controller_aa5bf2e2638621609aaf5f79c9a7621c9}\label{class_chess_controller_aa5bf2e2638621609aaf5f79c9a7621c9} 
+void {\bfseries handle\+Promote\+To\+Knight} ()
+\begin{DoxyCompactList}\small\item\em Slot to handle promoting a pawn to a knight. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_chess_controller_a1a5ce0f8a8706dd670b8da59e3f4d0d3}\label{class_chess_controller_a1a5ce0f8a8706dd670b8da59e3f4d0d3} 
+{\bfseries Chess\+Controller} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_chess_controller}{Chess\+Controller}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_board_widget}{Chess\+Board\+Widget}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_chess_controller_af146a2d6c5a68a292cf8fd1704b79825}{get\+Chess\+Board\+Widget}} ()
+\begin{DoxyCompactList}\small\item\em Gets the \doxylink{class_chess_board_widget}{Chess\+Board\+Widget} associated with the \doxylink{class_chess_controller}{Chess\+Controller}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_controller_a39a0b8f5fd5ea736c1c0b00297de638a}{handle\+Box\+Clicked}} (\mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Handles the click event on a chessboard box. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_controller_aa317aa935ded2026036320e0631ba296}\label{class_chess_controller_aa317aa935ded2026036320e0631ba296} 
+void {\bfseries cancel\+Move} ()
+\begin{DoxyCompactList}\small\item\em Cancels the current move in progress. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_chess_controller}{Chess\+Controller} class handles the communication between the \doxylink{class_chess_game}{Chess\+Game} logic and the \doxylink{class_chess_board_widget}{Chess\+Board\+Widget} GUI. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chess_controller_af146a2d6c5a68a292cf8fd1704b79825}\label{class_chess_controller_af146a2d6c5a68a292cf8fd1704b79825} 
+\index{ChessController@{ChessController}!getChessBoardWidget@{getChessBoardWidget}}
+\index{getChessBoardWidget@{getChessBoardWidget}!ChessController@{ChessController}}
+\doxysubsubsection{\texorpdfstring{getChessBoardWidget()}{getChessBoardWidget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_board_widget}{Chess\+Board\+Widget}} \texorpdfstring{$\ast$}{*} Chess\+Controller\+::get\+Chess\+Board\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the \doxylink{class_chess_board_widget}{Chess\+Board\+Widget} associated with the \doxylink{class_chess_controller}{Chess\+Controller}. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the \doxylink{class_chess_board_widget}{Chess\+Board\+Widget}. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{class_chess_controller_a39a0b8f5fd5ea736c1c0b00297de638a}\label{class_chess_controller_a39a0b8f5fd5ea736c1c0b00297de638a} 
+\index{ChessController@{ChessController}!handleBoxClicked@{handleBoxClicked}}
+\index{handleBoxClicked@{handleBoxClicked}!ChessController@{ChessController}}
+\doxysubsubsection{\texorpdfstring{handleBoxClicked()}{handleBoxClicked()}}
+{\footnotesize\ttfamily void Chess\+Controller\+::handle\+Box\+Clicked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Handles the click event on a chessboard box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the clicked box. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Controller.\+h\item 
+Chess\+Controller.\+cpp\end{DoxyCompactItemize}

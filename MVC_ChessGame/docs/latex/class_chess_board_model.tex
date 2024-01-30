@@ -1,0 +1,421 @@
+\doxysection{Chess\+Board\+Model Class Reference}
+\hypertarget{class_chess_board_model}{}\label{class_chess_board_model}\index{ChessBoardModel@{ChessBoardModel}}
+
+
+The \doxylink{class_chess_board_model}{Chess\+Board\+Model} class represents the state and logic of the chessboard.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Board\+Model.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_chess_board_model_a344aa3d34445738ef4f66907d7474155}{set\+En\+Passant\+Capture\+Position}} (\mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Sets the en passant capture position. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{struct_position}{Position}} \mbox{\hyperlink{class_chess_board_model_a29491673c568888f4b39e1c4ddd82bf4}{get\+En\+Passant\+Capture\+Positon}} () const
+\begin{DoxyCompactList}\small\item\em Gets the en passant capture position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_model_af36d84adf8a3d0ce2ebac5fe1b487214}{set\+En\+Passant\+Move\+Position}} (\mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Sets the en passant move position. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{struct_position}{Position}} \mbox{\hyperlink{class_chess_board_model_a993b82e22bf242347702fbc0e83f48cc}{get\+En\+Passant\+Move\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Gets the en passant move position. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_model_a3903662afa3a0e4e9f49c4a90a7f09af}\label{class_chess_board_model_a3903662afa3a0e4e9f49c4a90a7f09af} 
+void {\bfseries clear\+En\+Passant\+Data} ()
+\begin{DoxyCompactList}\small\item\em Clears en passant data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_chess_board_model_a6ab1327c5818aebcbf5cfce3482d5843}{get\+Piece\+At}} (\mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Gets the chess piece at the specified position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_chess_board_model_a36276b7c2e81d8bcdcf79b69603ea56b}{get\+Piece\+At\+Given\+Position}} (\mbox{\hyperlink{struct_position}{Position}} position, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Gets the chess piece at the specified position from a given list of chess pieces. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_model_af38d62ae4cfc6de316bd38baa6e41688}{remove\+Piece\+At}} (\mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Removes the chess piece at the specified position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_model_a920d1f3f6d7d0f79b97d41c56e729330}{remove\+Piece\+At\+Given\+Position}} (\mbox{\hyperlink{struct_position}{Position}} position, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Removes the chess piece at the specified position from a given list of chess pieces. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_model_a0ca13e64de6e6cb7ffec509cb0e72b47}{move\+Piece\+To}} (\mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*}piece, \mbox{\hyperlink{struct_position}{Position}} position)
+\begin{DoxyCompactList}\small\item\em Moves a chess piece to the specified position. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_model_ac3ea55eebf469859b1d7792606d7e365}\label{class_chess_board_model_ac3ea55eebf469859b1d7792606d7e365} 
+{\bfseries Chess\+Board\+Model} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_chess_board_model}{Chess\+Board\+Model}. \end{DoxyCompactList}\item 
+QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_chess_board_model_a33ab090bdcf5a890414f6b7c8f75039f}{get\+Pieces}} ()
+\begin{DoxyCompactList}\small\item\em Gets a list of all chess pieces on the chessboard. \end{DoxyCompactList}\item 
+const Player \mbox{\hyperlink{class_chess_board_model_af797ada7b2f21e2925da2919b3d61562}{get\+Whos\+Turn}} ()
+\begin{DoxyCompactList}\small\item\em Gets the player whose turn it is to make a move. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_model_afe0c1887d52831f271abcc75afdf94c3}\label{class_chess_board_model_afe0c1887d52831f271abcc75afdf94c3} 
+void {\bfseries switch\+Turn} ()
+\begin{DoxyCompactList}\small\item\em Switches the turn to the other player. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_model_a9b54588c91dc730d8d8350eadd4c89dc}\label{class_chess_board_model_a9b54588c91dc730d8d8350eadd4c89dc} 
+void {\bfseries calculate\+Possible\+Moves} ()
+\begin{DoxyCompactList}\small\item\em Calculates possible moves for all chess pieces on the chessboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_model_ab3308ca523a70e424487314523f5003c}{calculate\+Possible\+Moves\+For\+Given\+Position}} (QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Calculates possible moves for chess pieces at a given position from a given list. \end{DoxyCompactList}\item 
+QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_chess_board_model_ad0cbb604b6e4ae198811d52800fb4bd8}{get\+Copy\+Of\+Current\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Gets a deep copy of the current chessboard position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_model_ab7f9b2d254514915f1aeb545817d7671}{restore\+Position}} (QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces)
+\begin{DoxyCompactList}\small\item\em Restores the chessboard to a given position. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_board_model_a95438602f65d31efa2a4008e341fe15e}{is\+King\+In\+Check\+In\+Given\+Position}} (Player player, QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ chess\+Pieces) const
+\begin{DoxyCompactList}\small\item\em Checks if the king of the specified player is in check in a given position. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_board_model_ab0557228012f6a4b65e78864bc2f7c35}{is\+Check\+Mate}} (Player player) const
+\begin{DoxyCompactList}\small\item\em Checks if the game is in checkmate for the specified player. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_chess_board_model_a154c087e1889c5e07d2d6cd90c34c079}{is\+Promotion\+Available}} () const
+\begin{DoxyCompactList}\small\item\em Checks if pawn promotion is available. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_model_a49f2be92d004c81279d5b84327c89084}{promote\+Pawn}} (Piece\+Type piece\+Type)
+\begin{DoxyCompactList}\small\item\em Promotes a pawn to the specified piece type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chess_board_model_a6bd7d6b4aaeae246f27660baebec7272}{perform\+Castle}} (Player player, bool is\+Short\+Castle)
+\begin{DoxyCompactList}\small\item\em Performs castling for the specified player. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_model_a47c8653cb1f05342ba1f615f0cd9dcbd}\label{class_chess_board_model_a47c8653cb1f05342ba1f615f0cd9dcbd} 
+void {\bfseries restore\+All\+Pawns\+Vulnerablnes} ()
+\begin{DoxyCompactList}\small\item\em Restores all pawns\textquotesingle{} vulnerabilities. \end{DoxyCompactList}\item 
+\Hypertarget{class_chess_board_model_adb3a11145dc2aa51b32920a231d5b1d2}\label{class_chess_board_model_adb3a11145dc2aa51b32920a231d5b1d2} 
+void {\bfseries initialize\+Pieces} ()
+\begin{DoxyCompactList}\small\item\em Initializes the chess pieces on the chessboard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_chess_board_model}{Chess\+Board\+Model} class represents the state and logic of the chessboard. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chess_board_model_ab3308ca523a70e424487314523f5003c}\label{class_chess_board_model_ab3308ca523a70e424487314523f5003c} 
+\index{ChessBoardModel@{ChessBoardModel}!calculatePossibleMovesForGivenPosition@{calculatePossibleMovesForGivenPosition}}
+\index{calculatePossibleMovesForGivenPosition@{calculatePossibleMovesForGivenPosition}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{calculatePossibleMovesForGivenPosition()}{calculatePossibleMovesForGivenPosition()}}
+{\footnotesize\ttfamily void Chess\+Board\+Model\+::calculate\+Possible\+Moves\+For\+Given\+Position (\begin{DoxyParamCaption}\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})}
+
+
+
+Calculates possible moves for chess pieces at a given position from a given list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chess\+Pieces} & The list of chess pieces. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 0
+\Hypertarget{class_chess_board_model_ad0cbb604b6e4ae198811d52800fb4bd8}\label{class_chess_board_model_ad0cbb604b6e4ae198811d52800fb4bd8} 
+\index{ChessBoardModel@{ChessBoardModel}!getCopyOfCurrentPosition@{getCopyOfCurrentPosition}}
+\index{getCopyOfCurrentPosition@{getCopyOfCurrentPosition}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{getCopyOfCurrentPosition()}{getCopyOfCurrentPosition()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ Chess\+Board\+Model\+::get\+Copy\+Of\+Current\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a deep copy of the current chessboard position. 
+
+\begin{DoxyReturn}{Returns}
+Deep copy of the current position. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{class_chess_board_model_a29491673c568888f4b39e1c4ddd82bf4}\label{class_chess_board_model_a29491673c568888f4b39e1c4ddd82bf4} 
+\index{ChessBoardModel@{ChessBoardModel}!getEnPassantCapturePositon@{getEnPassantCapturePositon}}
+\index{getEnPassantCapturePositon@{getEnPassantCapturePositon}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{getEnPassantCapturePositon()}{getEnPassantCapturePositon()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_position}{Position}} Chess\+Board\+Model\+::get\+En\+Passant\+Capture\+Positon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the en passant capture position. 
+
+\begin{DoxyReturn}{Returns}
+The position for en passant capture. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{class_chess_board_model_a993b82e22bf242347702fbc0e83f48cc}\label{class_chess_board_model_a993b82e22bf242347702fbc0e83f48cc} 
+\index{ChessBoardModel@{ChessBoardModel}!getEnPassantMovePosition@{getEnPassantMovePosition}}
+\index{getEnPassantMovePosition@{getEnPassantMovePosition}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{getEnPassantMovePosition()}{getEnPassantMovePosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_position}{Position}} Chess\+Board\+Model\+::get\+En\+Passant\+Move\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the en passant move position. 
+
+\begin{DoxyReturn}{Returns}
+The position for en passant move. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{class_chess_board_model_a6ab1327c5818aebcbf5cfce3482d5843}\label{class_chess_board_model_a6ab1327c5818aebcbf5cfce3482d5843} 
+\index{ChessBoardModel@{ChessBoardModel}!getPieceAt@{getPieceAt}}
+\index{getPieceAt@{getPieceAt}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{getPieceAt()}{getPieceAt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} Chess\+Board\+Model\+::get\+Piece\+At (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Gets the chess piece at the specified position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position on the chessboard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the chess piece at the specified position. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{class_chess_board_model_a36276b7c2e81d8bcdcf79b69603ea56b}\label{class_chess_board_model_a36276b7c2e81d8bcdcf79b69603ea56b} 
+\index{ChessBoardModel@{ChessBoardModel}!getPieceAtGivenPosition@{getPieceAtGivenPosition}}
+\index{getPieceAtGivenPosition@{getPieceAtGivenPosition}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{getPieceAtGivenPosition()}{getPieceAtGivenPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} Chess\+Board\+Model\+::get\+Piece\+At\+Given\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position,  }\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})}
+
+
+
+Gets the chess piece at the specified position from a given list of chess pieces. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position on the chessboard. \\
+\hline
+{\em chess\+Pieces} & The list of chess pieces to search. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the chess piece at the specified position. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{class_chess_board_model_a33ab090bdcf5a890414f6b7c8f75039f}\label{class_chess_board_model_a33ab090bdcf5a890414f6b7c8f75039f} 
+\index{ChessBoardModel@{ChessBoardModel}!getPieces@{getPieces}}
+\index{getPieces@{getPieces}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{getPieces()}{getPieces()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$ Chess\+Board\+Model\+::get\+Pieces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a list of all chess pieces on the chessboard. 
+
+\begin{DoxyReturn}{Returns}
+List of chess pieces. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{class_chess_board_model_af797ada7b2f21e2925da2919b3d61562}\label{class_chess_board_model_af797ada7b2f21e2925da2919b3d61562} 
+\index{ChessBoardModel@{ChessBoardModel}!getWhosTurn@{getWhosTurn}}
+\index{getWhosTurn@{getWhosTurn}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{getWhosTurn()}{getWhosTurn()}}
+{\footnotesize\ttfamily const Player Chess\+Board\+Model\+::get\+Whos\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the player whose turn it is to make a move. 
+
+\begin{DoxyReturn}{Returns}
+The current player. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{class_chess_board_model_ab0557228012f6a4b65e78864bc2f7c35}\label{class_chess_board_model_ab0557228012f6a4b65e78864bc2f7c35} 
+\index{ChessBoardModel@{ChessBoardModel}!isCheckMate@{isCheckMate}}
+\index{isCheckMate@{isCheckMate}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{isCheckMate()}{isCheckMate()}}
+{\footnotesize\ttfamily const bool Chess\+Board\+Model\+::is\+Check\+Mate (\begin{DoxyParamCaption}\item[{Player}]{player }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the game is in checkmate for the specified player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & The player to check for checkmate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if checkmate, false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 8
+\Hypertarget{class_chess_board_model_a95438602f65d31efa2a4008e341fe15e}\label{class_chess_board_model_a95438602f65d31efa2a4008e341fe15e} 
+\index{ChessBoardModel@{ChessBoardModel}!isKingInCheckInGivenPosition@{isKingInCheckInGivenPosition}}
+\index{isKingInCheckInGivenPosition@{isKingInCheckInGivenPosition}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{isKingInCheckInGivenPosition()}{isKingInCheckInGivenPosition()}}
+{\footnotesize\ttfamily const bool Chess\+Board\+Model\+::is\+King\+In\+Check\+In\+Given\+Position (\begin{DoxyParamCaption}\item[{Player}]{player,  }\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the king of the specified player is in check in a given position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & The player to check. \\
+\hline
+{\em chess\+Pieces} & The list of chess pieces representing the position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the king is in check, false otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{class_chess_board_model_a154c087e1889c5e07d2d6cd90c34c079}\label{class_chess_board_model_a154c087e1889c5e07d2d6cd90c34c079} 
+\index{ChessBoardModel@{ChessBoardModel}!isPromotionAvailable@{isPromotionAvailable}}
+\index{isPromotionAvailable@{isPromotionAvailable}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{isPromotionAvailable()}{isPromotionAvailable()}}
+{\footnotesize\ttfamily const bool Chess\+Board\+Model\+::is\+Promotion\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if pawn promotion is available. 
+
+\begin{DoxyReturn}{Returns}
+True if promotion is available, false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{class_chess_board_model_a0ca13e64de6e6cb7ffec509cb0e72b47}\label{class_chess_board_model_a0ca13e64de6e6cb7ffec509cb0e72b47} 
+\index{ChessBoardModel@{ChessBoardModel}!movePieceTo@{movePieceTo}}
+\index{movePieceTo@{movePieceTo}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{movePieceTo()}{movePieceTo()}}
+{\footnotesize\ttfamily void Chess\+Board\+Model\+::move\+Piece\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*}}]{piece,  }\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Moves a chess piece to the specified position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & The chess piece to move. \\
+\hline
+{\em position} & The destination position. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\Hypertarget{class_chess_board_model_a6bd7d6b4aaeae246f27660baebec7272}\label{class_chess_board_model_a6bd7d6b4aaeae246f27660baebec7272} 
+\index{ChessBoardModel@{ChessBoardModel}!performCastle@{performCastle}}
+\index{performCastle@{performCastle}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{performCastle()}{performCastle()}}
+{\footnotesize\ttfamily void Chess\+Board\+Model\+::perform\+Castle (\begin{DoxyParamCaption}\item[{Player}]{player,  }\item[{bool}]{is\+Short\+Castle }\end{DoxyParamCaption})}
+
+
+
+Performs castling for the specified player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & The player to perform castling for. \\
+\hline
+{\em is\+Short\+Castle} & True for short castling, false for long castling. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 14
+Here is the caller graph for this function\+:
+% FIG 15
+\Hypertarget{class_chess_board_model_a49f2be92d004c81279d5b84327c89084}\label{class_chess_board_model_a49f2be92d004c81279d5b84327c89084} 
+\index{ChessBoardModel@{ChessBoardModel}!promotePawn@{promotePawn}}
+\index{promotePawn@{promotePawn}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{promotePawn()}{promotePawn()}}
+{\footnotesize\ttfamily void Chess\+Board\+Model\+::promote\+Pawn (\begin{DoxyParamCaption}\item[{Piece\+Type}]{piece\+Type }\end{DoxyParamCaption})}
+
+
+
+Promotes a pawn to the specified piece type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece\+Type} & The type to which the pawn should be promoted. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 16
+Here is the caller graph for this function\+:
+% FIG 17
+\Hypertarget{class_chess_board_model_af38d62ae4cfc6de316bd38baa6e41688}\label{class_chess_board_model_af38d62ae4cfc6de316bd38baa6e41688} 
+\index{ChessBoardModel@{ChessBoardModel}!removePieceAt@{removePieceAt}}
+\index{removePieceAt@{removePieceAt}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{removePieceAt()}{removePieceAt()}}
+{\footnotesize\ttfamily void Chess\+Board\+Model\+::remove\+Piece\+At (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Removes the chess piece at the specified position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position on the chessboard. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 18
+\Hypertarget{class_chess_board_model_a920d1f3f6d7d0f79b97d41c56e729330}\label{class_chess_board_model_a920d1f3f6d7d0f79b97d41c56e729330} 
+\index{ChessBoardModel@{ChessBoardModel}!removePieceAtGivenPosition@{removePieceAtGivenPosition}}
+\index{removePieceAtGivenPosition@{removePieceAtGivenPosition}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{removePieceAtGivenPosition()}{removePieceAtGivenPosition()}}
+{\footnotesize\ttfamily void Chess\+Board\+Model\+::remove\+Piece\+At\+Given\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position,  }\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})}
+
+
+
+Removes the chess piece at the specified position from a given list of chess pieces. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position on the chessboard. \\
+\hline
+{\em chess\+Pieces} & The list of chess pieces to search. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_chess_board_model_ab7f9b2d254514915f1aeb545817d7671}\label{class_chess_board_model_ab7f9b2d254514915f1aeb545817d7671} 
+\index{ChessBoardModel@{ChessBoardModel}!restorePosition@{restorePosition}}
+\index{restorePosition@{restorePosition}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{restorePosition()}{restorePosition()}}
+{\footnotesize\ttfamily void Chess\+Board\+Model\+::restore\+Position (\begin{DoxyParamCaption}\item[{QList$<$ \mbox{\hyperlink{class_chess_piece}{Chess\+Piece}} \texorpdfstring{$\ast$}{*} $>$}]{chess\+Pieces }\end{DoxyParamCaption})}
+
+
+
+Restores the chessboard to a given position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chess\+Pieces} & The list of chess pieces representing the desired position. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 19
+\Hypertarget{class_chess_board_model_a344aa3d34445738ef4f66907d7474155}\label{class_chess_board_model_a344aa3d34445738ef4f66907d7474155} 
+\index{ChessBoardModel@{ChessBoardModel}!setEnPassantCapturePosition@{setEnPassantCapturePosition}}
+\index{setEnPassantCapturePosition@{setEnPassantCapturePosition}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{setEnPassantCapturePosition()}{setEnPassantCapturePosition()}}
+{\footnotesize\ttfamily void Chess\+Board\+Model\+::set\+En\+Passant\+Capture\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Sets the en passant capture position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position for en passant capture. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 20
+\Hypertarget{class_chess_board_model_af36d84adf8a3d0ce2ebac5fe1b487214}\label{class_chess_board_model_af36d84adf8a3d0ce2ebac5fe1b487214} 
+\index{ChessBoardModel@{ChessBoardModel}!setEnPassantMovePosition@{setEnPassantMovePosition}}
+\index{setEnPassantMovePosition@{setEnPassantMovePosition}!ChessBoardModel@{ChessBoardModel}}
+\doxysubsubsection{\texorpdfstring{setEnPassantMovePosition()}{setEnPassantMovePosition()}}
+{\footnotesize\ttfamily void Chess\+Board\+Model\+::set\+En\+Passant\+Move\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Sets the en passant move position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position for en passant move. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 21
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chess\+Board\+Model.\+h\item 
+Chess\+Board\+Model.\+cpp\end{DoxyCompactItemize}

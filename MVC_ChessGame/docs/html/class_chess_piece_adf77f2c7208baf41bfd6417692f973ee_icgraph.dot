@@ -1,0 +1,13 @@
+digraph "ChessPiece::validateVerticalOrHorizontalMove"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="ChessPiece::validateVertical\lOrHorizontalMove",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Validates a vertical or horizontal move for the chess piece."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="QueenPiece::validateMove",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_queen_piece.html#a534ecb3f70bd9430220c4a0b1c76fa04",tooltip="Validates the move of the queen piece to the specified position."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="RookPiece::validateMove",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_rook_piece.html#aff545d776116c3e8f3ca6dc00feda4e6",tooltip="Validates the move of the rook piece to the specified position."];
+}
