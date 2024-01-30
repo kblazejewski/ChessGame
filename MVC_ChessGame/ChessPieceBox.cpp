@@ -16,5 +16,5 @@ ChessPieceBox::ChessPieceBox(Position position, QString imagePath, QGraphicsItem
     imageLabel->setAttribute(Qt::WA_TranslucentBackground);
 
     myProxy->setWidget(imageLabel);
-    myProxy->setPos(0, 0);  // Pozycja wzglêdem rodzica, w tym przypadku ChessPieceBox
+    myProxy->setPos(0, 0);
 }

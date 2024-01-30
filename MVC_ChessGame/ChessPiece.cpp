@@ -153,13 +153,6 @@ const bool ChessPiece::validateAnotherPieceIntersection(Position positionToMove,
 			}
 		}
 
-		//if (positionToCheck.x == positionToMove.x && positionToCheck.y == positionToMove.y)
-		//{
-		//	if (pieceToCheck && (pieceToCheck->getPlayer() != this->getPlayer()))
-		//	{
-		//		return true;
-		//	}
-		//}
 		if (pieceToCheck)
 		{
 			if (positionToCheck.x == positionToMove.x && positionToCheck.y == positionToMove.y)

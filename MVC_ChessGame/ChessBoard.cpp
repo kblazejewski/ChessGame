@@ -169,7 +169,6 @@ void ChessBoard::draw()
             qreal boxXPosition = x * Constants::defaultWidhHeight;
             qreal boxYPosition = y * Constants::defaultWidhHeight;
 			box->setPos(boxXPosition, boxYPosition);
-			// box->setRect(boxXPosition, boxYPosition, Constants::defaultWidhHeight, Constants::defaultWidhHeight);
 			
 			connect(box, &ChessBox::boxClicked, this, &ChessBoard::boxClicked);
 
@@ -177,8 +176,8 @@ void ChessBoard::draw()
 			scene->addItem(box);
             // Dodaj pole do grupy
             addToGroup(box);
-			box->setFlag(QGraphicsItem::ItemIsSelectable); // Ta linia ustawia flagê umo¿liwiaj¹c¹ zaznaczanie elementu
-			box->setFlag(QGraphicsItem::ItemIsFocusable);   // Ta linia ustawia flagê umo¿liwiaj¹c¹ dostawanie siê do elementu w wyniku klikniêcia
+			box->setFlag(QGraphicsItem::ItemIsSelectable); //This line set flag which allows select elements
+			box->setFlag(QGraphicsItem::ItemIsFocusable);   //This flag allow get into element in case of click
         }
     }
 }
