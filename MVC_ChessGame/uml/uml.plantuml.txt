@@ -1,0 +1,211 @@
+@startuml
+
+class Position {
+  + x: int
+  + y: int
+}
+
+enum PieceType {
+  Pawn
+  Rook
+  Bishop
+  Knight
+  Queen
+  King
+}
+
+enum Player {
+  Black
+  White
+  None
+}
+
+class ChessPiece {
+  - position: Position
+  - didTakeFirstMove: bool
+  - player: Player
+  - possibleMoves: QList<Position>
+  - type: PieceType
+  + getPossibleMoves(): QList<Position>
+  + setPossibleMoves(legalMoves: QList<Position>)
+  + getPieceType(): PieceType
+  + getPlayer(): Player
+  + getPosition(): Position
+  + setPosition(position: Position)
+  + validateMove(positionToMove: Position, chessPieces: QList<ChessPiece*>): bool
+  + setFirstMoveTaken()
+  + firstMoveTaken(): bool
+  + deepCopy(): ChessPiece*
+}
+
+class KingPiece {
+  + validateMove(positionToMove: Position, chessPieces: QList<ChessPiece*>): bool
+  + deepCopy(): ChessPiece*
+}
+
+class KnightPiece {
+  + validateMove(positionToMove: Position, chessPieces: QList<ChessPiece*>): bool
+  + deepCopy(): ChessPiece*
+}
+
+class QueenPiece {
+  + validateMove(positionToMove: Position, chessPieces: QList<ChessPiece*>): bool
+  + deepCopy(): ChessPiece*
+}
+
+class RookPiece {
+  + validateMove(positionToMove: Position, chessPieces: QList<ChessPiece*>): bool
+  + deepCopy(): ChessPiece*
+}
+
+class BishopPiece {
+  + validateMove(positionToMove: Position, chessPieces: QList<ChessPiece*>): bool
+  + deepCopy(): ChessPiece*
+}
+
+class PawnPiece {
+  + validateMove(positionToMove: Position, chessPieces: QList<ChessPiece*>): bool
+  + deepCopy(): ChessPiece*
+  + setEnPassantVurnelable()
+  + resetEnPassantVurnelable()
+}
+
+class ChessBox {
+  - position: Position
+  - defaultColor: QColor
+  + ChessBox(backgroundColor: QColor, position: Position, parent: QGraphicsItem* = nullptr)
+  + setPosition(position: Position)
+  + getPosition(): Position
+  + changeColorUnderAttack()
+  + restoreDefaultColor()
+  + mousePressEvent(event: QGraphicsSceneMouseEvent*)
+  + boxClicked(position: Position)
+}
+
+class ChessPieceBox {
+  - position: Position
+  - imageLabel: QLabel*
+  - image: QPixmap
+  + ChessPieceBox(position: Position, imagePath: QString, parent: QGraphicsItem* = nullptr)
+}
+
+class ActionButton {
+  + ActionButton(title: QString)
+  + mousePressEvent(event: QGraphicsSceneMouseEvent*)
+  + hoverEnterEvent(event: QGraphicsSceneHoverEvent*)
+  + hoverLeaveEvent(event: QGraphicsSceneHoverEvent*)
+  + buttonPressed()
+}
+
+class ChessGame {
+  - gameHistory: QList<QList<ChessPiece*>>
+  - chessBoardModel: ChessBoardModel
+  - gameStarted: bool
+  - gamePaused: bool
+  - winner: Player
+  + ChessGame()
+  + makeMove(posFrom: Position, posTo: Position)
+  + getPieceAtPositionActivePlayer(position: Position): ChessPiece*
+  + saveRound()
+  + promotePawn(type: PieceType)
+  + startGame()
+  + undoMove()
+  + updateBoard(chessPieces: QList<ChessPiece*>)
+  + gameOver(winner: Player)
+  + promotionActive()
+  - clearGameHistory()
+}
+
+class ChessBoardModel {
+  - pieces: QList<ChessPiece*>
+  - whosTurn: Player
+  - enPassantCapturePosition: Position
+  - enPassantMovePosition: Position
+  + setEnPassantCapturePosition(position: Position)
+  + getEnPassantCapturePositon(): Position
+  + setEnPassantMovePosition(position: Position)
+  + getEnPassantMovePosition(): Position
+  + clearEnPassantData()
+  + getPieceAt(position: Position): ChessPiece*
+  + getPieceAtGivenPosition(position: Position, chessPieces: QList<ChessPiece*>): ChessPiece*
+  + removePieceAt(position: Position)
+  + removePieceAtGivenPosition(position: Position, chessPieces: QList<ChessPiece*>)
+  + movePieceTo(piece: ChessPiece*, position: Position)
+  + getPieces(): QList<ChessPiece*>
+  + getWhosTurn(): Player
+  + switchTurn()
+  + calculatePossibleMoves()
+  + calculatePossibleMovesForGivenPosition(chessPieces: QList<ChessPiece*>)
+  + getCopyOfCurrentPosition(): QList<ChessPiece*>
+  + restorePosition(chessPieces: QList<ChessPiece*>)
+  + isKingInCheckInGivenPosition(player: Player, chessPieces: QList<ChessPiece*>): bool
+  + isCheckMate(player: Player): bool
+  + isPromotionAvailable(): bool
+  + promotePawn(pieceType: PieceType)
+  + performCastle(player: Player, isShortCastle: bool)
+  + restoreAllPawnsVulnerablnes()
+  + initializePieces()
+}
+
+class Constants {
+  + numberOfRowsCols: int
+  + defaultMargin: int
+  + defaultWidhHeight: int
+  + startXPosition: int
+  + startYPosition: int
+  + viewWidth: int
+  + viewHeight: int
+  + defaultTextColor: QColor
+  + lightBoxColor: QColor
+  + darkBoxColor: QColor
+}
+
+class Utils {
+  + setBacgroundColor(color: QColor, item: QAbstractGraphicsShapeItem*)
+  + createTextItem(title: QString, fontSize: int, textColor: QColor, parent: QGraphicsItem* = nullptr): QGraphicsTextItem*
+}
+
+class ChessBoard {
+  + draw()
+  + getImagePath(piece: ChessPiece*): QString
+  + deletePieceBoxes()
+  + getBoxAtPosition(position: Position): ChessBox*
+}
+
+class ChessBoardWidget {
+  + initializeChessBoard()
+  + updateBoard(chessPieces: QList<ChessPiece*>)
+  + handleSquareClicked(position: Position)
+  + showWinnerPanel(winner: Player)
+  + showPromotionButtons()
+  + hidePromotionButtons()
+  + displayMenu()
+  + drawTitle()
+}
+
+class ChessController {
+  + handleBoxClicked(position: Position)
+  + cancelMove()
+  + handlePromoteToQueen()
+  + handlePromoteToBishop()
+  + handlePromoteToRook()
+  + handlePromoteToKnight()
+}
+
+
+ChessPiece <|-- KingPiece
+ChessPiece <|-- KnightPiece
+ChessPiece <|-- QueenPiece
+ChessPiece <|-- RookPiece
+ChessPiece <|-- BishopPiece
+ChessPiece <|-- PawnPiece
+ChessBoardModel *-- ChessPiece
+ChessGame *-- ChessBoardModel
+MainWindow *-- ChessController
+ChessBoardWidget *-- ChessBoard
+ChessBoard *-- ChessBox
+ChessBoard *-- ChessPieceBox
+ChessController *-- ChessGame
+ChessController *-- ChessBoardWidget
+ChessBoardWidget *-- ActionButton
+@enduml
