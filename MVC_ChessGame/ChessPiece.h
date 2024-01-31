@@ -9,7 +9,7 @@
  */
 enum PieceType
 {
-    Pawn, Rook, Bishop, Knight, Queen, King
+    Pawn, Rook, Bishop, Knight, Queen, King, RookBishop
 };
 
 /**

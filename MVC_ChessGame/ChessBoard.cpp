@@ -72,6 +72,17 @@ QString ChessBoard::getImagePath(ChessPiece* piece)
 			imageFileName = "king_black.svg";
 		}
 	}
+	else if (piece->getPieceType() == PieceType::RookBishop)
+	{
+		if (piece->getPlayer() == Player::White)
+		{
+			imageFileName = "rook_white.svg";
+		}
+		else
+		{
+			imageFileName = "rook_black.svg";
+		}
+	}
 
 	return "images/" + imageFileName;
 }

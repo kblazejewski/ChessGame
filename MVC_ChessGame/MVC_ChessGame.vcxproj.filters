@@ -94,6 +94,9 @@
     <ClCompile Include="ActionButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RookBishopPiece.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Position.h">
@@ -130,6 +133,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="KingPiece.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RookBishopPiece.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

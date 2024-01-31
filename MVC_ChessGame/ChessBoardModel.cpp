@@ -8,6 +8,7 @@
 #include "QueenPiece.h"
 #include "KingPiece.h"
 #include "PawnPiece.h"
+#include "RookBishopPiece.h"
 
 
 void ChessBoardModel::initializePieces()
@@ -26,7 +27,7 @@ void ChessBoardModel::initializePieces()
 			switch (column)
 			{
 			case 0:
-				type = PieceType::Rook;
+				type = PieceType::RookBishop;
 				break;
 			case 7:
 				type = PieceType:: Rook;
@@ -80,6 +81,10 @@ void ChessBoardModel::initializePieces()
 			else if (type == PieceType::Pawn)
 			{
 				piece = new PawnPiece(position, player, type);
+			}
+			else if (type == PieceType::RookBishop)
+			{
+				piece = new RookBishopPiece(position, player, type);
 			}
 
 			this->pieces.append(piece);

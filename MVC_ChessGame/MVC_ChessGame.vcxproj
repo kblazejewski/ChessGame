@@ -100,6 +100,7 @@
     <ClCompile Include="KnightPiece.cpp" />
     <ClCompile Include="PawnPiece.cpp" />
     <ClCompile Include="QueenPiece.cpp" />
+    <ClCompile Include="RookBishopPiece.cpp" />
     <ClCompile Include="RookPiece.cpp" />
     <ClCompile Include="Utils.cpp" />
     <QtRcc Include="MainWindow.qrc" />
@@ -129,6 +130,7 @@
     <QtMoc Include="ChessBoardWidget.h" />
     <QtMoc Include="ChessController.h" />
     <ClInclude Include="QueenPiece.h" />
+    <ClInclude Include="RookBishopPiece.h" />
     <ClInclude Include="RookPiece.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
