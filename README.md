@@ -64,7 +64,7 @@ This project is a 1vs1 chess game developed in C++ using Qt 6.5.8 (msvc2019_64) 
 ## UML Diagrams
 UML diagrams are stored in the `uml/` directory, detailing class relationships and application architecture.
 
-![uml](../uml/uml.png)
+![uml](MVC_ChessGame/uml/uml.png)
 ---
 
 ## Future Improvements
@@ -80,7 +80,7 @@ This project was developed to enhance C++ programming, GUI development, and game
 ---
 
 ## Documentation Location
-The entire project documentation is generated using Doxygen and can be found in the `\docs\doxygen\html\index.html`.
+The entire project documentation is generated using Doxygen and can be found in the `MVC_ChessGame/docs/doxygen/html/index.html`.
 
 
 ## Start Page
