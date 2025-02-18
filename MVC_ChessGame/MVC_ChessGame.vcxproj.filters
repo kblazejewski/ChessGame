@@ -155,5 +155,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="docs\readme.md">
+      <Filter>docs</Filter>
+    </None>
   </ItemGroup>
 </Project>
