@@ -84,10 +84,10 @@ The entire project documentation is generated using Doxygen and can be found in 
 
 
 ## Start Page
-![startpage](./images/startpage.png)
+![startpage](MVC_ChessGame/docs/images/startpage.png)
 
 ## Chess Board
-![board](./images/board.png)
+![board](MVC_ChessGame/docs/images/board.png)
 
 ## Legal Moves Hint
-![legalmoves](./images/lagalmoves.png)
+![legalmoves](MVC_ChessGame/docs/images/legalmoves.png)
